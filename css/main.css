@@ -1,0 +1,263 @@
+#container-01 {
+	width: 100%;
+	height: 500px;
+	position: relative;
+	overflow: hidden;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;	
+}
+#container-01  img {
+	width: 100%;
+	height: auto;
+}
+#container-01 .logo{
+	width: 200px;
+	position: absolute;
+	top: 8%;
+	left: 50%;
+	margin-left: -100px;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+}
+#container-01 .personlinfo {
+	position: absolute;
+	width: 100%;
+	top: 60%;
+	z-index: 10000;
+} 
+#container-01 .personlinfo ul {
+	width: 600px;
+	margin: 0 auto;
+}
+#container-01 .personlinfo ul li{
+	width: 110px;
+	position: relative;
+	display: inline-block;
+	margin: 0 7.07%;
+}
+#container-01 .personlinfo ul li .thumb{
+	/* border: 5px solid #ffffff; */
+	border-radius: 50%;
+}
+
+#container-01 .personlinfo ul li .thumbInfo {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	-webkit-box-shadow: 0 0 0 1px rgba(249, 249, 249, 0.7) inset;
+	-moz-box-shadow: 0 0 0 1px rgba(249, 249, 249, 0.7) inset;
+	-ms-box-shadow: 0 0 0 1px rgba(249, 249, 249, 0.7) inset;
+	box-shadow: 0 0 0 1px rgba(249, 249, 249, 0.7) inset;
+	behavior: url("scripts/libs/PIE/PIE.htc");
+	cursor: pointer;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+.thumbInfo .img-content {
+	display: table;
+	width: 100%;
+	height: 100%;
+	line-height: 100%;
+	border-radius: 50%;
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-ms-transform: scale(0);
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	behavior: url("scripts/libs/PIE/PIE.htc");
+}
+.thumbInfo .img-content span{
+	display: table-cell;
+	vertical-align: middle;
+	color: #396685;
+	text-align: center;
+	line-height: 20px;
+}
+.thumbInfo .img-content .purple{
+	/*color: purple;*/
+	font-style: normal;
+}
+.thumbInfo .img-content a{
+	color: #396685;
+	/*color: orange;*/
+}
+#container-01 .personlinfo ul li:hover .thumbInfo {
+	-webkit-box-shadow: 0 0 0 200px rgba(249, 249, 249, 0.8) inset;
+	-moz-box-shadow: 0 0 0 200px rgba(249, 249, 249, 0.8) inset;
+	-ms-box-shadow: 0 0 0 200px rgba(249, 249, 249, 0.8) inset;
+	box-shadow: 0 0 0 200px rgba(249, 249, 249, 0.8) inset;
+	behavior: url("scripts/libs/PIE/PIE.htc");
+}
+#container-01 .personlinfo ul li:hover  .thumbInfo .img-content{
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);	
+}
+
+#container-01 .logo .name{
+	position: absolute;
+	bottom: -30px;
+	color: #1D4966;
+	font-size: 16px;
+	left: 50%;
+	width: 100px;
+	margin-left: -50px;
+	display: block;
+	text-align: center;
+}
+#container-01 .shine{
+	position: absolute;
+	width: 27%;
+	bottom: 0%;
+	left: 10%;
+	z-index: 2;
+}
+#container-01 .sky{
+	width: 100%; 
+	height: 80%;
+	background: url(../images/sky_bg.png) no-repeat;
+	background-size: cover;
+	background-position: bottom;
+}
+#container-01 .ocean{
+	width: 100%; 
+	height: 20%;
+	background: url(../images/ocean.png) no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+
+#container-02{
+	width: 100%;
+	background-color: #1b4765;
+}
+.container-02-01{
+	width: 100%;
+	/* background: url(../images/bubble.png) repeat; */
+	background-attachment: fixed;
+	z-index: 5;
+}
+.container-02-02{
+	width: 100%;
+	background: url(../images/section_01_bg.png) no-repeat;
+	background-size: cover;
+	background-position: center ;
+	color: #fff;
+	text-align: center;
+	position: relative;
+	z-index: 7;
+}
+#container-02 ul {
+	width: 80%;
+	padding: 30px 0 10px 0;
+	margin: 0 auto;
+	color: #fff;
+}
+#container-02 ul li{
+	line-height: 30px;
+}
+#container-03 {
+	width: 100%;
+	background: url(../images/bubble.png) no-repeat;
+	background-color: #1b4765; 
+	background-size: cover;
+	background-position: center ;	
+}
+#container-04 .oceanfloor{
+	background: #1b4765;
+}
+#container-04 .history{
+	background-color: #F9F7FE;
+}
+	
+#container-04 .history .description{
+	width: 65%;	
+	margin: 0px auto;
+	text-align: center;
+	color: #791B26;
+	padding-bottom: 100px;
+}
+#container-04 .history .description .title{
+	font-size: 40px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	padding: 20px 0;
+}
+
+@media screen and (max-width: 620px) {
+	#container-01{
+		height: 450px;
+	}
+	#container-01 .logo{
+		width: 150px;
+		position: absolute;
+		top:10%;
+		left: 50%;
+		margin-left: -75px;
+	}
+
+	#container-01 .personlinfo ul {
+		width: 390px;
+		margin: 0 auto;
+	}
+	#container-01 .personlinfo ul li{
+		width: 110px;
+		position: relative;
+		display: inline-block;
+		margin: 0 8px;
+	}
+	#container-02 ul li{
+		line-height: 20px;
+	}
+
+	#container-04 .history {
+		margin-top: -150px;
+	}
+	#container-04 .history .description{
+		padding-bottom: 20px;
+	}
+/*	#container-01 .personlinfo ul li .thumbInfo {
+		-webkit-box-shadow: 0 0 0 1px rgba(249, 249, 249, 0.7) inset;
+		-moz-box-shadow: 0 0 0 1px rgba(249, 249, 249, 0.7) inset;
+		-ms-box-shadow: 0 0 0 1px rgba(249, 249, 249, 0.7) inset;
+		box-shadow: 0 0 0 1px rgba(249, 249, 249, 0.7) inset;
+	}*/
+}
+@media screen and (max-width: 400px){
+	#container-01{
+		height: 300px;
+	}
+	#container-01 .logo{
+		width: 100px;
+		position: absolute;
+		top:10%;
+		left: 50%;
+		margin-left: -50px;
+	}
+
+	#container-01 .personlinfo ul {
+		width: 280px;
+		margin: 0 auto;
+	}
+	#container-01 .personlinfo ul li{
+		width: 85px;
+		position: relative;
+		display: inline-block;
+		margin: 0 2px;
+		font-size: 12px;
+	}
+
+}
