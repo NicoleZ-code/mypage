@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Keywords" content="" />
+	<meta name="Description" content=""/>
+	<meta name="robots" content="all"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="white"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="apple-touch-fullscreen" content="yes">	
+	<title>Smart Home</title>
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="stylesheet" href="css/base.css">
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+</head>
+<body>
+	<div class="login">
+		<div class="topimg"></div>
+		<div class="username">
+			<input type="text" id="usernametxt">
+		</div>
+		<div class="pwd">
+			<input type="password" id="passwordtxt">
+		</div>
+		<div class="btn">登陆</div>
+		<div class="error"></div>
+		<div class="copyright">
+			copyright ©2015 Crystal
+		</div>
+	</div>
+	<div class="loading">
+		
+	</div>
+</body>
+<script>
+	$(document).ready(function (argument) {
+		//loading animate
+			$(".login").hide();
+			$(".loading").animate({
+				'opacity':1
+				},1000);
+			setTimeout(function(){
+				$("body").css({"background-color":'orange'});					
+				$(".loading").hide();
+				$(".login").show();
+				$("#usernametxt").focus();
+			},1200);
+
+		//event
+			function login(){
+				if($("#usernametxt").val()=="admin" && $("#passwordtxt").val()=="qwer"){
+					$(".error").empty();
+					window.location.href="main.html";
+				}else{
+					$(".error").html("X 用户或密码输入错误");
+				}	
+				
+							
+			}
+			$(".btn").on('click',function(){
+				login();					
+			});
+			
+
+			$("#usernametxt").on('keydown',function(e){
+				if (e.which==13 || e.which==40) {
+					$("#passwordtxt").focus();
+				}
+
+			});
+			$("#passwordtxt").on('keydown',function(e){
+				if (e.which==13) {
+					$(".btn").focus();
+					login();
+				}	
+				if (e.which==38) {
+					$("#usernametxt").focus();						
+				}
+
+			});
+
+	});
+
+</script>
+</html>
