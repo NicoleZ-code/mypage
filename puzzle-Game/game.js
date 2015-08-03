@@ -101,15 +101,17 @@ $(function  () {
 		var x = 0;
 		$(".tile").on('swipeLeft',function(e){		
 			// $(this).removeClass("tile-empty");
-			
+			e.preventDefault();
 			tileExchangeimg($(this).index()-x,  $(this).index()-x-1, e.type);
 		}).on('swipeRight',function(e){		
-			// $(this).addClass("tile-empty");		
+			// $(this).addClass("tile-empty");	
+			e.preventDefault();	
 			tileExchangeimg($(this).index()-x,  $(this).index()-x+1, e.type);
 		}).on('swipeUp',function(e){
-
+			e.preventDefault();
 			tileExchangeimg($(this).index()-x, $(this).index()-x-numberX, e.type);
 		}).on('swipeDown',function(e){
+			e.preventDefault();
 			tileExchangeimg($(this).index()-x,  $(this).index()-x+numberX, e.type);
 		});		
 	}
