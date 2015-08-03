@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>拼图jigsaw puzzle</title>
+	<link rel="shortcut icon" href="cat3.jpg">
+	<link rel="stylesheet" href="game.css">
+	<script type="text/javascript" src="zepto.min.js"></script>
+	<script type="text/javascript" src="touch.js"></script>
+	<script type="text/javascript" src="game.js"></script>
+</head>
+<body>
+	<div class="wrap">
+
+		<div class="game-container">
+			<div class="tile-container">
+				
+			</div>
+			<div class="game-message game-over">
+				<div class="bg"></div>
+		        <div class="word">Game over!</div>
+		        <div class="lower">
+			        <a class="keep-playing-button">Keep going</a>
+		          	<a class="retry-button">Try again</a>
+		        </div>
+      		</div>
+		</div>
+		<div class="assist-containter">
+			<div class="logo level">logo</div>
+			<div class="new">NEW</div>
+			<div class="step">0%</div>
+			<div class="time">0:0:0</div>			
+			<div class="originalimg"></div>			
+		</div>
+		<div class="helper">
+			<table class="board">
+				<thead>
+					<tr>
+						<td colspan="2">游戏须知</td>
+					</tr>
+				</thead>
+				<tr>
+					<td colspan="2">本游戏分为6个关卡，详情如下：</td>
+				</tr>
+				<tr>
+					<td>等级</td>
+					<td>时间限制(秒)</td>
+				</tr>
+				<tr>
+					<td>Level1</td>
+					<td>0s</td>
+				</tr>
+				<tr>
+					<td>Level2</td>
+					<td>0s</td>
+				</tr><tr>
+					<td>Level3</td>
+					<td>300s</td>
+				</tr><tr>
+					<td>Level4</td>
+					<td>200s</td>
+				</tr><tr>
+					<td>Level5</td>
+					<td>100s</td>
+				</tr>
+				<tr>
+					<td>Level6</td>
+					<td>60s</td>
+				</tr>
+			</table>
+			<div class="start">start</div>
+			<div class="restart">restart</div>
+			<div class="developword">developing......</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+body,
+div,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+iframe {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+img,
+canvas {
+  height: auto;
+  display: block;
+  border: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase;
+  font-family: "Microsoft YaHei", Arial, sans-serif;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  white-space: normal;
+  word-break: break-all;
+}
+/* form */
+fieldset {
+  border: 0;
+}
+label {
+  cursor: pointer;
+}
+input {
+  left: -9999px;
+  position: absolute;
+  outline: none;
+}
+input::-ms-clear {
+  display: none;
+}
+body {
+  width: 100%;
+  background: #faf8ef;
+  color: #776e65;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+}
