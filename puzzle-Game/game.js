@@ -19,7 +19,7 @@ $(function  () {
 	var imgURL = "pic1.jpg";
 	var step = 0;
 	var successNum = 0;
-	var level = 3;
+	var level = 1;
 	var timeLimt = 0;
 	var randomArray = [];//[numberX*numberY]
 	
@@ -298,8 +298,8 @@ function setTime(){
 	setInterval(function(){
 		var myDate = new Date();
 		second = myDate.getSeconds();
-		hour = myDate.getHours();       //获取当前小时数(0-23)
-		minute = myDate.getMinutes();     //获取当前分钟数(0-59)
+		hour = myDate.getHours();       //锟斤拷取锟斤拷前小时锟斤拷(0-23)
+		minute = myDate.getMinutes();     //锟斤拷取锟斤拷前锟斤拷锟斤拷锟斤拷(0-59)
 		
 		// $(".time .hour").html(hour);
 		$(".time").html(minute+":"+second);
