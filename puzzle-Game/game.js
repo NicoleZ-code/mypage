@@ -348,7 +348,7 @@ $(function  () {
 			$helper.show();
 			$helper.addClass("develop-visible").addClass("developing");
 		} 
-		timeLimit = 0;
+		setTimeLimit();
 	}
 
 
