@@ -20,7 +20,8 @@ $(function  () {
 	var step = 0;
 	var successNum = 0;
 	var level = 1;
-	var timeLimt = 0;
+	var timeLimit = 0;
+	var setIntervalid = null;
 	var randomArray = [];//[numberX*numberY]
 	
 	Init();
@@ -97,23 +98,92 @@ $(function  () {
 		// console.log("____")
 	}	
 
-	function Event () {
+	function Event_1() {
 		var x = 0;
 		$(".tile").on('swipeLeft',function(e){		
 			// $(this).removeClass("tile-empty");
 			e.preventDefault();
+			e.stopPropagation();
 			tileExchangeimg($(this).index()-x,  $(this).index()-x-1, e.type);
 		}).on('swipeRight',function(e){		
 			// $(this).addClass("tile-empty");	
 			e.preventDefault();	
+			e.stopPropagation();
 			tileExchangeimg($(this).index()-x,  $(this).index()-x+1, e.type);
 		}).on('swipeUp',function(e){
 			e.preventDefault();
+			e.stopPropagation();
 			tileExchangeimg($(this).index()-x, $(this).index()-x-numberX, e.type);
 		}).on('swipeDown',function(e){
 			e.preventDefault();
+			e.stopPropagation();
 			tileExchangeimg($(this).index()-x,  $(this).index()-x+numberX, e.type);
-		});		
+		});	
+	}
+
+	function Event () {
+		$(".tile").each(function (i) {
+			Event_item(i);
+		})
+	}
+
+	function Event_item(i){
+		
+		 // Respond to swipe events
+		  var touchStartClientX, touchStartClientY;
+		  var tile = document.getElementsByClassName("tile")[i];
+
+		  tile.addEventListener("touchstart", function (event) {
+			    if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||
+			        event.targetTouches > 1) {
+			      return; // Ignore if touching with more than 1 finger
+			    }
+
+			    if (window.navigator.msPointerEnabled) {
+			      touchStartClientX = event.pageX;
+			      touchStartClientY = event.pageY;
+			    } else {
+			      touchStartClientX = event.touches[0].clientX;
+			      touchStartClientY = event.touches[0].clientY;
+			    }
+
+			    event.preventDefault();
+		  });
+
+		  tile.addEventListener("touchmove", function (event) {
+		    event.preventDefault();
+		  });
+
+		  tile.addEventListener("touchend", function (event) {
+			    if ((!window.navigator.msPointerEnabled && event.touches.length > 0) ||
+			        event.targetTouches > 0) {
+			      return; // Ignore if still touching with one or more fingers
+			    }
+
+			    var touchEndClientX, touchEndClientY;
+
+			    if (window.navigator.msPointerEnabled) {
+			      touchEndClientX = event.pageX;
+			      touchEndClientY = event.pageY;
+			    } else {
+			      touchEndClientX = event.changedTouches[0].clientX;
+			      touchEndClientY = event.changedTouches[0].clientY;
+			    }
+
+			    var dx = touchEndClientX - touchStartClientX;
+			    var absDx = Math.abs(dx);
+
+			    var dy = touchEndClientY - touchStartClientY;
+			    var absDy = Math.abs(dy);
+
+			    if (Math.max(absDx, absDy) > 10) {
+			      // (right : left) : (down : up)
+			      tileExchangeimg($(tile).index(), absDx > absDy ? (dx > 0 ? 1 : -1) : (dy > 0 ? numberX : -numberX));
+			      // console.log("dx-"+dx,"dy-"+dy)
+
+			    }
+		  });
+
 	}
 
 	$keep_playing_btn.on("click",keepPlaying);
@@ -138,6 +208,8 @@ $(function  () {
 		Event();
 		setlevel(level);
 		addSteps(0);
+		setTimeLimit();
+		clearInterval(setIntervalid);
 	}
 	 
 	function keepPlaying () {
@@ -152,8 +224,10 @@ $(function  () {
 		addSteps(0);	
 	} 
 
-	function tileExchangeimg(index1,index2,type){
-		$(".tile").removeClass("move-animate");
+	function tileExchangeimg(index, X, type){//index1,index2,type
+		var index1 = index,index2 = index1 + X;
+		// console.log(index1,index2)
+		$(".tile").removeClass("move-animate")
 		if(index1>=0 && index1<=15 && index2>=0 && index2<=15){
 			var a_bgp = $(".tile").eq(index1).css("background-position");
 			var b_bgp = $(".tile").eq(index2).css("background-position");
@@ -165,7 +239,7 @@ $(function  () {
 			$(".tile").eq(index1).addClass("move-animate");
 			$(".tile").eq(index2).addClass("move-animate");
 			validate();
-			addSteps(successNum);
+			addSteps(successNum);		
 		}
 	}
 
@@ -183,41 +257,46 @@ $(function  () {
 		}
 		
 	}
-	
+	function setTimeLimit(){
+		 switch(level){
+		 	case 1: 
+		 	case 2: timeLimit = 0; break;
+		 	case 3: timeLimit = 300; break;
+		 	case 4: timeLimit = 200; break;
+		 	case 5: timeLimit = 100; break;
+		 	case 6: timeLimit = 60; break;
+		 	default: timeLimit = 0;
+		 }
+	}
+
 	function calculateTime(){
 		var second = minute = hour = "0";
 
-		 switch(level){
-		 	case 1: 
-		 	case 2: timeLimt = 0; break;
-		 	case 3: timeLimt = 300; break;
-		 	case 4: timeLimt = 200; break;
-		 	case 5: timeLimt = 100; break;
-		 	case 6: timeLimt = 60; break;
-		 	default: timeLimt = 0;
-		 }
+		setTimeLimit();
 
 		if(level>=3){
 			
-			var id = setInterval(function(){
-				timeLimt --;
-				if(timeLimt < 60){
-					second = timeLimt;
-				}else if(timeLimt < 3600){
-					minute = parseInt(timeLimt/60);
-					second = timeLimt%60;
+			 setIntervalid = setInterval(function(){
+				timeLimit --;
+				if(timeLimit <= 60){
+					second = timeLimit;
+					minute = hour = 0;
+				}else if(timeLimit <= 3600){
+					minute = parseInt(timeLimit/60);
+					second = timeLimit%60;
+					hour = 0;
 				}else{
-					hour = parseInt(timeLimt/3600);
-					var tempT = timeLimt%3600;
+					hour = parseInt(timeLimit/3600);
+					var tempT = timeLimit%3600;
 					minute = parseInt(tempT/60);
 					second = tempT%60;			
 				}
 				//$(".time").html(hour+":"+minute+":"+second);
 				$(".time").html(minute+":"+second);
-				if(timeLimt<=0){
-					timeLimt = 0;
+				if(timeLimit<=0){
+					timeLimit = 0;
 					GameOver();
-					clearInterval(id);
+					clearInterval(setIntervalid);
 					return false;
 				}		
 			},1000);			
@@ -236,7 +315,7 @@ $(function  () {
 			if( i+1 == z){
 				successNum++;
 			}
-			// console.log(i+1,z)
+			//console.log(successNum)
 		});
 		if(successNum == numberX * numberY ){
 			GameWin();			
@@ -269,7 +348,7 @@ $(function  () {
 			$helper.show();
 			$helper.addClass("develop-visible").addClass("developing");
 		} 
-		
+		timeLimit = 0;
 	}
 
 
@@ -300,8 +379,8 @@ function setTime(){
 	setInterval(function(){
 		var myDate = new Date();
 		second = myDate.getSeconds();
-		hour = myDate.getHours();       //锟斤拷取锟斤拷前小时锟斤拷(0-23)
-		minute = myDate.getMinutes();     //锟斤拷取锟斤拷前锟斤拷锟斤拷锟斤拷(0-59)
+		hour = myDate.getHours();       //获取当前小时数(0-23)
+		minute = myDate.getMinutes();     //获取当前分钟数(0-59)
 		
 		// $(".time .hour").html(hour);
 		$(".time").html(minute+":"+second);

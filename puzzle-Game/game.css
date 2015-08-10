@@ -248,12 +248,22 @@ body {
 .helper .board {
   width: 100%;
   text-align: center;
-  line-height: 25px;
+  line-height: 16px;
+  font-size: 14px;
 }
 .helper .board thead td {
   font-size: 16px;
   line-height: 30px;
   color: orange;
+}
+.helper .board .dec {
+  font-size: 12px;
+  text-align: center;
+  height: 16px;
+}
+.helper .board .t {
+  text-align: left;
+  text-indent: 20px;
 }
 .helper .start,
 .helper .restart {
@@ -262,7 +272,7 @@ body {
   line-height: 40px;
   font-size: 34px;
   text-align: center;
-  margin: 15px auto;
+  margin: 8px auto;
   border-radius: 8px;
   background-color: #8f7a66;
   color: orange;
@@ -274,8 +284,9 @@ body {
 .helper .developword {
   font-size: 30px;
   text-align: center;
-  line-height: 300px;
+  line-height: 400px;
   color: orange;
+  background: url("developing.png") no-repeat center 10px;
 }
 .helper.developing .board,
 .helper.developing .start {
@@ -354,7 +365,7 @@ body {
   right: 8px;
   width: 80px;
   height: 80px;
-  background-image: url("developing.jpg");
+  background-image: url("developing.png");
   -webkit-background-size: 100%;
   background-size: 100%;
 }
@@ -377,7 +388,7 @@ body {
   background-image: url("pic6.jpg");
 }
 .level-n .originalimg {
-  background-image: url("developing.jpg");
+  background-image: url("developing.png");
 }
 .tile-container {
   width: 100%;
@@ -396,7 +407,7 @@ body {
 }
 .tile-container div {
   position: absolute;
-  background-image: url("developing.jpg");
+  background-image: url("developing.png");
   background-size: 300px;
   width: 74px;
   height: 74px;
@@ -429,7 +440,7 @@ body {
   background-image: url("pic6.jpg");
 }
 .level-n .tile-container div {
-  background-image: url("developing.jpg");
+  background-image: url("developing.png");
 }
 .level-1 .time,
 .level-2 .time {
@@ -638,6 +649,8 @@ body {
     width: 70px;
     height: 70px;
     float: none;
+    bottom: auto;
+    top: 0;
   }
   .level-1 .step,
   .level-2 .step,

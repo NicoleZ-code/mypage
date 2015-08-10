@@ -5,7 +5,7 @@
 @game-container-height: 300px;
 @numberX : 4;
 @numberY : 4;
-@imgURLDevelop :"developing.jpg";
+@imgURLDevelop :"developing.png";
 @imgUrl1 :"pic1.jpg";
 @imgUrl2 :"pic2.jpg";
 @imgUrl3 :"pic3.jpg";
@@ -78,13 +78,22 @@
 .helper .board{
   width: 100%;
   text-align: center;
-  line-height: 25px;
+  line-height: 16px;
+  font-size: 14px;
   thead td{
     font-size: 16px;
     line-height: 30px;
     color:orange; 
   }
-
+  .dec{
+    font-size: 12px;
+    text-align: center;
+    height: 16px; 
+  }
+  .t{
+    text-align: left;
+    text-indent: 20px;  
+  }
 }
 
 .helper .start,.helper .restart{
@@ -93,7 +102,7 @@
   line-height: 40px;
   font-size: 34px;
   text-align: center;
-  margin: 15px auto;
+  margin: 8px auto;
   border-radius: 8px;
   background-color: #8f7a66;
   color: orange;
@@ -104,8 +113,9 @@
 .helper .developword{
   font-size: 30px;
   text-align: center;
-  line-height: 300px;
+  line-height: 400px;
   color: orange;
+  background: url(@imgURLDevelop) no-repeat center 10px;
 }
 .helper.developing {
   .board, .start{
@@ -475,6 +485,8 @@
         width: 70px;
         height: 70px;
         float: none;
+        bottom: auto;
+        top: 0;
     }
   }
   .level-1,.level-2{
