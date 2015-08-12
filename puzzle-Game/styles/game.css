@@ -276,6 +276,7 @@ body {
   border-radius: 8px;
   background-color: #8f7a66;
   color: orange;
+  cursor: pointer;
 }
 .helper .developword,
 .helper .restart {
@@ -286,7 +287,7 @@ body {
   text-align: center;
   line-height: 400px;
   color: orange;
-  background: url("developing.png") no-repeat center 10px;
+  background: url("../images/zdeveloping.png") no-repeat center 10px;
 }
 .helper.developing .board,
 .helper.developing .start {
@@ -315,6 +316,7 @@ body {
 .new {
   font-size: 22px;
   line-height: 50px;
+  cursor: pointer;
 }
 .step {
   line-height: 50px;
@@ -365,30 +367,30 @@ body {
   right: 8px;
   width: 80px;
   height: 80px;
-  background-image: url("developing.png");
+  background-image: url("../images/zdeveloping.png");
   -webkit-background-size: 100%;
   background-size: 100%;
 }
 .level-1 .originalimg {
-  background-image: url("pic1.jpg");
+  background-image: url("../images/pic1_1.jpg");
 }
 .level-2 .originalimg {
-  background-image: url("pic2.jpg");
+  background-image: url("../images/pic2_1.jpg");
 }
 .level-3 .originalimg {
-  background-image: url("pic3.jpg");
+  background-image: url("../images/pic3_1.jpg");
 }
 .level-4 .originalimg {
-  background-image: url("pic4.jpg");
+  background-image: url("../images/pic4_1.jpg");
 }
 .level-5 .originalimg {
-  background-image: url("pic5.jpg");
+  background-image: url("../images/pic5_1.jpg");
 }
 .level-6 .originalimg {
-  background-image: url("pic6.jpg");
+  background-image: url("../images/pic6_1.jpg");
 }
 .level-n .originalimg {
-  background-image: url("developing.png");
+  background-image: url("../images/zdeveloping.png");
 }
 .tile-container {
   width: 100%;
@@ -407,7 +409,7 @@ body {
 }
 .tile-container div {
   position: absolute;
-  background-image: url("developing.png");
+  background-image: url("../images/zdeveloping.png");
   background-size: 300px;
   width: 74px;
   height: 74px;
@@ -422,25 +424,25 @@ body {
   animation-fill-mode: backwards;
 }
 .level-1 .tile-container div {
-  background-image: url("pic1.jpg");
+  background-image: url("../images/pic1_1.jpg");
 }
 .level-2 .tile-container div {
-  background-image: url("pic2.jpg");
+  background-image: url("../images/pic2_1.jpg");
 }
 .level-3 .tile-container div {
-  background-image: url("pic3.jpg");
+  background-image: url("../images/pic3_1.jpg");
 }
 .level-4 .tile-container div {
-  background-image: url("pic4.jpg");
+  background-image: url("../images/pic4_1.jpg");
 }
 .level-5 .tile-container div {
-  background-image: url("pic5.jpg");
+  background-image: url("../images/pic5_1.jpg");
 }
 .level-6 .tile-container div {
-  background-image: url("pic6.jpg");
+  background-image: url("../images/pic6_1.jpg");
 }
 .level-n .tile-container div {
-  background-image: url("developing.png");
+  background-image: url("../images/zdeveloping.png");
 }
 .level-1 .time,
 .level-2 .time {
@@ -637,6 +639,7 @@ body {
   .assist-containter .logo {
     line-height: 80px;
     font-size: 24px;
+    margin-left: 5px;
   }
   .assist-containter .step,
   .assist-containter .time,
@@ -661,5 +664,11 @@ body {
     width: 60px;
     margin: 15px 13px;
     font-size: 20px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .game-container {
+    border: 6px solid #bbada0;
+    margin: 0 auto;
   }
 }
