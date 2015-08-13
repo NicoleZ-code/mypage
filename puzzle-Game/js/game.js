@@ -28,17 +28,17 @@ $(function  () {
 	loading();
 
 	function loading(){	
-		var str ="<div class=\"loading\"> <div class=\"center\"><div class=\"percent\"></div><div class=\"process\"></div></div></div>"	
+		
 		var img = new Image();
 
-		$("body").append(str);
 		for (var i = 1; i <= 6; i++) {
 			for (var j = 1; j <= 6; j++) {
 				var src="images/pic"+i+"_"+j+".jpg";
 				img.src = src;
 				percent = Math.ceil((((i-1)*6+j)/36)*100)+"%";	
 				$(".loading .percent").text(percent);
-				$(".loading .process").css("width",percent*250);			
+				$(".loading .process").css("width",percent*250);
+				// console.log((i-1)*6+j)			
 			}			
 		}
 			
