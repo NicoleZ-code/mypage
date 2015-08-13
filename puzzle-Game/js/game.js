@@ -28,7 +28,7 @@ $(function  () {
 	loading();
 
 	function loading(){	
-		
+
 		var img = new Image();
 
 		for (var i = 1; i <= 6; i++) {
@@ -37,15 +37,16 @@ $(function  () {
 				img.src = src;
 				percent = Math.ceil((((i-1)*6+j)/36)*100)+"%";	
 				$(".loading .percent").text(percent);
-				$(".loading .process").css("width",percent*250);
-				console.log((i-1)*6+j)			
+				$(".loading .process").css("width",parseInt(percent)*250/100);
+				// console.log((i-1)*6+j,parseInt(percent)*250/100)			
 			}			
 		}
 			
 		
 		if(percent=="100%"){
+			Init();
 			$(".loading").hide();
-			Init();	
+				
 		}
 				
 	}
