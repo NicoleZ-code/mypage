@@ -38,7 +38,7 @@ $(function  () {
 				percent = Math.ceil((((i-1)*6+j)/36)*100)+"%";	
 				$(".loading .percent").text(percent);
 				$(".loading .process").css("width",percent*250);
-				// console.log((i-1)*6+j)			
+				console.log((i-1)*6+j)			
 			}			
 		}
 			
