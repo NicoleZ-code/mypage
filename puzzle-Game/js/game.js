@@ -23,8 +23,32 @@ $(function  () {
 	var timeLimit = 0;
 	var setIntervalid = null;
 	var randomArray = [];//[numberX*numberY]
-	
+	var percent;
+		
+	loading();
 
+	function loading(){	
+		var str ="<div class=\"loading\"> <div class=\"center\"><div class=\"percent\"></div><div class=\"process\"></div></div></div>"	
+		var img = new Image();
+
+		$("body").append(str);
+		for (var i = 1; i <= 6; i++) {
+			for (var j = 1; j <= 6; j++) {
+				var src="images/pic"+i+"_"+j+".jpg";
+				img.src = src;
+				percent = Math.ceil((((i-1)*6+j)/36)*100)+"%";	
+				$(".loading .percent").text(percent);
+				$(".loading .process").css("width",percent*250);			
+			}			
+		}
+			
+		
+		if(percent=="100%"){
+			$(".loading").hide();
+			Init();	
+		}
+				
+	}
 	function Init() {
 		creatTile();
 		moveRandom();
@@ -357,21 +381,8 @@ $(function  () {
 		var m = Math.floor(Math.random()*6+1);
 		$(".level-"+level+" .tile-container div, .level-"+level+" .originalimg").css("background-image","url(images/pic"+level+"_"+m+".jpg)");
 	}
-	preloadImg();
-	function preloadImg(){
-		var percent ;
-		var img = new Image();
-		var images = [];
-			for (var i = 1; i <= 6; i++) {
-				for (var j = 1; j <= 6; i++) {
-					src="../images/pic"+i+"_"+j+".jpg";
-					// images[(i-1)*6+j]=src;
-					percent = (((i-1)*6+j)/36)*100+"%";
-					console.log(src,percent)
-				}			
-			}			
-		Init();
-	}
+	
+
 });
 
 
