@@ -36,20 +36,34 @@ $(function  () {
 				var src="images/pic"+i+"_"+j+".jpg";
 				img.src = src;
 				percent = Math.ceil((((i-1)*6+j)/36)*100)+"%";	
-				$(".loading .percent").html(percent);
-				$(".loading .process").css("width",parseInt(percent)*250/100+"px");
+				// $(".loading .percent").html(percent);
+				// $(".loading .process").css("width",parseInt(percent)*250/100+"px");
 				//console.log((i-1)*6+j,parseInt(percent)*250/100)			
 			}			
 		}
-			
-		
-		if(percent=="100%"){
-			$(".loading .percent").html("100%");
-			$(".loading").hide();
-			Init();			
-		}
-				
+			var n = 0;
+			var id = setInterval(function(){
+				if(n <=100){
+					var _n = n + "%" ;
+					if(parseInt(_n)>100){
+						_n = "00%";
+					}
+					$(".loading .percent").html(_n);
+					$(".loading .process").css({ width: n*250/100+"px" });
+					n = Math.floor(parseInt(n) + 75/59);
+				}
+					
+				console.log(n)			
+			},1000/60);
+				$(".loading .percent").html("100%");
+				// $(".loading .process").animate({ width:"250px" },1000);	
+				setTimeout(function(){
+					clearInterval(id);
+					$(".loading").hide(300);
+					Init();					
+				},1960);//1810		
 	}
+
 	function Init() {
 		creatTile();
 		moveRandom();
