@@ -37,8 +37,8 @@ $(function  () {
 				img.src = src;
 				percent = Math.ceil((((i-1)*6+j)/36)*100)+"%";	
 				$(".loading .percent").text(percent);
-				$(".loading .process").css("width",parseInt(percent)*250/100);
-				// console.log((i-1)*6+j,parseInt(percent)*250/100)			
+				$(".loading .process").css("width",parseInt(percent)*250/100+"px");
+				//console.log((i-1)*6+j,parseInt(percent)*250/100)			
 			}			
 		}
 			
