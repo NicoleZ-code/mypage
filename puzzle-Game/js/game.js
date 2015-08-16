@@ -361,7 +361,7 @@ $(function  () {
 		
 		$game_container.removeClass("success");
 		$message.find(".word").html("Game Over!");
-		$message.show();
+		$message.show(1500);
 	}
 
 	function setlevel (level) {
