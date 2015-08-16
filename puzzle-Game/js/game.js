@@ -36,7 +36,7 @@ $(function  () {
 				var src="images/pic"+i+"_"+j+".jpg";
 				img.src = src;
 				percent = Math.ceil((((i-1)*6+j)/36)*100)+"%";	
-				$(".loading .percent").text(percent);
+				$(".loading .percent").html(percent);
 				$(".loading .process").css("width",parseInt(percent)*250/100+"px");
 				//console.log((i-1)*6+j,parseInt(percent)*250/100)			
 			}			
@@ -44,9 +44,9 @@ $(function  () {
 			
 		
 		if(percent=="100%"){
-			Init();
+			$(".loading .percent").html("100%");
 			$(".loading").hide();
-				
+			Init();			
 		}
 				
 	}
