@@ -228,13 +228,15 @@ $(function  () {
 		$message.hide();
 		creatTile();
 		moveRandom();
-		setposition();
-		calculateTime();
+		setposition();		
 		Event();
 		setlevel(level);
 		addSteps(0);
 		setTimeLimit();
-		clearInterval(setIntervalid);
+		calculateTime();
+		if(timeLimit>1){
+			clearInterval(setIntervalid);
+		}
 	}
 	 
 	function keepPlaying () {
@@ -290,7 +292,7 @@ $(function  () {
 		 	case 4: timeLimit = 200; break;
 		 	case 5: timeLimit = 100; break;
 		 	case 6: timeLimit = 60; break;
-		 	default: timeLimit = 0;
+		 	default: timeLimit = 60;
 		 }
 	}
 
@@ -303,6 +305,12 @@ $(function  () {
 			
 			 setIntervalid = setInterval(function(){
 				timeLimit --;
+				if(timeLimit<0){
+					timeLimit = 0;
+					GameOver();
+					clearInterval(setIntervalid);
+					return false;
+				}
 				if(timeLimit <= 60){
 					second = timeLimit;
 					minute = hour = 0;
@@ -318,12 +326,7 @@ $(function  () {
 				}
 				//$(".time").html(hour+":"+minute+":"+second);
 				$(".time").html(minute+":"+second);
-				if(timeLimit<=0){
-					timeLimit = 0;
-					GameOver();
-					clearInterval(setIntervalid);
-					return false;
-				}		
+		
 			},1000);			
 		}
 
@@ -358,7 +361,7 @@ $(function  () {
 		
 		$game_container.removeClass("success");
 		$message.find(".word").html("Game Over!");
-		$message.show(1500);
+		$message.show();
 	}
 
 	function setlevel (level) {
