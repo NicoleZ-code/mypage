@@ -195,6 +195,7 @@ body {
   z-index: 999999;
   background-color: rgba(0, 0, 0, 0.95);
   text-align: center;
+  display: none;
 }
 .loading .center {
   width: 300px;
@@ -225,8 +226,12 @@ body {
 }
 .wrap {
   width: 500px;
-  margin: 50px auto 0 auto;
+  height: 322px;
+  margin: -161px auto 0 -250px;
   overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 .game-container {
   clear: both;
@@ -247,14 +252,41 @@ body {
   height: 320px;
   text-align: center;
 }
+.version {
+  position: absolute;
+  width: 60%;
+  padding: 10% 20%;
+  height: 80%;
+  background-color: #faf8ef;
+  text-align: center;
+  font-family: "Microsoft YaHei";
+}
+.version span {
+  width: 30%;
+  margin: 60px 10% 30px 10%;
+  display: block;
+  float: left;
+  font-size: 20px;
+  color: orange;
+  line-height: 40px;
+  border-radius: 12px;
+  text-align: center;
+  background-color: yellowgreen;
+  cursor: pointer;
+}
+.version span.v2 {
+  color: #fff;
+  background-color: #bbada0;
+}
+.version p {
+  font-family: "Microsoft YaHei";
+}
 .helper {
   position: absolute;
-  width: 320px;
+  width: 100%;
   height: 320px;
   top: 50%;
-  left: 50%;
   margin-top: -160px;
-  margin-left: -160px;
   z-index: 1000;
   background: #F7FBFB;
   color: #79a8ae;
@@ -438,11 +470,9 @@ body {
   cursor: move;
 }
 .tile-container .tile-empty {
-  background-image: none;
+  background-image: none!important;
   background-color: #faf8ef;
   box-shadow: 1px 0px 1px 1px inset;
-  top: 0;
-  left: 0;
 }
 .tile-container div {
   position: absolute;
@@ -579,9 +609,9 @@ body {
   border-radius: 0px 8px 8px 8px;
   background: none;
 }
-.tile-container .emptybox div {
+.tile-container .emptybox .empty {
   background: #faf8ef;
-  /*background: none;*/
+  background-image: none!important;
   box-shadow: 1px 1px 2px 1px inset;
 }
 .game-container.success .tile-container .emptybox {
@@ -644,6 +674,68 @@ body {
 .game-container .game-message.game-over .lower .retry-button {
   display: block;
 }
+/** skin-start*/
+body.v1 .tile-container .emptybox {
+  display: none;
+}
+body.v1 .helper .v2 {
+  display: none;
+}
+body.v2 {
+  background-color: #BBADA0;
+}
+body.v2 .game-container {
+  border: 10px solid #F9F9F1;
+}
+body.v2 .tile-container .emptybox {
+  border: 10px solid #F9F9F1;
+  border-left: none;
+}
+body.v2 .level-1 .logo,
+body.v2 .level-2 .logo,
+body.v2 .level-3 .logo,
+body.v2 .level-4 .logo,
+body.v2 .level-5 .logo,
+body.v2 .level-2 .logo {
+  line-height: 100px;
+}
+body.v2 .level-1 .time,
+body.v2 .level-2 .time,
+body.v2 .level-3 .time,
+body.v2 .level-4 .time,
+body.v2 .level-5 .time,
+body.v2 .level-2 .time {
+  display: none;
+}
+body.v2 .level-1 .new,
+body.v2 .level-2 .new,
+body.v2 .level-3 .new,
+body.v2 .level-4 .new,
+body.v2 .level-5 .new,
+body.v2 .level-2 .new,
+body.v2 .level-1 .step,
+body.v2 .level-2 .step,
+body.v2 .level-3 .step,
+body.v2 .level-4 .step,
+body.v2 .level-5 .step,
+body.v2 .level-2 .step,
+body.v2 .level-1 .time,
+body.v2 .level-2 .time,
+body.v2 .level-3 .time,
+body.v2 .level-4 .time,
+body.v2 .level-5 .time,
+body.v2 .level-2 .time {
+  margin-bottom: 20px;
+}
+body.v2 .helper .board .dec {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+}
+body.v2 .helper .v1 {
+  display: none;
+}
+/*skin-end*/
 @media screen and (max-width: 750px) {
   .wrap {
     position: absolute;

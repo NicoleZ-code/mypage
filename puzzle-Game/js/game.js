@@ -1,5 +1,9 @@
 
 $(function  () {
+	var isMobile = navigator.userAgent.match(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile/i) && navigator.userAgent.match(/Mobile/i) !== null? true : false;			
+	var hasTouch = ('ontouchstart' in window);	
+ 	var $version = $(".version") ;
+ 	var $version_v = true ;// true ¾«¼ò°æ false »³¾É°æ 	
 	var $wrap = $(".wrap");
 	var $game_container = $(".game-container")
 	var $tile_container = $(".tile-container");
@@ -25,8 +29,8 @@ $(function  () {
 	var randomArray = [];//[numberX*numberY]
 	var percent;
 		
-	loading();
-
+	// loading();
+	Init();
 	function loading(){	
 
 		var img = new Image();
@@ -51,27 +55,23 @@ $(function  () {
 					$(".loading .percent").html(_n);
 					$(".loading .process").css({ width: n*250/100+"px" });
 					n = Math.floor(parseInt(n) + 75/59);
-				}
-					
-				console.log(n)			
+				}			
 			},1000/60);
 				$(".loading .percent").html("100%");
-				// $(".loading .process").animate({ width:"250px" },1000);	
 				setTimeout(function(){
 					clearInterval(id);
 					$(".loading").hide(300);
 					Init();					
-				},1960);//1810		
+				},00);//1960		
 	}
 
 	function Init() {
 		creatTile();
 		moveRandom();
 		setposition();
-		// calculateTime();
-		Event ();
+		Event_selectVersion();
 		setlevel(level);
-		$helper.addClass("helper-visiable");
+		
 	}
 
 	function creatTile(){
@@ -82,7 +82,12 @@ $(function  () {
 				str +="<div class=\"tile  tile-position-"+ i +"-"+j +"\" data-p=\""+n+"\"></div>";
 			}//tile-"+n+"
 		};
-		//str = "<div class='emptybox'><div class='empty'></div> </div>"+ "<div class='tile-empty'></div>"+ "<div class='tile-move'></div>"+ str;
+		// if (hasTouch) {
+		// 	$("body").addClass("has-touch");
+		// }else{
+			str = str+"<div class='emptybox'><div class='tile empty'></div> </div>";	//+ "<div class='tile-empty'></div>"+ "<div class='tile-move'></div>"		
+		// 	$("body").addClass("no-touch");
+		// }
 		
 		$tile_container.html(str);
 	}
@@ -127,13 +132,9 @@ $(function  () {
 		
 
 		$(".tile").each(function(i){
-			$(this).addClass("tile-"+randomArray[i]);
-			
-			str = randomArray[i]+","+str;
-			
+			$(this).addClass("tile-"+randomArray[i]);		
+			str = randomArray[i]+","+str;		
 		});	
-		// console.log(str);
-		// console.log("____")
 	}	
 
 	//failure Mobile UC  didn't effect
@@ -159,15 +160,27 @@ $(function  () {
 	// 		tileExchangeimg($(this).index()-x,  $(this).index()-x+numberX, e.type);
 	// 	});	
 	// }
-
-	function Event () {
-		$(".tile").each(function (i) {
-			Event_item(i);
-		})
+	function Event_selectVersion(){
+		$version.find("span").on("click",function(){
+			switch ($(this).index()) {
+				case 0 : $version_v = 1;break;
+				case 1 : $version_v = 2;break;
+			}
+			Event();
+			$("body").addClass("v"+$version_v);
+			$helper.addClass("helper-visiable");
+			$version.hide();
+		});
 	}
 
-	function Event_item(i){
-		
+	function Event () {			
+		$(".tile").each(function (i) {
+			Event_item(i);
+			// KeyboardEvent(i);
+		});
+
+	}
+	function Event_item(i){		
 		 // Respond to swipe events
 		  var touchStartClientX, touchStartClientY;
 		  var tile = document.getElementsByClassName("tile")[i];
@@ -221,7 +234,24 @@ $(function  () {
 			      // console.log("dx-"+dx,"dy-"+dy)
 
 			    }
+			   
 		  });
+	}
+	// keyboard Event PC
+	function KeyboardEvent($item1){
+		var X;
+		if ($version_v ==2) {
+			$("body").on('keydown',function(e){
+				switch(e.which){
+					case 37: X= -1; break;
+					case 38: X= -numberX; break;
+					case 39: X= 1; break;
+					case 40: X= numberX; break;
+				}
+				tileExchangeimg($item1,X);
+				console.log($item1,X)
+			});			
+		};
 
 	}
 
@@ -240,11 +270,7 @@ $(function  () {
 	function restart(){
 		$game_container.removeClass("success");
 		$message.hide();
-		creatTile();
-		moveRandom();
-		setposition();		
-		Event();
-		setlevel(level);
+		Init();
 		addSteps(0);
 		setTimeLimit();
 		calculateTime();
@@ -256,34 +282,59 @@ $(function  () {
 	function keepPlaying () {
 	 	$game_container.removeClass("success");
 		$message.hide();
-		creatTile();
-		moveRandom();
-		setposition();
+		Init();
 		calculateTime();
-		Event();
-		setlevel(level);
 		addSteps(0);	
 	} 
 
-	function tileExchangeimg(index, X, type){//index1,index2,type
+	function tileExchangeimg(index, X){//index1,index2,type
 		var index1 = index,index2 = index1 + X;
 		// console.log(index1,index2)
-		$(".tile").removeClass("move-animate")
-		if(index1>=0 && index1<=15 && index2>=0 && index2<=15){
-			var a_bgp = $(".tile").eq(index1).css("background-position");
-			var b_bgp = $(".tile").eq(index2).css("background-position");
+		$(".tile").removeClass("move-animate");
+		switch($version_v){
+			case 1 : tileExchangeimg_item($(".tile").eq(index1),$(".tile").eq(index2));
+			break;
+			case 2 :					
+					if($(".tile").eq(index2).hasClass("tile-empty")){
+						tileExchangeimg_item($(".tile").eq(index1),$(".tile-empty"));
+						$(".tile").eq(index1).addClass("tile-empty");
+						$(".tile").eq(index2).removeClass("tile-empty");
+						console.log(index1,index2)
+					}
+					//-->
+					if (index1==3 && X ==1) {
+						tileExchangeimg_item($(".tile").eq(index1),$(".emptybox .tile"));
+						$(".emptybox .tile").removeClass("empty");
+						$(".tile").eq(index1).addClass("tile-empty");
+						console.log("-->")
+					}
+					//<--
+					if (index1==0 && X ==-1 && $(".tile").eq(3).hasClass("tile-empty")) {
+						tileExchangeimg_item($(".emptybox .tile"),$(".tile").eq(3));
+						$(".emptybox .tile").addClass("empty");
+						$(".tile").eq(3).removeClass("tile-empty");
+						console.log("<--")
+					} 
+			break;
+		}
+		
+
+	}
+	function tileExchangeimg_item($item1,$item2){
+		if($item1.index()>=0 && $item1.index()<=15 && $item2.index()>=0 && $item2.index()<=15){
+			var a_bgp = $item1.css("background-position");
+			var b_bgp = $item2.css("background-position");
 			// console.log(index1,index2,type,a_bgp,b_bgp);
 
-			$(".tile").eq(index1).animate({'background-position': b_bgp},50,"easeOutBack");
-			$(".tile").eq(index2).animate({'background-position': a_bgp},50,"easeOutBack");
+			$item1.animate({'background-position': b_bgp},50,"easeOutBack");
+			$item2.animate({'background-position': a_bgp},50,"easeOutBack");
 
-			$(".tile").eq(index1).addClass("move-animate");
-			$(".tile").eq(index2).addClass("move-animate");
+			$item1.addClass("move-animate");
+			$item2.addClass("move-animate");
 			validate();
 			addSteps(successNum);		
 		}
 	}
-
 	function addSteps(successNum){
 		step ++;
 		// $step.html(step);
@@ -299,6 +350,9 @@ $(function  () {
 		
 	}
 	function setTimeLimit(){
+		if ($version_v == 2) {
+			timeLimit = 0;
+		} else{
 		 switch(level){
 		 	case 1: 
 		 	case 2: timeLimit = 0; break;
@@ -308,6 +362,8 @@ $(function  () {
 		 	case 6: timeLimit = 60; break;
 		 	default: timeLimit = 60;
 		 }
+		};
+
 	}
 
 	function calculateTime(){
@@ -315,7 +371,7 @@ $(function  () {
 
 		setTimeLimit();
 
-		if(level>=3){
+		if(level>=3 && $version_v ==1){
 			
 			 setIntervalid = setInterval(function(){
 				timeLimit --;
@@ -371,8 +427,7 @@ $(function  () {
 		$message.show(1500);
 		level++;	
 	}
-	function GameOver(){
-		
+	function GameOver(){		
 		$game_container.removeClass("success");
 		$message.find(".word").html("Game Over!");
 		$message.show(1500);
