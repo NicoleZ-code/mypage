@@ -266,8 +266,8 @@ body {
   margin: 60px 10% 30px 10%;
   display: block;
   float: left;
+  color: #fff;
   font-size: 20px;
-  color: orange;
   line-height: 40px;
   border-radius: 12px;
   text-align: center;
@@ -275,7 +275,6 @@ body {
   cursor: pointer;
 }
 .version span.v2 {
-  color: #fff;
   background-color: #bbada0;
 }
 .version p {
@@ -614,15 +613,12 @@ body {
   background-image: none!important;
   box-shadow: 1px 1px 2px 1px inset;
 }
-.game-container.success .tile-container .emptybox {
-  display: none;
-}
 .game-container .game-message {
   position: absolute;
   top: 0;
   left: 0;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   display: none;
   z-index: 100;
   text-align: center;
@@ -637,8 +633,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
 }
 .game-container .game-message .bg {
   z-index: 1;
@@ -745,8 +741,25 @@ body.v2 .helper .v1 {
     top: 50%;
     left: 50%;
   }
+  .version {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 14% 0px;
+    height: 80%;
+  }
 }
 @media screen and (max-width: 499px) {
+  .v2 .wrap {
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+  }
+  .v2 .logo {
+    line-height: 80px!important;
+  }
   .wrap {
     width: 320px;
     height: 400px;
@@ -755,6 +768,7 @@ body.v2 .helper .v1 {
   }
   .game-container {
     float: none;
+    border: 6px solid #bbada0;
   }
   .assist-containter {
     float: none;
@@ -794,10 +808,118 @@ body.v2 .helper .v1 {
     margin: 15px 13px;
     font-size: 20px;
   }
+  body.v2 .level-1 .step,
+  body.v2 .level-2 .step,
+  body.v2 .level-3 .step,
+  body.v2 .level-4 .step,
+  body.v2 .level-5 .step,
+  body.v2 .level-6 .step,
+  body.v2 .level-1 .time,
+  body.v2 .level-2 .time,
+  body.v2 .level-3 .time,
+  body.v2 .level-4 .time,
+  body.v2 .level-5 .time,
+  body.v2 .level-6 .time,
+  body.v2 .level-1 .new,
+  body.v2 .level-2 .new,
+  body.v2 .level-3 .new,
+  body.v2 .level-4 .new,
+  body.v2 .level-5 .new,
+  body.v2 .level-6 .new {
+    width: 60px;
+    margin: 15px 13px;
+    font-size: 20px;
+  }
+  body.v2 .time {
+    display: none!important;
+  }
 }
-@media screen and (max-width: 340px) {
-  .game-container {
-    border: 6px solid #bbada0;
-    margin: 0 auto;
+@media screen and (max-width: 410px) {
+  body.v2 {
+    /*tile-position-i-j*/
+    /*.tile-position-1-1{
+        background-position: @x*0 @y*0;
+      }
+      */
+  }
+  body.v2 .wrap {
+    width: 320px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -160px;
+  }
+  body.v2 .game-container {
+    width: 240px;
+    height: 240px;
+    border: 6px solid #F9F9F1;
+  }
+  body.v2 .tile-container {
+    width: 240px;
+    height: 240px;
+  }
+  body.v2 .tile-container div {
+    position: absolute;
+    background-image: url("../images/zdeveloping.png");
+    background-size: 240px ;
+    width: 59px;
+    height: 59px;
+    border: 0.5px solid #eee4da;
+  }
+  body.v2 .tile-container .emptybox {
+    border: 6px solid #F9F9F1!important;
+    border-left: none;
+  }
+  body.v2 .tile-1 {
+    background-position: 0px 0px;
+  }
+  body.v2 .tile-2 {
+    background-position: -60px 0px;
+  }
+  body.v2 .tile-3 {
+    background-position: -120px 0px;
+  }
+  body.v2 .tile-4 {
+    background-position: -180px 0px;
+  }
+  body.v2 .tile-5 {
+    background-position: 0px -60px;
+  }
+  body.v2 .tile-6 {
+    background-position: -60px -60px;
+  }
+  body.v2 .tile-7 {
+    background-position: -120px -60px;
+  }
+  body.v2 .tile-8 {
+    background-position: -180px -60px;
+  }
+  body.v2 .tile-9 {
+    background-position: 0px -120px;
+  }
+  body.v2 .tile-10 {
+    background-position: -60px -120px;
+  }
+  body.v2 .tile-11 {
+    background-position: -120px -120px;
+  }
+  body.v2 .tile-12 {
+    background-position: -180px -120px;
+  }
+  body.v2 .tile-13 {
+    background-position: 0px -180px;
+  }
+  body.v2 .tile-14 {
+    background-position: -60px -180px;
+  }
+  body.v2 .tile-15 {
+    background-position: -120px -180px;
+  }
+  body.v2 .tile-16 {
+    background-position: -180px -180px;
+  }
+  body.v2 .game-container.success .tile-container div {
+    width: 60px;
+    height: 60px;
+    border: none;
   }
 }

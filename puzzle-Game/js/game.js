@@ -68,7 +68,6 @@ $(function  () {
 	function Init() {
 		creatTile();
 		moveRandom();
-		setposition();
 		Event_selectVersion();
 		setlevel(level);
 		
@@ -93,6 +92,16 @@ $(function  () {
 	}
 
 	function setposition(){
+		var emptyboxright = -$tile_container.width()/numberX-10+1 ;
+		var emptyboxtop = -10;
+		// debugger
+		if ($version_v == 2 && $(window).width()<=410) {
+			itemW = 240/numberX;
+			itemH = 240/numberY;
+			emptyboxright = -240/numberX -10+5 ;
+			emptyboxtop = -6;
+		}
+		console.log(itemW)
 		for (var i = 1; i <= numberX; i++) {
 
 			for (var j = 1; j <= numberY; j++) {
@@ -107,14 +116,16 @@ $(function  () {
 					"top":postionY,
 					"left":postionX										
 				});
-
+				console.log(postionX,postionY)
 			}
 				
 			
 		};	
+
+		console.log("_______")
 		$(".emptybox").css({
-			"right":-$tile_container.width()/numberX-10+1,
-			"top": "-10px",
+			"right":emptyboxright,
+			"top": emptyboxtop,
 		});
 	}
 
@@ -128,6 +139,9 @@ $(function  () {
 		}
 		if (level <= 7) {
 			randomArray.sort(function(){ return 0.5 - Math.random() }) ;
+		}
+		if ($version_v ==2) {
+			// 
 		}
 		
 
@@ -167,6 +181,7 @@ $(function  () {
 				case 1 : $version_v = 2;break;
 			}
 			Event();
+			setposition();
 			$("body").addClass("v"+$version_v);
 			$helper.addClass("helper-visiable");
 			$version.hide();
@@ -271,6 +286,8 @@ $(function  () {
 		$game_container.removeClass("success");
 		$message.hide();
 		Init();
+		Event();
+		setposition();
 		addSteps(0);
 		setTimeLimit();
 		calculateTime();
@@ -283,6 +300,8 @@ $(function  () {
 	 	$game_container.removeClass("success");
 		$message.hide();
 		Init();
+		Event();
+		setposition();
 		calculateTime();
 		addSteps(0);	
 	} 

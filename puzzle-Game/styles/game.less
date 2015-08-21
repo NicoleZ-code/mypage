@@ -94,19 +94,18 @@
     margin: 60px 10% 30px 10%;
     display: block;
     float: left;
+    color: #fff;
     font-size: 20px;
-    color: orange;
     line-height: 40px;
     border-radius: 12px;
     text-align: center;
     background-color: yellowgreen;
     cursor: pointer;
   }
-  span.v1{
-    
+  span.v1{    
   }
   span.v2{
-    color: #fff;
+   
     background-color: #bbada0;
   }
   p{
@@ -460,14 +459,14 @@
     }
 }
 .game-container.success .tile-container .emptybox{
-  display: none;
+  // display: none;
 }
 .game-container .game-message{
   position: absolute;
   top:0;
   left: 0;
-  width: @game-container-width;
-  height: @game-container-height;
+  width: 100%;
+  height: 100%;
   display: none;
   z-index: 100;
   text-align: center;
@@ -481,8 +480,8 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: @game-container-width;
-      height: @game-container-height;
+      width: 100%;
+      height: 100%;
     }
     .bg{
         z-index: 1;
@@ -574,8 +573,25 @@ body.v2 {
     top: 50%;
     left: 50%;
   }
+  .version{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 14% 0px;
+    height: 80%;
+  }
 }
 @media screen and (max-width: 499px) {
+  .v2 .wrap{
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+  }
+  .v2 .logo {
+    line-height: 80px!important;
+  }
   .wrap{
     width: 320px;
     height: 400px;
@@ -584,6 +600,7 @@ body.v2 {
   }
   .game-container{
     float: none;
+    border: 6px solid #bbada0;
   }
   .assist-containter{
     float: none;
@@ -619,11 +636,114 @@ body.v2 {
       font-size: 20px;
     }
   }
+  body.v2 {
+  .level-1,.level-2,.level-3,.level-4,.level-5,.level-6,{
+    .step,.time,.new{
+      width: 60px;
+      margin: 15px 13px;
+      font-size: 20px;
+    }
+  }    
+  .time{
+    display: none!important;
+  }
+  }
 }
 
-@media screen and (max-width: 340px){
-  .game-container{
-    border: 6px solid #bbada0;
-    margin: 0 auto;
+@media screen and (max-width: 410px){
+  body.v2 {
+      .wrap{
+        width: 320px;
+        height: 400px;
+        margin-top: -200px;
+        margin-left: -160px;
+      }
+      .game-container{
+        width: 240px;
+        height: 240px;
+        border: 6px solid #F9F9F1;
+        // margin: 0 auto;
+      }
+
+      @game-container-width : 240px;
+      @game-container-height : 240px;
+     .tile-container{
+        width: 240px;
+        height: 240px;
+          div{
+            position: absolute;
+            background-image: url(@imgURLDevelop);
+            background-size:240px ;
+            width: @game-container-width/@numberX - 1px;
+            height: @game-container-height/@numberY - 1px;
+            border:0.5px solid #eee4da;
+          }  
+          .emptybox {
+          border: 6px solid #F9F9F1!important;
+          border-left: none;
+        } 
+      } 
+
+      @x: -@game-container-width/@numberX;
+      @y: -@game-container-height/@numberY;
+      /*tile-position-i-j*/
+      /*.tile-position-1-1{
+        background-position: @x*0 @y*0;
+      }
+      */
+      .tile-1{
+        background-position: @y*0 @x*0;
+      }
+      .tile-2{
+        background-position: @y*1 @x*0;
+      }
+      .tile-3{
+        background-position: @y*2 @x*0;
+      }
+      .tile-4{
+        background-position: @y*3 @x*0;
+      }
+      .tile-5{
+        background-position: @y*0 @x*1;
+      }
+      .tile-6{
+        background-position: @y*1 @x*1;
+      }
+      .tile-7{
+        background-position: @y*2 @x*1;
+      }
+      .tile-8{
+        background-position: @y*3 @x*1;
+      }
+      .tile-9{
+        background-position: @y*0 @x*2;
+      }
+      .tile-10{
+        background-position: @y*1 @x*2;
+      }
+      .tile-11{
+        background-position: @y*2 @x*2;
+      }
+      .tile-12{
+        background-position: @y*3 @x*2;
+      }
+      .tile-13{
+        background-position: @y*0 @x*3;
+      }
+      .tile-14{
+        background-position: @y*1 @x*3;
+      }
+      .tile-15{
+        background-position: @y*2 @x*3;
+      }
+      .tile-16{
+        background-position: @y*3 @x*3;
+      }
+      .game-container.success .tile-container div{
+        width: @game-container-width/@numberX;
+        height: @game-container-height/@numberY;
+        border:none;
+      }      
   }
+
 }
