@@ -3,7 +3,7 @@ $(function  () {
 	var isMobile = navigator.userAgent.match(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile/i) && navigator.userAgent.match(/Mobile/i) !== null? true : false;			
 	var hasTouch = ('ontouchstart' in window);	
  	var $version = $(".version") ;
- 	var $version_v = true ;// true ¾«¼ò°æ false »³¾É°æ 	
+ 	var $version_v = 2 ;	
 	var $wrap = $(".wrap");
 	var $game_container = $(".game-container")
 	var $tile_container = $(".tile-container");
@@ -67,7 +67,7 @@ $(function  () {
 
 	function Init() {
 		creatTile();
-		moveRandom();
+		moveRandom();			
 		Event_selectVersion();
 		setlevel(level);
 		
@@ -101,7 +101,7 @@ $(function  () {
 			emptyboxright = -240/numberX -10+5 ;
 			emptyboxtop = -6;
 		}
-		console.log(itemW)
+		// console.log(itemW)
 		for (var i = 1; i <= numberX; i++) {
 
 			for (var j = 1; j <= numberY; j++) {
@@ -116,13 +116,13 @@ $(function  () {
 					"top":postionY,
 					"left":postionX										
 				});
-				console.log(postionX,postionY)
+				// console.log(postionX,postionY)
 			}
 				
 			
 		};	
 
-		console.log("_______")
+		// console.log("_______")
 		$(".emptybox").css({
 			"right":emptyboxright,
 			"top": emptyboxtop,
@@ -140,8 +140,16 @@ $(function  () {
 		if (level <= 7) {
 			randomArray.sort(function(){ return 0.5 - Math.random() }) ;
 		}
-		if ($version_v ==2) {
-			// 
+		if ($version_v == 2) {
+			// right top tile fixed
+			for (var i = 0; i < randomArray.length; i++) {
+				if(randomArray[i]== 4){
+					randomArray[i] = randomArray[numberX-1];
+					randomArray[numberX-1] = 4;
+					
+				}
+
+			};
 		}
 		
 
@@ -180,6 +188,7 @@ $(function  () {
 				case 0 : $version_v = 1;break;
 				case 1 : $version_v = 2;break;
 			}
+		    moveRandom();			
 			Event();
 			setposition();
 			$("body").addClass("v"+$version_v);
@@ -264,7 +273,7 @@ $(function  () {
 					case 40: X= numberX; break;
 				}
 				tileExchangeimg($item1,X);
-				console.log($item1,X)
+				// console.log($item1,X)
 			});			
 		};
 

@@ -852,6 +852,7 @@ body.v2 .helper .v1 {
     width: 240px;
     height: 240px;
     border: 6px solid #F9F9F1;
+    margin-left: 5px;
   }
   body.v2 .tile-container {
     width: 240px;
@@ -866,7 +867,7 @@ body.v2 .helper .v1 {
     border: 0.5px solid #eee4da;
   }
   body.v2 .tile-container .emptybox {
-    border: 6px solid #F9F9F1!important;
+    border: 6px solid #F9F9F1;
     border-left: none;
   }
   body.v2 .tile-1 {
