@@ -226,8 +226,8 @@ body {
 }
 .wrap {
   width: 500px;
-  height: 322px;
-  margin: -161px auto 0 -250px;
+  height: 400px;
+  margin: -200px auto 0 -250px;
   overflow: hidden;
   position: absolute;
   top: 50%;
@@ -254,7 +254,7 @@ body {
 }
 .version {
   position: absolute;
-  width: 60%;
+  width: 85%;
   padding: 10% 20%;
   height: 80%;
   background-color: #faf8ef;
@@ -263,7 +263,7 @@ body {
 }
 .version span {
   width: 30%;
-  margin: 60px 10% 30px 10%;
+  margin: 60px 10% 20px 10%;
   display: block;
   float: left;
   color: #fff;
@@ -275,10 +275,11 @@ body {
   cursor: pointer;
 }
 .version span.v2 {
-  background-color: #bbada0;
+  background-color: #F28724;
 }
 .version p {
   font-family: "Microsoft YaHei";
+  line-height: 30px;
 }
 .helper {
   position: absolute;
@@ -596,7 +597,7 @@ body {
 .tile-16 {
   background-position: -225px -225px;
 }
-.game-container.success .tile-container div {
+.game-container.success .tile-container .tile {
   width: 75px;
   height: 75px;
   border: none;
@@ -687,42 +688,6 @@ body.v2 .tile-container .emptybox {
   border: 10px solid #F9F9F1;
   border-left: none;
 }
-body.v2 .level-1 .logo,
-body.v2 .level-2 .logo,
-body.v2 .level-3 .logo,
-body.v2 .level-4 .logo,
-body.v2 .level-5 .logo,
-body.v2 .level-2 .logo {
-  line-height: 100px;
-}
-body.v2 .level-1 .time,
-body.v2 .level-2 .time,
-body.v2 .level-3 .time,
-body.v2 .level-4 .time,
-body.v2 .level-5 .time,
-body.v2 .level-2 .time {
-  display: none;
-}
-body.v2 .level-1 .new,
-body.v2 .level-2 .new,
-body.v2 .level-3 .new,
-body.v2 .level-4 .new,
-body.v2 .level-5 .new,
-body.v2 .level-2 .new,
-body.v2 .level-1 .step,
-body.v2 .level-2 .step,
-body.v2 .level-3 .step,
-body.v2 .level-4 .step,
-body.v2 .level-5 .step,
-body.v2 .level-2 .step,
-body.v2 .level-1 .time,
-body.v2 .level-2 .time,
-body.v2 .level-3 .time,
-body.v2 .level-4 .time,
-body.v2 .level-5 .time,
-body.v2 .level-2 .time {
-  margin-bottom: 20px;
-}
 body.v2 .helper .board .dec {
   height: 40px;
   line-height: 40px;
@@ -735,9 +700,9 @@ body.v2 .helper .v1 {
 @media screen and (max-width: 750px) {
   .wrap {
     position: absolute;
-    margin-top: -161px;
+    margin-top: -200px;
     margin-left: -250px;
-    height: 322px;
+    height: 400px;
     top: 50%;
     left: 50%;
   }
@@ -788,15 +753,15 @@ body.v2 .helper .v1 {
   .assist-containter .time,
   .assist-containter .new {
     width: 50px;
-    margin: 15px 4px;
+    margin: 15px 5px;
     font-size: 16px;
   }
   .assist-containter .originalimg {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     float: none;
     bottom: auto;
-    top: 0;
+    top: 10px;
   }
   .level-1 .step,
   .level-2 .step,
@@ -807,31 +772,6 @@ body.v2 .helper .v1 {
     width: 60px;
     margin: 15px 13px;
     font-size: 20px;
-  }
-  body.v2 .level-1 .step,
-  body.v2 .level-2 .step,
-  body.v2 .level-3 .step,
-  body.v2 .level-4 .step,
-  body.v2 .level-5 .step,
-  body.v2 .level-6 .step,
-  body.v2 .level-1 .time,
-  body.v2 .level-2 .time,
-  body.v2 .level-3 .time,
-  body.v2 .level-4 .time,
-  body.v2 .level-5 .time,
-  body.v2 .level-6 .time,
-  body.v2 .level-1 .new,
-  body.v2 .level-2 .new,
-  body.v2 .level-3 .new,
-  body.v2 .level-4 .new,
-  body.v2 .level-5 .new,
-  body.v2 .level-6 .new {
-    width: 60px;
-    margin: 15px 13px;
-    font-size: 20px;
-  }
-  body.v2 .time {
-    display: none!important;
   }
 }
 @media screen and (max-width: 410px) {
@@ -918,7 +858,7 @@ body.v2 .helper .v1 {
   body.v2 .tile-16 {
     background-position: -180px -180px;
   }
-  body.v2 .game-container.success .tile-container div {
+  body.v2 .game-container.success .tile-container .tile {
     width: 60px;
     height: 60px;
     border: none;

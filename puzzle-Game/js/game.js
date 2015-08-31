@@ -3,7 +3,7 @@ $(function  () {
 	var isMobile = navigator.userAgent.match(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile/i) && navigator.userAgent.match(/Mobile/i) !== null? true : false;			
 	var hasTouch = ('ontouchstart' in window);	
  	var $version = $(".version") ;
- 	var $version_v = 2 ;	
+ 	var $version_v = 0 ;	
 	var $wrap = $(".wrap");
 	var $game_container = $(".game-container")
 	var $tile_container = $(".tile-container");
@@ -23,14 +23,17 @@ $(function  () {
 	var imgURL = "../images/pic1.jpg";
 	var step = 0;
 	var successNum = 0;
-	var level = 1;
+	var level = 3;
 	var timeLimit = 0;
 	var setIntervalid = null;
 	var randomArray = [];//[numberX*numberY]
 	var percent;
+	var levelsuccess = false;
+	var exchangeSkinlock = true;
 		
 	// loading();
-	Init();
+	// Init();
+	selectVersion();
 	function loading(){	
 
 		var img = new Image();
@@ -66,11 +69,32 @@ $(function  () {
 	}
 
 	function Init() {
-		creatTile();
-		moveRandom();			
-		Event_selectVersion();
-		setlevel(level);
-		
+		selectVersion();        //
+		creatTile();            // DOM
+		setposition();          // inptPosition
+		moveRandom();		    // calculate
+		Event();               //JS
+		setlevel(level);        //init result		
+	}
+
+	// $version1 -> $version2
+	function reinit() {
+
+	}
+
+	function selectVersion(){
+		$version.find("span").on("click",function(){
+			switch ($(this).index()) {
+				case 0 : $version_v = 1;break;
+				case 1 : $version_v = 2;break;
+			}
+			$("body").addClass("v"+$version_v);
+			$helper.addClass("helper-visiable");
+			$version.hide();	
+			Init();	
+			calculateTime();
+
+		});
 	}
 
 	function creatTile(){
@@ -81,12 +105,9 @@ $(function  () {
 				str +="<div class=\"tile  tile-position-"+ i +"-"+j +"\" data-p=\""+n+"\"></div>";
 			}//tile-"+n+"
 		};
-		// if (hasTouch) {
-		// 	$("body").addClass("has-touch");
-		// }else{
-			str = str+"<div class='emptybox'><div class='tile empty'></div> </div>";	//+ "<div class='tile-empty'></div>"+ "<div class='tile-move'></div>"		
-		// 	$("body").addClass("no-touch");
-		// }
+		if ($version_v !=1) {
+			str = str+"<div class='emptybox'><div class='tile empty'></div> </div>";
+		}
 		
 		$tile_container.html(str);
 	}
@@ -116,13 +137,11 @@ $(function  () {
 					"top":postionY,
 					"left":postionX										
 				});
-				// console.log(postionX,postionY)
 			}
 				
 			
 		};	
 
-		// console.log("_______")
 		$(".emptybox").css({
 			"right":emptyboxright,
 			"top": emptyboxtop,
@@ -134,7 +153,7 @@ $(function  () {
 		if(randomArray.length==0){
 		    for (var i = 1 ; i <=numberX*numberY; i++) {
 		    	//randomArray[i] = i; //error
-		    	randomArray.push(i); //restart error	    	
+		    	randomArray.push(i); //restart error	  
 			}			
 		}
 		if (level <= 7) {
@@ -145,17 +164,18 @@ $(function  () {
 			for (var i = 0; i < randomArray.length; i++) {
 				if(randomArray[i]== 4){
 					randomArray[i] = randomArray[numberX-1];
-					randomArray[numberX-1] = 4;
-					
-				}
-
+					randomArray[numberX-1] = 4;					
+				}				
 			};
 		}
 		
 
 		$(".tile").each(function(i){
-			$(this).addClass("tile-"+randomArray[i]);		
-			str = randomArray[i]+","+str;		
+			if ($(this).parent('.emptybox').length == 0) {
+				$(this).addClass("tile-"+randomArray[i]);		
+				str = randomArray[i]+","+str;
+			} 
+					
 		});	
 	}	
 
@@ -182,20 +202,6 @@ $(function  () {
 	// 		tileExchangeimg($(this).index()-x,  $(this).index()-x+numberX, e.type);
 	// 	});	
 	// }
-	function Event_selectVersion(){
-		$version.find("span").on("click",function(){
-			switch ($(this).index()) {
-				case 0 : $version_v = 1;break;
-				case 1 : $version_v = 2;break;
-			}
-		    moveRandom();			
-			Event();
-			setposition();
-			$("body").addClass("v"+$version_v);
-			$helper.addClass("helper-visiable");
-			$version.hide();
-		});
-	}
 
 	function Event () {			
 		$(".tile").each(function (i) {
@@ -281,38 +287,43 @@ $(function  () {
 
 	$keep_playing_btn.on("click",keepPlaying);
 	$retry_btn.on("click",restart);
-	$newGame.on("click",restart);
+	$newGame.on("click",newGame);
 	$startBtn.on("click",function(){
 		$helper.removeClass("helper-visiable");
 		
 		setTimeout(function(){
 			$helper.fadeOut("slow");
 		},700);
-		calculateTime();
 	});
 
 	function restart(){
 		$game_container.removeClass("success");
 		$message.hide();
 		Init();
-		Event();
-		setposition();
 		addSteps(0);
 		setTimeLimit();
 		calculateTime();
-		if(timeLimit>1){
-			clearInterval(setIntervalid);
-		}
+		levelsuccess =false;
+		exchangeSkinlock = true;
 	}
-	 
+
+	function newGame(){
+		if (exchangeSkinlock) {
+			Init();
+			addSteps(0);
+			setTimeLimit();
+		} 
+		
+	}
+
 	function keepPlaying () {
 	 	$game_container.removeClass("success");
 		$message.hide();
 		Init();
-		Event();
-		setposition();
-		calculateTime();
 		addSteps(0);	
+		calculateTime();
+		levelsuccess =false;
+		exchangeSkinlock =true;
 	} 
 
 	function tileExchangeimg(index, X){//index1,index2,type
@@ -363,6 +374,7 @@ $(function  () {
 			addSteps(successNum);		
 		}
 	}
+
 	function addSteps(successNum){
 		step ++;
 		// $step.html(step);
@@ -377,21 +389,18 @@ $(function  () {
 		}
 		
 	}
+
 	function setTimeLimit(){
-		if ($version_v == 2) {
-			timeLimit = 0;
-		} else{
+
 		 switch(level){
 		 	case 1: 
 		 	case 2: timeLimit = 0; break;
-		 	case 3: timeLimit = 300; break;
+		 	case 3: timeLimit = 5; break;
 		 	case 4: timeLimit = 200; break;
 		 	case 5: timeLimit = 100; break;
 		 	case 6: timeLimit = 60; break;
 		 	default: timeLimit = 60;
 		 }
-		};
-
 	}
 
 	function calculateTime(){
@@ -399,15 +408,18 @@ $(function  () {
 
 		setTimeLimit();
 
-		if(level>=3 && $version_v ==1){
+		if(level>=3){
 			
 			 setIntervalid = setInterval(function(){
 				timeLimit --;
 				if(timeLimit<0){
 					timeLimit = 0;
-					GameOver();
-					clearInterval(setIntervalid);
-					return false;
+					if (levelsuccess ==false) {
+						GameOver();
+					    clearInterval(setIntervalid);
+					}
+					
+					 return false;
 				}
 				if(timeLimit <= 60){
 					second = timeLimit;
@@ -454,11 +466,17 @@ $(function  () {
 		$message.removeClass("game-over");
 		$message.show(1500);
 		level++;	
+		levelsuccess = true;
+		clearInterval(setIntervalid);
+		levelsuccess = true;	
+		exchangeSkinlock = false;
 	}
 	function GameOver(){		
 		$game_container.removeClass("success");
 		$message.find(".word").html("Game Over!");
 		$message.show(1500);
+		levelsuccess = false;	
+		exchangeSkinlock = false;	
 	}
 
 	function setlevel (level) {
@@ -477,9 +495,13 @@ $(function  () {
 		setTimeLimit();
 	}
 
-
+	var m = 0;
 	function exchangeSkin (level) {
-		var m = Math.floor(Math.random()*6+1);
+		// var m = Math.floor(Math.random()*6+1);
+		m = (m+1)%6;
+		if(m==0){
+			m =6;
+		}
 		$(".level-"+level+" .tile-container div, .level-"+level+" .originalimg").css("background-image","url(images/pic"+level+"_"+m+".jpg)");
 	}
 	
