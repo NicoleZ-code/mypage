@@ -30,6 +30,7 @@ $(function  () {
 	var percent;
 	var levelsuccess = false;
 	var exchangeSkinlock = true;
+	var start = 0;
 		
 	// loading();
 	// Init();
@@ -85,18 +86,38 @@ $(function  () {
 	}
 
 	function selectVersion(){
+		$version.find(".v1").addClass("select");
 		$version.find("span").on("click",function(){
 			switch ($(this).index()) {
 				case 0 : $version_v = 1;break;
 				case 1 : $version_v = 2;break;
-			}
-			$(this).addClass("select");
+			}	
+			$(this).find(".v1").addClass("select").siblings().removeClass('select');	
 			$("body").addClass("v"+$version_v);
 			$helper.addClass("helper-visiable");
 			$version.hide();	
 			Init();	
 			calculateTime();
+			start ++;
+		});
 
+		$("body").on('keydown',function(e){
+			switch(e.which){
+				case 37: $version_v = 1;$version.find(".v1").addClass("select").siblings().removeClass('select');	break;
+				case 39: $version_v = 2;$version.find(".v2").addClass("select").siblings().removeClass('select');	 break;
+				case 13:if(start == 0) {
+							$version_v = $(".select").attr('data'); 
+							$("body").addClass("v"+$version_v);
+							$helper.addClass("helper-visiable");
+							$version.hide();	
+							Init();	
+							calculateTime();	
+							start ++;				
+						}
+
+				break;
+			}	
+				
 		});
 	}
 
@@ -275,14 +296,17 @@ $(function  () {
 		var X;
 		if ($version_v ==2) {
 			$("body").on('keydown',function(e){
-				switch(e.which){
-					case 37: X= -1; break;
-					case 38: X= -numberX; break;
-					case 39: X= 1; break;
-					case 40: X= numberX; break;
+				if(e.which ==37||e.which ==38||e.which ==39||e.which ==40){
+					switch(e.which){
+						case 37: X= -1; break;
+						case 38: X= -numberX; break;
+						case 39: X= 1; break;
+						case 40: X= numberX; break;
+					}
+					tileExchangeimg($item1,X);
+					// console.log($item1,X)					
 				}
-				tileExchangeimg($item1,X);
-				// console.log($item1,X)
+
 			});			
 		};
 
