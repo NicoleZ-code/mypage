@@ -38,7 +38,8 @@ $(function  () {
 	function loading(){	
 
 		var img = new Image();
-
+			img.src ="images/vlogo.png";
+			img.src ="images/zdeveloping.png";
 		for (var i = 1; i <= 6; i++) {
 			for (var j = 1; j <= 6; j++) {
 				var src="images/pic"+i+"_"+j+".jpg";

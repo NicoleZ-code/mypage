@@ -683,6 +683,7 @@ body.v2 {
 }
 body.v2 .game-container {
   border: 10px solid #F9F9F1;
+  background-color: #fff;
 }
 body.v2 .tile-container .emptybox {
   border: 10px solid #F9F9F1;
