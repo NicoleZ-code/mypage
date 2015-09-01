@@ -243,7 +243,7 @@ body {
   border-radius: 8px;
   background-size: 100%;
   position: relative;
-  margin-left: 2px;
+  margin-left: 4px;
 }
 .assist-containter {
   float: right;
@@ -718,8 +718,8 @@ body.v2 .helper .v1 {
 @media screen and (max-width: 499px) {
   .v2 .wrap {
     width: 400px;
-    height: 400px;
-    margin-top: -200px;
+    height: 350px;
+    margin-top: -175px;
     margin-left: -200px;
   }
   .v2 .logo {
@@ -784,8 +784,8 @@ body.v2 .helper .v1 {
   }
   body.v2 .wrap {
     width: 320px;
-    height: 400px;
-    margin-top: -200px;
+    height: 350px;
+    margin-top: -175px;
     margin-left: -160px;
   }
   body.v2 .game-container {

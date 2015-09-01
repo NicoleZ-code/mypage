@@ -33,6 +33,7 @@ $(function  () {
 		
 	// loading();
 	// Init();
+	loading();
 	selectVersion();
 	function loading(){	
 
@@ -45,27 +46,27 @@ $(function  () {
 				percent = Math.ceil((((i-1)*6+j)/36)*100)+"%";	
 				// $(".loading .percent").html(percent);
 				// $(".loading .process").css("width",parseInt(percent)*250/100+"px");
-				//console.log((i-1)*6+j,parseInt(percent)*250/100)			
+				console.log((i-1)*6+j,percent)			
 			}			
 		}
-			var n = 0;
-			var id = setInterval(function(){
-				if(n <=100){
-					var _n = n + "%" ;
-					if(parseInt(_n)>100){
-						_n = "00%";
-					}
-					$(".loading .percent").html(_n);
-					$(".loading .process").css({ width: n*250/100+"px" });
-					n = Math.floor(parseInt(n) + 75/59);
-				}			
-			},1000/60);
-				$(".loading .percent").html("100%");
-				setTimeout(function(){
-					clearInterval(id);
-					$(".loading").hide(300);
-					Init();					
-				},00);//1960		
+			// var n = 0;
+			// var id = setInterval(function(){
+			// 	if(n <=100){
+			// 		var _n = n + "%" ;
+			// 		if(parseInt(_n)>100){
+			// 			_n = "00%";
+			// 		}
+			// 		$(".loading .percent").html(_n);
+			// 		$(".loading .process").css({ width: n*250/100+"px" });
+			// 		n = Math.floor(parseInt(n) + 75/59);
+			// 	}			
+			// },1000/60);
+			// 	$(".loading .percent").html("100%");
+			// 	setTimeout(function(){
+			// 		clearInterval(id);
+			// 		$(".loading").hide(300);
+			// 		Init();					
+			// 	},00);//1960		
 	}
 
 	function Init() {
