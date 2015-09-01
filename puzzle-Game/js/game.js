@@ -23,7 +23,7 @@ $(function  () {
 	var imgURL = "../images/pic1.jpg";
 	var step = 0;
 	var successNum = 0;
-	var level = 3;
+	var level = 1;
 	var timeLimit = 0;
 	var setIntervalid = null;
 	var randomArray = [];//[numberX*numberY]
@@ -395,7 +395,7 @@ $(function  () {
 		 switch(level){
 		 	case 1: 
 		 	case 2: timeLimit = 0; break;
-		 	case 3: timeLimit = 5; break;
+		 	case 3: timeLimit = 300; break;
 		 	case 4: timeLimit = 200; break;
 		 	case 5: timeLimit = 100; break;
 		 	case 6: timeLimit = 60; break;
