@@ -47,7 +47,7 @@ $(function  () {
 				percent = Math.ceil((((i-1)*6+j)/36)*100)+"%";	
 				// $(".loading .percent").html(percent);
 				// $(".loading .process").css("width",parseInt(percent)*250/100+"px");
-				console.log((i-1)*6+j,percent)			
+				// console.log((i-1)*6+j,percent)			
 			}			
 		}
 			// var n = 0;
@@ -90,6 +90,7 @@ $(function  () {
 				case 0 : $version_v = 1;break;
 				case 1 : $version_v = 2;break;
 			}
+			$(this).addClass("select");
 			$("body").addClass("v"+$version_v);
 			$helper.addClass("helper-visiable");
 			$version.hide();	
@@ -208,7 +209,7 @@ $(function  () {
 	function Event () {			
 		$(".tile").each(function (i) {
 			Event_item(i);
-			// KeyboardEvent(i);
+			KeyboardEvent(i);
 		});
 
 	}

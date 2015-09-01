@@ -277,6 +277,9 @@ body {
 .version span.v2 {
   background-color: #F28724;
 }
+.version .select {
+  box-shadow: 3px 3px 1px 1px #737339;
+}
 .version p {
   font-family: "Microsoft YaHei";
   line-height: 30px;
