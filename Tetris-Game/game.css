@@ -105,49 +105,49 @@
   }
 }
 .game-container {
-  width: 444px;
+  width: 448px;
   margin: 20px auto;
   border: 7px solid #FFDC10;
   border-radius: 6px;
-  background-color: #081A28;
+  background: url(bg.jpg) repeat #081a28 center;
 }
 .game-container table.bgline {
   width: 100%;
   height: 100%;
 }
 .game-container table.bgline tr {
-  height: 35px;
+  height: 30px;
 }
 .game-container table.bgline td {
-  width: 35px;
-  height: 35px;
-  border: 1px solid #192F46;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #478091;
 }
 .game-container table.bgline td.color0 {
-  background-color: #8E8E8E;
-  border: 1px solid #C5C4C4;
+  background-color: #787878;
+  border: 1px solid #5A5A5A;
 }
 .game-container table.bgline td.color1 {
-  background-color: #7A51CC;
-  border: 1px solid #A178F4;
+  background-color: #8816DB;
+  border: 1px solid #581584;
 }
 .game-container table.bgline td.color2 {
-  background-color: #B223B2;
-  border: 1px solid #FF33FF;
+  background-color: #FF33FF;
+  border: 1px solid #B223B2;
 }
 .game-container table.bgline td.color3 {
-  background-color: #DDB000;
-  border: 1px solid #F2D974;
+  background-color: #FFDC10;
+  border: 1px solid #A59245;
 }
 .game-container table.bgline td.color4 {
-  background-color: #0089B7;
-  border: 1px solid #00CCFF;
+  background-color: #45D1ED;
+  border: 1px solid #3F7D8C;
 }
 .game-container table.bgline td.color5 {
-  background-color: #008E00;
-  border: 1px solid #00CC00;
+  background-color: #0FBF0F;
+  border: 1px solid #147914;
 }
 .game-container table.bgline td.color6 {
-  background-color: #B22300;
-  border: 1px solid #FF3300;
+  background-color: #E84921;
+  border: 1px solid #7E2A15;
 }
