@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>北京国家税务局纳税人网-发票查询</title>
+	<link href="images/favicon.ico" rel="shortcut icon">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="js/layer/skin/layer.css"/>
+</head>
+<body>	
+<div class="query_container">
+		<div class="leftqueryTree">
+			<ul class="ul1">
+				<li class="li1"><a href="query_invoice.html">发票查询</a></li>
+				<li class="li2"><a href="query_creditrate.html">信用等级查询</a></li>
+			</ul>
+		</div>	
+		<div class="rightquery_content">		 
+		 	<div class="query_content">
+		 		<div class="querylinks tabs">
+		 			<span class="sp1"><a href="#">发票查询说明</a></span>
+		 			<span class="sp2"><a href="#">发票结果说明</a></span>
+		 			<span class="sp3"><a href="#">发票真伪识别方法</a></span>
+		 			<span class="sp4"><a href="#">APP下载</a></span>
+		 		</div>
+			 	<table class="query_table">
+			 		<thead>
+			 			<th colspan="4">发票查询</th>
+			 		</thead>
+			 		<tbody>
+				 	   <tr>
+		        	   	 <td class="tip" colspan="4"><input type="checkbox"/><span>第一次查询该发票</span></td>
+		        	   </tr>
+		        	   <tr>
+		        	   	<td class="label">发票代码<em class="red">*</em>：</td>
+		        	   	<td class="data"><input type="text"/></td>
+		        	   	<td  class="label">发票号码<em class="red">*</em>：</td>
+		        	   	<td class="data"><input type="text"/></td>
+		        	   </tr>
+		        	    <tr>
+		        	   	<td  class="label">密码<em class="red">*</em>：</td>
+		        	   	<td class="data"><input type="text"/></td>
+		        	   	<td  class="label">验证码<em class="red">*</em>：</td>
+		        	   	<td class="data"><input type="text" class="regx" /></td>
+		        	   </tr>
+			 		</tbody>
+
+	            </table>
+				<div class="btns">
+					<input class="btn" type="button" value="查询" onclick="query();"> 
+					<input class="btn" type="button" value="重置">					
+				</div>
+
+		 	</div>	
+	 			<table class="result_table" style="width:600px;display:none;">	 			
+		 			<tbody>
+		 				<tr>
+		 					<td  rowspan="5"><span>查询结果说明:</span>
+		 					<p>
+		 						1.北京国家税务局通用机打发票，代码、号码、密码及税控后台校验对比结果：真。该查询为第5次正确查询
+		 					</p>
+		 					<p>
+		 						2.北京国家税务局通用机打发票，代码、号码、密码及税控后台校验对比结果：真。该查询为第5次正确查询
+		 					</p>
+		 					</td>
+		 					<td width="23.3%">发票代码：</td>
+		 					<td width="33.3%">xxxxxx</td>
+		 				</tr>
+		 				<tr>
+		 					<td>发票号码：</td>
+		 					<td>xxxxx</td>
+		 				</tr>
+		 				<tr>
+		 					<td>发票密码：</td>
+		 					<td>xxxxx</td>
+		 				</tr>
+		 				<tr>
+		 					<td>购票单位：</td>
+		 					<td>xxxxx</td>
+		 				</tr>
+		 				<tr>
+		 					<td>查询结果：</td>
+		 					<td class="red">北京国家税务局通用机打发票，代码、号码、密码及税控后台校验对比结果：真。该查询为第5次正确查询</td>
+		 				</tr>
+		 				<tr><td colspan="3" class="red" style="text-align:center;">举报须知：如您怀疑所查询的发票为假发票，请拨打举报电话12366！</td></tr>
+		 				<tr>
+		 					<td colspan="3">
+		 						<div class="btns"><input class="btn02" type="button" value="继续查询" > <input class="btn02 close" type="button" value="关闭窗口" onclick="closeDialog();"></div>
+		 					</td>
+		 				</tr>
+		 			</tbody>
+	 			</table>		 	
+		</div>
+
+</div>	
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/layer/layer.min.js"></script>
+	<script type="text/javascript">
+  function setIframe_child(){
+    $(".rightquery_content").height(590);// 如果页面变化 590 这个数字也需要变化
+    $(".leftqueryTree").height($(".rightquery_content").height()+20);
+    //iframe 高度
+    	window.top.setIframeHeight($("body").height());
+  }
+    //设置父级Iframe height
+	window.onload=function(){
+	    setIframe_child();
+	}
+
+	function query () {
+        $.layer({
+  		    type: 1,   //0-4的选择,（1代表page层）
+  		    area: ["600px", "auto"],
+  		  	 title: [
+  		        "发票查询结果 ",
+  		         "border:none;color:#fff;background: rgb(50, 160, 255);" //title背景色
+  		    ],
+  		    bgcolor: "#fff", //设置层背景色
+  		    page: {
+  		    	dom: ".result_table"
+  		    }
+  		   }); 
+
+	}
+	function closeDialog(){
+		layer.closeAll();
+	}	
+	</script>
+</body>
+</html>

@@ -1,8 +1,8 @@
 $(function(){
  
 	var squareW = 30+2,
-		row_number = 18,
-		col_number = 14,
+		row_number = 18,  //height
+		col_number = 14,  //width
 		centerX = Math.floor(col_number*0.5)-1 ,//(col_number-1)*squareW*0.5
 		colornumber = Math.floor(Math.random()*6+0),
 		newArrayMove = false,
@@ -17,8 +17,8 @@ $(function(){
 
 	function Init(){
 		drawbgline();
-		initFixedArray();
 		initNewArray(newArrayLength,0);
+		initFixedArray();		
 		Event();
 		Timer();
 		
@@ -49,7 +49,7 @@ $(function(){
 		for (var i = 0; i < newArrayLength; i++) {
 			newArray[i] ={
 				X :centerX+randomArray[attrN][i][0],
-				Y :randomArray[attrN][i][1],
+				Y :randomArray[attrN][i][1]+13,
 				move : true
 			}
 			tdindex =newArray[i].X + newArray[i].Y*col_number;
@@ -64,43 +64,31 @@ $(function(){
 	}
 
 	function initFixedArray(){
-		for (var i = 0; i < fixedArray.length; i++) {
+		for (var i = 0; i < col_number; i++) {
 			fixedArray[i] ={
-				X : 0,
-				Y : row_number-1
+				X : i,
+				Y : row_number
 			}
 		};
 		
 	}
 
-	function getMaxY(Arrayname){
-		var maxY = 0;
-		if (Arrayname.length!=0) {
-			for (var i = 0; i < Arrayname.length; i++) {
-				if(i+1<Arrayname.length){
-					maxY = Math.max(Arrayname[i].Y,Arrayname[i+1].Y);
-				}
-			}
-		}else{
-			maxY = row_number-1;
-		}
-		
-		return maxY;
-	}
 
-	function testOverlap(){
+	function Mix(){
 		for (var i = 0; i < newArrayLength; i++) {
-			for (var i = 0; i < fixedArray.length; i++) {
-				if (newArray[i].X == fixedArray[i].X &&newArray[i].Y == fixedArray[i].Y ) {
-					return false;
+			for (var j = 0; j < fixedArray.length; j++) {
+				if (newArray[i].X == fixedArray[j].X &&newArray[i].Y == fixedArray[j].Y ) {
+					return true;
 				}
 			};
 			
 		};
-		return true;
+		return false;
 	}
 	function autoDrop(){
-		for (var i = newArrayLength-1; i >=0; i--) {			
+		var str01="",str02="";
+		for (var i = newArrayLength-1; i >=0; i--) {
+		// debugger			
 			if (!newArray[i].move) {
 				//postion back
 				// debugger
@@ -119,17 +107,30 @@ $(function(){
 				game_td.eq(newArray[i].X + newArray[i].Y*col_number).removeClass("color"+colornumber);
 				game_td.eq(newArray[i].X + (newArray[i].Y+1)*col_number).addClass("color"+colornumber);
 				newArray[i].Y ++;
-				if(getMaxY(newArray) >getMaxY(fixedArray)){
-					newArray[i].move = false;
-					var b = i-1;
-					game_td.eq(newArray[b].X + newArray[b].Y*col_number).addClass("color"+colornumber);
-					game_td.eq(newArray[b].X + (newArray[b].Y+1)*col_number).removeClass("color"+colornumber);
-					newArray[b].Y --;
+				if(Mix()){
 					
+					// debugger
+					for (var b = newArrayLength-1; b>=i; b--) {
+						// game_td.eq(newArray[i].X + newArray[i].Y*col_number).removeClass("color"+colornumber);
+				        // game_td.eq(newArray[i].X + (newArray[i].Y+1)*col_number).addClass("color"+colornumber);
+						newArray[i].Y --;				
+						game_td.eq(newArray[i].X + newArray[i].Y*col_number).addClass("color"+colornumber);
+						game_td.eq(newArray[i].X + (newArray[i].Y+1)*col_number).removeClass("color"+colornumber);
+						newArray[b].move = false;
+					};
+					fixedArray.push(newArray[0],newArray[1],newArray[2],newArray[3]);
+					// continue;
+									
 				}
 			}
+			str01+=i+"  ,";
+			str02+=newArray[i].Y+" ,";
+
 			
 		}	
+		// console.log(str01);
+		console.log(str02);
+
 		
 	}
 
@@ -155,5 +156,7 @@ $(function(){
 		setInterval(function(){
 			autoDrop();
 		},1000);
+		console.log("_____");
+
 	}
 });

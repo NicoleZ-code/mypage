@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>北京国家税务局纳税人网-税务大事记</title>
+	<link href="images/favicon.ico" rel="shortcut icon">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="js/easyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="js/layer/skin/layer.css"/>
+    <style type="text/css">
+    .panel.combo-p{     /*日历 */
+        z-index:999999999!important;
+    }
+    </style>
+</head>
+<body>	
+<div class="tax_container" style="height:610px;">		
+	<div id="tax_mem_tabs">
+		<div class="tax_mem_menu">
+			<span class="active">企业申报纳税日期记录</span>
+			<span>企业购票日期记录</span>
+			<span>企业变更登记记录</span>
+			<span>企业违法违章登记日期记录</span>
+			<span>纳税人备忘录</span>
+		</div>
+	</div>
+	<div class="tax_mem_content" style="height:520px;margin:20px auto 0 auto; ">
+		<table id="jqGridresult">
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>  
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr> 
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>  
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr> 
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>
+            				            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>  
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr> 
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr>
+            <tr>
+                <td>北京国税</td>
+                <td>320200078254414</td>
+                <td>xxxx分局</td>
+                <td>优</td>
+            </tr> 				            				                                  
+        </table>
+	</div>		
+        <table class="result_table" style="width:500px;display:none">             
+            <tbody>
+                <tr>
+                    <td width="22%">标题：</td>
+                    <td><input id="" type="text"></td>
+                </tr>
+               <tr>
+                    <td>执行日期：</td>
+                    <td><input id="" type="text" class="date easyui-datebox">
+                </td>
+                <tr>
+                    <td>内容：</td>
+                    <td><textarea id=""></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align:center;">
+                    <div class="btns"><input class="btn02" type="button" value="保存" > <input class="btn02 close" type="button" value="关闭窗口" onclick="closeDialog();"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div>	
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/easyUI/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/easyUI/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="js/layer/layer.min.js"></script>	
+  <script type="text/javascript">
+    //zyh 
+      function setIframe_child(){
+          	window.top.setIframeHeight($("body").height()); //iframe 高度 
+      }
+        //设置父级Iframe height
+	   window.onload=function(){
+	     setIframe_child();
+	 }
+        function edit() {
+            $.layer({
+                type: 1,   //0-4的选择,（1代表page层）
+                area: ["500px", "auto"],
+                 title: [
+                    "纳税人备忘录 ",
+                     "border:none;color:#fff;background: rgb(50, 160, 255);" //title背景色
+                ],
+                bgcolor: "#fff", //设置层背景色
+                page: {
+                    dom: ".result_table"
+                }
+               }); 
+
+        }
+    function closeDialog(){
+        layer.closeAll();
+    }
+  $(function(){	 
+      	var datagridConfig=[];
+        //common
+      	function datagridConfig_init(i){
+      		datagridConfig[i] ={    				
+        				singleSelect : true,
+    					rownumbers : false,
+    					resizable : true,
+    					fitColumns : true,
+    					striped : true, 
+                        method : "post",
+                        loadMsg : "正在请求数据...",
+                        fit:true,	
+    					showHeader : true, 
+    					showFooter : true, 
+    					pagination : true,
+    					pagePosition : "bottom", 
+    					pageNumber : 1, 
+    					pageSize : 20, 
+    					pageList : [ 10, 20, 30, 40, 50 ],
+    					url:"",
+    					columns:""
+    		};
+    		
+      	}
+
+      	 var datagridConfig_ex=[
+      	 			{
+    			   		url:"",
+    		   			columns : [[
+    		                        {title :'税种',field : 'sz',width :150,align : "center"},
+    		                        {title:'税额',field : 'se',width : 100,align : 'center'},
+    		                        {title:'所属期起',field : 'ssqq',width : 100,align : 'center'},
+    		                        {title:'所属期止',field : 'ssqz',width : 100,align : 'center'},
+    		                        {title:'日期',field : 'rq',width : 100,align : 'center'}
+    		                    ]]
+    			   	},{
+    			   		url:"",
+    			   		columns : [[
+    		                        {title :'票种',field : 'pz',width :150,align : "center"},
+    		                        {title:'分数',field : 'fs',width : 100,align : 'center'},
+    		                        {title:'发票号起',field : 'fphq',width : 100,align : 'center'},
+    		                        {title:'发票号止',field : 'fphz',width : 100,align : 'center'},
+    		                        {title:'日期',field : 'rq',width : 100,align : 'center'}
+    			                ]]
+    			   },{
+    			   		url:"",
+    			   		columns : [[
+    			                        {title :'变更项目',field : 'bgxm',width :250,align : "center"},
+    			                        {title:'变更前',field : 'bgq',width : 100,align : 'center'},
+    			                        {title:'变更后',field : 'bgh',width : 100,align : 'center'},
+    			                        {title:'变更日期',field : 'bgrq',width : 100,align : 'center'}
+    			                ]]
+    			   },{
+    			   		url:"",
+    			   		columns : [[
+    			                        {title :'违法违章事实',field : 'wfwzss',width :250,align : "center"},
+    			                        {title:'立案日期',field : 'larq',width : 100,align : 'center'},
+    			                        {title:'所属期起',field : 'ssqq',width : 100,align : 'center'},
+    		                        	{title:'所属期止',field : 'ssqz',width : 100,align : 'center'},
+    		                        	{title:'案件结束日期',field : 'anjjsrq',width : 100,align : 'center'}
+    			                ]]
+    			   },{
+    			   		url:"",
+    			   		columns : [[
+    			                        {title :'标题',field : 'bt',width :150,align : "center"},
+    			                        {title:'内容',field : 'nr',width : 300,align : 'center',
+                                        formatter:function(value,row,index){
+                                            if (value.length>30) {
+                                                return value.slice(0,29)+"......";// 超过30字符 add......
+                                            }else{
+                                                return value;
+                                            } 
+                                         } 
+                                        },
+    			                        {title:'执行日期',field : 'zxrq',width : 100,align : 'center'},
+    		                        	{title:'创建日期',field : 'cjrq',width : 100,align : 'center'},
+    		                        	{title:'操作',field : 'action',width : 80,align : 'center',
+    		                        	formatter:function(value, row, index){
+    					                  var str="<a class='action' href=\"javascript:void(0)\" onclick=\"edit();\">修改</a> "+"<a class='action' href=\"javascript:void(0)\" onclick=\"\">删除</a>"
+    					                    return str;
+    					                  }   
+    					              }     
+    			                ]]
+    		}];
+    	
+    	
+    	    // 合并数组
+    		for (var i = 0; i < datagridConfig_ex.length; i++) {
+    			datagridConfig_init(i);
+    			datagridConfig[i].url=datagridConfig_ex[i]["url"];
+    			datagridConfig[i].columns=datagridConfig_ex[i]["columns"];
+    		}
+    		  function menu_tabs_init(tabsId,menuItem,EventType){
+    			 	var $right_tabs =$(tabsId);
+    			 	var menuli =$right_tabs.find(menuItem);
+    			 	menuli.on(EventType,function(){
+    			 		 $(this).addClass("active").siblings().removeClass("active");
+    			 		 // $right_tabs.find(contentItem).eq($(this).index()).show().siblings().hide();
+    			         $("#jqGridresult").datagrid(datagridConfig[$(this).index()]);
+    			 	}).eq(0).trigger(EventType);
+    	    
+    		 }	
+    		 menu_tabs_init("#tax_mem_tabs",".tax_mem_menu span","click"); 
+             //action 修改 弹出框
+         
+	});	
+    </script>	
+</body>
+</html>

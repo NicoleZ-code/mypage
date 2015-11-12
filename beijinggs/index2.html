@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>北京国家税务局纳税人网-登陆后</title>
+	<link href="images/favicon.ico" rel="shortcut icon">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="js/easyUI/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="css/calendar.css">
+</head>
+<body>	
+	<div id="head">
+		<div class="logo">	</div>
+		<div id="mainMenu">
+			<ul>
+				<li id="tab1" class="mainMenu_item tabselected " data-src="home.html">首页</li>
+				<li id="tab2" class="mainMenu_item" data-src="query_invoice.html">我的查询</li>
+				<li id="tab3" class="mainMenu_item" data-src="baseinfo.html">基本信息</li>
+				<li id="tab4" class="mainMenu_item" data-src="fpinfo.html">发票信息</li>	
+				<li id="tab5" class="mainMenu_item" data-src="nsinfo.html">纳税信息</li>
+				<li id="tab6" class="mainMenu_item" data-src="fxinfo.html">风险提示</li>
+				<li id="tab7" class="mainMenu_item" data-src="tax_memorabilia.html">税务大事记</li>
+				<li id="tab8" class="mainMenu_item" data-src="tax_report.html">税务报告</li>
+			</ul>
+		</div>
+		<div class="links"> 
+			<span><a href="index.html">退出</a></span>
+			<span>|</span>	
+			<span class="level">暂无</span>
+			<span>信用等级:</span>
+			<span>|</span>			
+			<span>您好,<a href="#" class="username">xxx公司</a></span>
+		</div>
+	</div>
+
+	<div id="bj_main_container">
+	<!--首页start-->
+		<div id="tab1_container" class="tab_container">
+			<div class="common_container">
+				<div id="leftMain_container">
+					<!--ad_banner start -->
+					<div id="ad_banner">
+						<ul class="slider" style="top: 0px;">
+							<li class="li1"><span><img width="1920" src="images/adbanner1.png" alt="" title=""></span></li>
+							<li class="li2"><span><img width="1920" src="images/adbanner2.png" alt="" title=""></span></li>
+							<li class="li3"><span><img width="1920" src="images/adbanner3.png" alt="" title=""></span></li>
+							<li class="li4"><span><img width="1920" src="images/adbanner4.png" alt="" title=""></span></li>
+							<li class="li5"><span><img width="1920" src="images/adbanner5.png" alt="" title=""></span></li>
+							<li class="li6"><span><img width="1920" src="images/adbanner6.png" alt="" title=""></span></li>
+						</ul>
+						<ul class="num">
+							<li class="on"></li>
+							<li class=""></li>
+							<li class=""></li>
+							<li class=""></li>
+							<li class=""></li>
+							<li class=""></li>
+						</ul>	
+					</div>	
+					<!--ad_banner end-->
+					<!--messagebox start -->
+					<div id="messagebox">
+						<div class="mstitle"><span>税务大事记</span> <a class="more" href="javascript:void(0);" onclick="load_main_container(6,'tax_memorabilia.html',true);">更多>></a></div>
+						<ul id="messagelist">
+							<!-- <li>wwwwwwreggggggggggggggggggggggggggggggggggg</li> -->
+						</ul>
+						<div id="emptyMsg">暂时没有任何记录……</div>
+					</div>
+					<!--messagebox end-->
+					<!--applist start -->
+					<div id="applistbox">
+						<div class="mstitle"><span>应用APP</span> </div>
+						<div id="applist_contentbox">
+							<div id="prev"></div>	
+							<div id="applist_content">
+								<ul id="applist">
+									<li onclick="load_main_container(2,'baseinfo.html',true);"><img src="images/app01.png"></li>
+									<li onclick="load_main_container(3,'fpinfo.html',true);"><img src="images/app03.png"></li>
+									<li onclick="load_main_container(4,'nsinfo.html',true);"><img src="images/app04.png"></li>
+									<li onclick="load_main_container(6,'tax_memorabilia.html',true);"><img src="images/app05.png"></li>
+									<li onclick="load_main_container(1,'query_invoice.html',true);"><img src="images/app06.png"></li>
+									<li onclick="load_main_container(5,'fxinfo.html',true);"><img src="images/app07.png"></li>
+									<li><img src="images/app02.png"></li>
+									<li onclick="load_main_container(7,'tax_report.html',true);"><img src="images/app08.png"></li>
+								</ul>					
+							</div>
+							<div id="next"></div>	
+						</div>
+					</div>
+					<!--applist end-->
+				</div>
+				<div id="rightMain_container">
+					<!--日历start-->
+					<div id ="taxCalendar" class="Calendar">
+						<div class="taxCalendar-content">
+							<table id ="monthCalendar" class="tb_box taxCalendar-item" style="width:350px;float:left;">
+								<tr>
+									<td class="Calendar_top">
+										<div style="height:60px;text-align:center;">
+											<div style=" float:left;width:11px;margin-top:20px;">
+												<span id="idCalendarPre"> </span>
+											</div>
+											<div class="Calendar_input Calendar_update">
+												<div class="Calendar_year">
+													<span id="idCalendarYear"></span>年
+												</div>
+												<div class="Calendar_month">
+													<span id="idCalendarMonth"></span>月
+												</div>
+											</div>
+											<div style="float:left;width:11px;margin-top:20px;">
+												<span id="idCalendarNext"> </span>
+											</div>
+										</div>
+									</td>
+									<td style="width:72%">
+										<table cellspacing="0" class="tb_date" style="width:100%;">
+											<thead>
+												<tr>
+													<td>日</td>
+													<td>一</td>
+													<td>二</td>
+													<td>三</td>
+													<td>四</td>
+													<td>五</td>
+													<td>六</td>
+												</tr>
+											</thead>
+											<tbody id="idCalendar">
+											<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+											<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+											<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+											<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+											<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+											</tbody>
+										</table>							
+									</td>
+								</tr>
+							</table>
+							<div id="yearCalendar" class="taxCalendar-item" style="width:360px;">
+								
+							</div>
+							<div id="memo" class="taxCalendar-item">
+								<div id="memolistbox">
+									<ul id="memolist">					
+									</ul>
+									<span id="btnAdd" class="cbtn" title="新建备忘录"></span>
+									<span id="btnPre" class="cbtn" title="点击上一页"></span>
+									<span id="btnNext" class="cbtn" title="点击下一页"></span>	
+								</div>		
+								<div id="memoDetail" class="memoDetail">					
+									<div id="memoTitle">
+										<span class="label">标题</span>
+										<input class="title memo" type="text">
+									</div>
+									<div id="memoDate">
+										<span class="label">执行日期</span>
+										<input id="actionDate" class="memo easyui-datebox" type="text">
+									</div>
+									<div id="memoContent">
+										<span class="label">内容</span>
+										<textarea class="content memo"></textarea>
+									</div>
+									<div class="memobtns">
+										<span id="btnMemoClose">关闭</span>
+										<span id="btnMemoSave">保存</span>
+										<span id="btnMemoDelete">删除</span>
+									</div>
+									
+								</div>						
+							</div>
+						</div>			
+						<ul id="action">
+							<li class="active">月历</li>
+							<li>年历</li>				
+							<li>备忘录</li>
+						</ul>
+					</div>
+					<!--日历end-->
+					<!--选项卡start-->
+					<div id="right_tabs">
+						<div class="menuactivebg"></div>			
+						<div class="menu">				
+							<span class="span1 active">发票查询</span>
+							<span class="span2">信用等级查询</span>
+							<span class="span3">网上办税厅链接</span>
+						</div>
+						<div class="tabscontent">
+							<div class="tabscontent-item query_invoice">
+								<div class="message"><input type="checkbox">第一次查询该发票</div>
+								<ul id="">
+									<li><span class="name">发票代码 <em class="red">*</em>：</span> <input type="text"></li>
+									<li><span class="name">发票号码 <em class="red">*</em>：</span> <input type="text"></li>
+									<li><span class="name">密码 <em class="red">*</em>：</span> <input type="text"></li>
+									<li><span class="name">验证码 <em class="red">*</em>：</span> <input type="text" class="regx"></li>
+								</ul>
+								<div class="btns">
+									<input class="btn" type="button" value="查询" onclick="load_main_container(1,'query_invoice.html',true);"> 
+									<input class="btn" type="button" value="重置">					
+								</div>
+							</div>
+							<div class="tabscontent-item query_creditrate">
+								<div class="message">A级企业查询</div>
+								<ul id="">
+									<li><span class="name">单位名称 <em class="red">*</em>：</span> <input type="text"></li>
+									<li><span class="name">纳税人识别号：</span><input type="text"></li>
+								</ul>
+								<div class="btns">
+									<input class="btn" type="button" value="查询" onclick="load_main_container(1,'query_creditrate.html',true);"> 				
+								</div>
+							</div>
+							<div class="tabscontent-item inlineTaxStation ">
+								<ul id="wsbs">
+									<li class="li1"><a href="#" title="点击进入网上申报">网上申报</a></li>
+									<li class="li2"><a href="#" title="点击进入网上认证">网上认证</a></li>
+									<li class="li3"><a href="#" title="点击进入网上抄报">网上抄报</a></li>
+									<li class="li4"><a href="#" title="点击进入代开发票">代开发票</a></li>
+									<li class="li5"><a href="#" title="点击进入出口退税">出口退税</a></li>
+									<li class="li6"><a href="#" title="点击进入办税指南">办税指南</a></li>
+									<li class="li7"><a href="#" title="点击进入资料下载">资料下载</a></li>
+									<li class="li8"><a href="#" title="点击进入办税日历">办税日历</a></li>
+									<li class="li9"><a href="#" title="点击进入软件退税">软件退税</a></li>
+									<li class="li10"><a href="#" title="点击进入一般纳税人登记">一般纳税人登记</a></li>
+									<li class="li11"><a href="#" title="点击进入增值税优惠备案">增值税优惠备案</a></li>
+									<li class="li12"><a href="#" title="点击进入所得税优惠备案">所得税优惠备案</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>	
+					<!---选项卡end-->
+				</div>		
+			</div>			
+		</div>
+	<!--首页end-->	
+	</div>	
+	<div id="footer">
+		©2014-2015北京国税版权所有，保留一切权利 京ICP备05002258 
+	</div>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>	
+	<script type="text/javascript" src="js/head.js"></script>
+	<script type="text/javascript" src="js/global.js"></script>
+	<script type="text/javascript" src="js/time.js"></script>
+	<script type="text/javascript" src="js/easyUI/jquery.easyui.min.js"></script>	
+	<script type="text/javascript" src="js/easyUI/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="js/calendar.js"></script>
+	<script type="text/javascript">
+
+		$(function () {
+			time("idCalendar","idCalendarPre","idCalendarNext");
+			    //messagelist 税务大事记提示信息
+		    if ($("#messagelist li").length==0) {
+		        $("#emptyMsg").show();
+		    };
+		    //日历 月历 备忘录tab操作
+		    right_tabs_init("#taxCalendar","#action li",".taxCalendar-item","click");
+		    var oCal_5 = new Calendar({
+				id: "#yearCalendar",
+				isPrevBtn: !0,
+				isNextBtn: !0,
+				count: 6,
+				date: new Date(),
+				selectDate: new Date()
+			});
+
+		    //备忘录js-start
+		    var josnMemo =[
+		    	{
+		    		title:"备忘录-1",
+		    		content:"备忘录-1备忘录-1备忘录-1备忘录-1备忘录-1",
+		    		actionDate:"2015-10-01"
+		    	},
+		    	{
+		    		title:"备忘录-2",
+		    		content:"备忘录-2备忘录-2备忘录-2备忘录-2备忘录-2",
+		    		actionDate:"2015-10-02"
+		    	},
+		    	{
+		    		title:"备忘录-3",
+		    		content:"备忘录-3备忘录-3备忘录-3备忘录-3备忘录-3",
+		    		actionDate:"2015-10-01"
+		    	},
+		    	{
+		    		title:"备忘录-4",
+		    		content:"备忘录-4备忘录-4备忘录-4备忘录-4备忘录-4",
+		    		actionDate:"2015-10-02"
+		    	},
+		    	{
+		    		title:"备忘录-5",
+		    		content:"备忘录-5备忘录-5备忘录-5备忘录-5备忘录-5",
+		    		actionDate:"2015-10-01"
+		    	},
+		    	{
+		    		title:"备忘录-6",
+		    		content:"备忘录-6备忘录-6备忘录-6备忘录-6备忘录-6",
+		    		actionDate:"2015-10-02"
+		    	},
+		    	{
+		    		title:"备忘录-7",
+		    		content:"备忘录-7备忘录-7备忘录-7备忘录-7备忘录-7",
+		    		actionDate:"2015-10-01"
+		    	},
+		    	{
+		    		title:"备忘录-8",
+		    		content:"备忘录-8备忘录-8备忘录-8备忘录-8备忘录-8",
+		    		actionDate:"2085-10-02"
+		    	},
+		    	{
+		    		title:"备忘录-9",
+		    		content:"备忘录-9备忘录-9备忘录-9备忘录-9备忘录-9",
+		    		actionDate:"2015-10-01"
+		    	},
+		    	{
+		    		title:"备忘录-10",
+		    		content:"备忘录-10备忘录-10备忘录-10备忘录-10备忘录-10",
+		    		actionDate:"2085-10-02"
+		    	},
+		    	{
+		    		title:"备忘录-11",
+		    		content:"备忘录-11备忘录-11备忘录-11备忘录-11备忘录-11",
+		    		actionDate:"2015-10-01"
+		    	},
+		    	{
+		    		title:"备忘录-12",
+		    		content:"备忘录-12备忘录-12备忘录-12备忘录-12备忘录-12",
+		    		actionDate:"2015-10-02"
+		    	},
+		    	{
+		    		title:"备忘录-13",
+		    		content:"备忘录-13备忘录-13备忘录-13备忘录-13备忘录-13",
+		    		actionDate:"2015-10-01"
+		    	},
+		    	{
+		    		title:"备忘录-14",
+		    		content:"备忘录-14备忘录-14备忘录-14备忘录-14备忘录-14",
+		    		actionDate:"2085-10-02"
+		    	}
+		    ];
+		    function init_memolist(josn){
+				var str="",sortnumber = 1;
+				$("#memolist").empty();
+				for (var i = 0; i < josn.length; i++) {
+					str +="<li>";				
+					str +="<span class='title'>"+josn[i]["title"]+"</span>";
+					str +="<span class='date'>"+josn[i]["actionDate"]+"</span>";
+					str +="</li>";
+				};
+				$("#memolist").html(str);
+			}
+
+		    function closeDetail(){
+		    	$("#memoDetail textarea,#memoDetail input.title").val("");
+		    	$("#memoDetail").hide().removeClass("new");
+		    	$("#memolistbox").show();
+		    }
+		    $("#memolist").on("click","li",function(){
+		    	$("#memoDetail .title").val($(this).find(".title").text());
+		    	$("#memoDetail #actionDate").datebox("setValue",$(this).find(".date").text());
+		    	//
+		    	$("#memoDetail").show();
+		    	$("#memolistbox").hide();
+		    	$("#memoTitle input.title").focus();
+		    });
+
+		    //新建备忘录
+		    $("#btnAdd").click(function(){
+		    	$("#memoDetail textarea,#memoDetail input.title").val("");
+		    	$("#memoDetail #actionDate").datebox("setValue","");
+		    	$("#memoDetail").show().addClass("new");
+		    	$("#memolistbox").hide();
+		    	$("#memoTitle input.title").focus();
+		    });
+		    //关闭
+		    $("#btnMemoClose").click(function(){
+		    	closeDetail();
+		    });
+		    //保存备忘录 
+		    $("#btnMemoSave").click(function(){
+		    	//执行保存。。。。
+		    	closeDetail();
+		    	init_memolist(josnMemo);//更新备忘录列表
+		    });
+		    init_memolist(josnMemo);//创建备忘录列表
+		    Memo_Event("#memolist","#btnNext","#btnPre");  // btnPre  备忘录 上下翻页 该函数必须在init_memolist(josnMemo)函数后运行一次
+		    //备忘录js-end
+		});
+
+	</script>	
+</body>
+</html>
