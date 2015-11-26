@@ -125,6 +125,7 @@ iframe{
   overflow: hidden;   
   text-overflow: ellipsis;
   width: 230px;
+  max-width: 70%;
   height: 20px;
 }
 .listbox .list .date{
