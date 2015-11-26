@@ -321,7 +321,7 @@ $(function(){
 			    var dy = touchEndClientY - touchStartClientY;
 			    var absDy = Math.abs(dy);
 
-			    if (Math.max(absDx, absDy) > 10 && absDx < absDy && dy <-50) {
+			    if (Math.max(absDx, absDy) > 10 && absDx < absDy && dy <-80) {
 			      // (right : left) : (down : up)
 			      //tileExchangeimg($(tile).index(), absDx > absDy ? (dx > 0 ? 1 : -1) : (dy > 0 ? numberX : -numberX));
 			      init_points_data(pointslist);
