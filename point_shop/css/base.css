@@ -183,6 +183,8 @@ body.shoppingcentre{
   display:block;
   width: 96%;
   margin: auto;
+  min-width: 150px;
+  min-height: 150px;
 }
 .goodslistbox .img img{
   width:100%;
