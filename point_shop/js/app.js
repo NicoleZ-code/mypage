@@ -211,10 +211,11 @@ $(function(){
 	   	var m1 =Math.floor(Math.random()*5+1);
 	   	var m2 =Math.floor(Math.random()*data.length);
 	   	var sum = 0;
+	   	var w=$(window).width()-60-60;
 	   	$pointslist.empty();
 		for (var i = m1; i < m2; i++) {
 			_str+="<li>";
-			_str+="<span class=\"item-title\">"+data[i]["title"]+"</span>";
+			_str+="<span class=\"item-title\" style='width:"+w+"px'>"+data[i]["title"]+"</span>";
 			_str+="<span class=\"date\">"+data[i]["date"]+"</span>";
 			if(data[i]["points"]>=0){
 				_str+="<span class=\"item-points zs\">"+data[i]["points"]+"</span>";
@@ -229,7 +230,6 @@ $(function(){
 			_str="<li class=\"empty\">无记录</li>";
 		}
 		$pointslist.append(_str);
-		$(".item-title").width($(window).width()-60-60);
 		var p = parseInt($mypoints.html());
 		var id=setInterval(function  () {
 			if(p<sum){
