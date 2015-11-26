@@ -124,7 +124,8 @@ iframe{
   word-wrap: normal;   
   overflow: hidden;   
   text-overflow: ellipsis;
-  width: 430px;
+  width: 230px;
+  height: 20px;
 }
 .listbox .list .date{
   position: absolute;
