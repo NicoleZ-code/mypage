@@ -250,7 +250,7 @@ $(function(){
 	   	if(m%2!=0){
 	   		m--;
 	   		if(m<0){
-	   			m++;
+	   			m+=3;
 	   		}
 	   	}
 	   	// console.log(m)
@@ -260,7 +260,7 @@ $(function(){
 			_str+="<span class=\"img\"> <img alt='' src="+data[i]["img"]+"></span>";
 			_str+="<span class=\"bottominfo\">";
 			_str+="<span class=\"goods-title\">"+data[i]["title"]+"00"+i+"</span>";
-				num=(Math.floor(Math.random()*10)*100-1);
+				num=(Math.floor(Math.random()*10)*100-1)+100;
 			  _str+="<span class=\"money\"> ¥"+num+"</span>";
 			  _str+="<span class=\"goods-points zs\"> 加"+data[i]["points"]+" 分</span>";
 			  _str+="</span>";

@@ -174,7 +174,7 @@ body.shoppingcentre{
   display: block;
   width: 96%;
   margin: auto;
-  height: 100px;
+  height: 50px;
   background-color: #fff;
   overflow: hidden;
 }
@@ -188,24 +188,24 @@ body.shoppingcentre{
   height:100%;
 }
 .goods-title{
-  font-size: 24px;
+  font-size: 12px;
   color: #4A4A4A;
   display: block;
-  line-height: 40px;
+  line-height: 20px;
   margin-left: 30px;
-  margin-top: 20px;
+  margin-top: 10px;
   white-space: nowrap;   
   word-wrap: normal;   
   overflow: hidden;   
   text-overflow: ellipsis;  
 }
 .money{
-  font-size: 20px;
+  font-size: 10px;
   color: #F5A623;
   margin-left: 30px;
 }
 .goods-points{
-  font-size: 20px;
+  font-size: 10px;
   color: #F5A623;
   /*font-weight: bold;*/
 }
