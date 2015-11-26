@@ -202,6 +202,8 @@ $(function(){
 
 	$(".wrap").css("min-height",$(window).height());
 
+	  init_points_data(pointslist);
+	  init_goods_data(goodslist);
 	Event_item("container");
 
 	function init_points_data(data){
@@ -227,7 +229,7 @@ $(function(){
 			_str="<li class=\"empty\">无记录</li>";
 		}
 		$pointslist.append(_str);
-		$(".item-title").width($(window).width()-60-200);
+		$(".item-title").width($(window).width()-60-100);
 		var p = parseInt($mypoints.html());
 		var id=setInterval(function  () {
 			if(p<sum){
