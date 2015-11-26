@@ -61,23 +61,23 @@ iframe{
   background-color:#fff;
 }
 .mypoints_container{
-  height:180px;
+  height: 90px;
   text-align: center;
   background-color: #F5A623;
   color: #fff;
 }
 .mypointsbox{
   height: 112px;
-  padding-top: 34px;
+  padding-top: 17px;
 }
 .mypointsbox .message{
-  font-size: 20px;
+  font-size: 10px;
   opacity: 0.5;
-  line-height: 28px;
+  line-height: 14px;
 }
 .mypointsbox #mypoints{
-  font-size: 64px;
-  line-height: 90px;
+  font-size: 32px;
+  line-height: 46px;
 }
 .listbox{
     position: relative;
@@ -86,16 +86,16 @@ iframe{
   color:#D8D8D8;
   border-bottom: 1px solid #E6E6E8;
   text-align: center;
-  height: 14px;
-  margin-top: 20px;
+  height: 7px;
+  margin-top: 10px;
 }
 .listbox .fixedtitle span{
   background-color:#fff;
   display: block;
-  width: 100px;
+  width: 60px;
   margin: 0 auto;
-  line-height: 28px;
-  font-size: 20px;
+  line-height: 14px;
+  font-size: 10px;
 }
 .listbox .list{
   width: 100%;
@@ -103,21 +103,21 @@ iframe{
 }
 .listbox .list li{
   border-bottom: 1px solid #E6E6E8;
-  height: 112px;
+  height: 56px;
   position: relative;
   top: 0;
   left: 0;
 }
 .listbox .list li.empty{
   text-align: center;
-  line-height: 112px;
+  line-height: 56px;
 }
 .listbox .list .item-title{
   position: absolute;
-  font-size: 28px;
-  line-height: 40px;
+  font-size: 14px;
+  line-height: 20px;
   color:#4A4A4A;
-  top: 22px;
+  top: 11px;
   left: 30px;
   white-space: nowrap;   
   word-wrap: normal;   
@@ -128,20 +128,20 @@ iframe{
 .listbox .list .date{
   position: absolute;
   left: 30px;
-  bottom: 22px;
-  font-size: 20px;
-  height: 28px;
-  line-height: 28px;
+  bottom: 11px;
+  font-size: 10px;
+  height: 14px;
+  line-height: 14px;
   color:#D8D8D8;
 }
 .listbox .list .item-points{
-  height: 112px;
-  line-height: 112px;
+  height: 56px;
+  line-height: 56px;
   position: absolute;
   top: 0;
   right: 30px;
   display: block; 
-  font-size: 24px;
+  font-size: 12px;
 }
 .listbox .list .item-points.zs{
   color:#F5A623;
