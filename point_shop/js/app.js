@@ -249,7 +249,7 @@ $(function(){
 	   	var num=0;;
 	   	if(m%2!=0){
 	   		m--;
-	   		if(m<0){
+	   		if(m<=0){
 	   			m+=3;
 	   		}
 	   	}
@@ -257,17 +257,19 @@ $(function(){
 	   	$goodslist.empty();
 		for (var i = 0; i < m; i++) {
 			_str+="<li>";
-			_str+="<span class=\"img\"> <img alt='' src="+data[i]["img"]+"></span>";
+			_str+="<span class=\"img\"> <img alt='' src='images/img0"+Math.floor(Math.random()*4+1)+".jpg'></span>";
 			_str+="<span class=\"bottominfo\">";
 			_str+="<span class=\"goods-title\">"+data[i]["title"]+"00"+i+"</span>";
 				num=(Math.floor(Math.random()*10)*100-1)+100;
 			  _str+="<span class=\"money\"> ¥"+num+"</span>";
-			  _str+="<span class=\"goods-points zs\"> 加"+data[i]["points"]+" 分</span>";
+			  _str+="<span class=\"goods-points zs\"> 加"+parseInt(data[i]["points"])/100+Math.floor(Math.random()*1000)+" 分</span>";
 			  _str+="</span>";
 			_str+="</li>";
 		};
+		if(m<=0){
+			_str="......无记录.....";
+		}
 		$goodslist.html(_str);
-
 
 	}
 
