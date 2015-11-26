@@ -233,7 +233,7 @@ $(function(){
 		var p = parseInt($mypoints.html());
 		var id=setInterval(function  () {
 			if(p<sum){
-				p+=Math.floor(Math.random()*100+100);
+				p+=Math.floor(Math.random()*100+sum*0.1);
 				$mypoints.html(p);
 			}else{
 				$mypoints.html(sum);
