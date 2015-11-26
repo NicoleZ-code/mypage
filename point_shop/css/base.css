@@ -111,6 +111,7 @@ iframe{
 .listbox .list li.empty{
   text-align: center;
   line-height: 56px;
+  color: #ccc;
 }
 .listbox .list .item-title{
   position: absolute;
@@ -128,7 +129,7 @@ iframe{
 .listbox .list .date{
   position: absolute;
   left: 30px;
-  bottom: 11px;
+  bottom: 10px;
   font-size: 10px;
   height: 14px;
   line-height: 14px;

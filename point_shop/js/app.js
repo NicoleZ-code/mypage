@@ -229,7 +229,7 @@ $(function(){
 			_str="<li class=\"empty\">无记录</li>";
 		}
 		$pointslist.append(_str);
-		$(".item-title").width($(window).width()-60-100);
+		$(".item-title").width($(window).width()-60-60);
 		var p = parseInt($mypoints.html());
 		var id=setInterval(function  () {
 			if(p<sum){
