@@ -262,7 +262,7 @@ $(function(){
 			_str+="<span class=\"goods-title\">"+data[i]["title"]+"00"+i+"</span>";
 				num=(Math.floor(Math.random()*10)*100-1)+100;
 			  _str+="<span class=\"money\"> ¥"+num+"</span>";
-			  _str+="<span class=\"goods-points zs\"> 加"+parseInt(data[i]["points"])/100+Math.floor(Math.random()*1000)+" 分</span>";
+			  _str+="<span class=\"goods-points zs\"> 加"+parseInt(data[i]["points"])/100+Math.floor(Math.random()*1000)+"分</span>";
 			  _str+="</span>";
 			_str+="</li>";
 		};
