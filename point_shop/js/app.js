@@ -28,43 +28,15 @@ $(function(){
 			},{
 				title:"分享运动文章",
 				date:"2015-11-22 21:42:22",
-				points:"1000"
+				points:"7000"
 			},{
 				title:"分享运动文章",
 				date:"2015-11-22 21:42:22",
-				points:"1000"
+				points:"8000"
 			},{
 				title:"购买限量版阿迪达斯红色运动鞋一双",
 				date:"2015-11-22 21:42:22",
 				points:"-700"
-			},{
-				title:"分享运动文章",
-				date:"2015-11-22 21:42:22",
-				points:"300"
-			},{
-				title:"购买限量版阿迪达斯红色运动鞋一双",
-				date:"2015-11-22 21:42:22",
-				points:"-5000"
-			},{
-				title:"分享运动文章",
-				date:"2015-11-22 21:42:22",
-				points:"500"
-			},{
-				title:"购买限量版阿迪达斯红色运动鞋一双",
-				date:"2015-11-22 21:42:22",
-				points:"-5000"
-			},{
-				title:"分享运动文章",
-				date:"2015-11-22 21:42:22",
-				points:"1000"
-			},{
-				title:"分享运动文章",
-				date:"2015-11-22 21:42:22",
-				points:"1000"
-			},{
-				title:"购买限量版阿迪达斯红色运动鞋一双",
-				date:"2015-11-22 21:42:22",
-				points:"-500"
 			},{
 				title:"分享运动文章",
 				date:"2015-11-22 21:42:22",
@@ -84,7 +56,35 @@ $(function(){
 			},{
 				title:"分享运动文章",
 				date:"2015-11-22 21:42:22",
+				points:"11000"
+			},{
+				title:"分享运动文章",
+				date:"2015-11-22 21:42:22",
 				points:"1000"
+			},{
+				title:"购买限量版阿迪达斯红色运动鞋一双",
+				date:"2015-11-22 21:42:22",
+				points:"-500"
+			},{
+				title:"分享运动文章",
+				date:"2015-11-22 21:42:22",
+				points:"3300"
+			},{
+				title:"购买限量版阿迪达斯红色运动鞋一双",
+				date:"2015-11-22 21:42:22",
+				points:"-5000"
+			},{
+				title:"分享运动文章",
+				date:"2015-11-22 21:42:22",
+				points:"5000"
+			},{
+				title:"购买限量版阿迪达斯红色运动鞋一双",
+				date:"2015-11-22 21:42:22",
+				points:"-5000"
+			},{
+				title:"分享运动文章",
+				date:"2015-11-22 21:42:22",
+				points:"12000"
 			}
 		]
 
@@ -212,24 +212,27 @@ $(function(){
 	   	var m2 =Math.floor(Math.random()*data.length);
 	   	var sum = 0;
 	   	var w=$(window).width()-60-60;
+
 	   	$pointslist.empty();
 		for (var i = m1; i < m2; i++) {
 			_str+="<li>";
 			_str+="<span class=\"item-title\" style='width:"+w+"px'>"+data[i]["title"]+"</span>";
 			_str+="<span class=\"date\">"+data[i]["date"]+"</span>";
 			if(data[i]["points"]>=0){
-				_str+="<span class=\"item-points zs\">"+data[i]["points"]+"</span>";
-				sum += parseInt(data[i]["points"]);
+				_str+="<span class=\"item-points zs\">"+data[i]["points"]+"</span>";				
 			}else{
 				_str+="<span class=\"item-points fs\">"+data[i]["points"]+"</span>";
-				sum -= parseInt(data[i]["points"]);
 			}
+			sum += parseInt(data[i]["points"]);
 			_str+="</li>";
 		};
 		if(sum==0){
 			_str="<li class=\"empty\">无记录</li>";
 		}
 		$pointslist.append(_str);
+
+	   	// console.log(sum)
+
 		var p = parseInt($mypoints.html());
 		var id=setInterval(function  () {
 			if(p<sum){
