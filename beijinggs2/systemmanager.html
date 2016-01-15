@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>北京纳税人网-登陆后系统管理</title>
+</head>
+<body class="system_body">
+<div class="system">
+<div id="fpinfotabs" class="comtabs">
+	<div class="tabs">
+		<span class="active">门户背景替换</span>
+		<span>APP链接替换</span>		
+	</div>
+	<div class="contents">
+				<!--sub01-start-->
+		<div  class="item">
+			<div class="select_image">选择门户背景</div>
+			<div>单击某个图片使其成为您的门户首页背景，或选择本地图片。</div>
+			<div>图片位置:<input type="file" style="border:0;margin-left:10px;width: auto;" /></div>
+			<!-- <div>已有的照片</div> -->
+			<div class="photo_select"></div>
+			<div>
+			<div>照片信息</div>	
+			<div>
+				<span>名称：</span><input type="text" />
+			</div>
+			<div class="photo_left">
+
+			<div>
+				<span>作者：</span><input type="text" />
+			</div>
+			</div>
+			<div class="photo_right">
+			<span class="cancle_photo btn_hover">取消</span>
+			</div>
+			<div style="clear:both"></div>
+			</div>
+			<div style="margin-top:30px"><span class="yulan cancle_photo btn_hover"style="margin-left:0">预览</span><span class="sure cancle_photo btn_hover">确定</span></div>
+		</div>	
+	<div class="item" >
+		<table style='width:600px' >
+			<tr>
+			<td><img src="images/app01.png" width="60px" height="60px"></td>
+			<td><input type="text" style="width:260px"/></td>
+			<td><span class="yulan cancle_photo btn_hover" style="margin-left:0">编辑</span><span class="yulan cancle_photo btn_hover" style="margin-left:20px">保存</span></td>
+			</tr>
+			<tr>
+			<td><img src="images/app01.png" width="60px" height="60px"></td>
+			<td><input type="text" style="width:260px"/></td>
+			<td><span class="yulan cancle_photo btn_hover" style="margin-left:0">编辑</span><span class="yulan cancle_photo btn_hover" style="margin-left:20px">保存</span></td>
+			</tr>
+			<tr>
+			<td><img src="images/app01.png" width="60px" height="60px"></td>
+			<td><input type="text" style="width:260px"/></td>
+			<td><span class="yulan cancle_photo btn_hover" style="margin-left:0">编辑</span><span class="yulan cancle_photo btn_hover" style="margin-left:20px">保存</span></td>
+			</tr>
+		</table>
+	</div>
+</div>
+</div>
+</div>
+<script>
+	$(function(){
+		//切换事件
+		tabs_init({
+			tabsId: "#fpinfotabs",
+			menuItem: ".tabs span",
+			contentItem: ".contents .item",
+			eventType: "click",
+			callbackfn:null
+		});
+	})
+</script>
+</body>
+</html>
