@@ -31,7 +31,7 @@ require(['jquery',
 	var bgsound = $('#sound')[0];
 
 	$window.on('beforeunload',function(){
-        bgsound.pause();
+        bgsound.paused();
     });
 
     music_btn.on('click', function(){
@@ -42,7 +42,7 @@ require(['jquery',
 			music_btn.removeClass('active');
 			bgsound.pause();
 		}
-	});
+	}).trigger("click");
 
 	var mySwiper = new Swiper('#stage', {
 		direction: 'horizontal',
@@ -52,80 +52,294 @@ require(['jquery',
 			var currentslide = $(swiper.slides[pageindex]);
 			var func = currentslide.data('function');
 
-			if(!currentslide.hasClass('loaded') && func){
-				currentslide.addClass('loaded');
+			if(!currentslide.hasClass('loaded')&&func){
+				currentslide.addClass('loaded');				
+				//killTweens(pageindex);
 				eval(func + '()');
 			}
-
 		}
 	});
 
 	function startAnimation(){
-		TweenMax.fromTo('.img1_0', 0.6, {
-			autoAlpha: 0,
-			x: '-100%'
+		
+		TweenMax.fromTo('.img01_01', 1.5, {
+			autoAlpha: 0
 		},{
 			autoAlpha: 1,
-			x: '0%',
 			ease: Back.easeOut
 		});
 
-		TweenMax.fromTo('.img1_1', 1.0, {
-			autoAlpha: 0,
-			x: '100%'
+		TweenMax.fromTo('.img01_02', 3, {
+			scale: 0,
+			autoAlpha: 0
 		},{
-			autoAlpha: 1,
-			x: '0%',
+			autoAlpha:1,
+			scale: 1,
 			ease: Bounce.easeOut,
-			delay: 0.8
+			delay: 0.5
 		});
 
-		TweenMax.fromTo('.img1_2', 1.0, {
-			autoAlpha: 0,
-			rotation: '540deg',
-			scale: 0
+		TweenMax.fromTo('.img01_03', 1.5, {
+			scaleX: 0,
+			autoAlpha: 0
 		},{
-			autoAlpha: 1,
-			rotation: '0deg',
-			scale: 1,
-			delay: 2.0
+			autoAlpha:1,
+			scaleX: 1,
+			delay: 1.5
 		});
 
-		TweenMax.fromTo('.img1_3', 1.2, {
+		TweenMax.fromTo('.img01_04', 1.5, {
 			autoAlpha: 0,
-			scale: 1.2
+			y: 20
 		},{
 			autoAlpha: 1,
-			scale: 1,
+			y: 0,
 			ease: Elastic.easeOut,
-			delay: 3.4
+			delay: 2.5
 		});
 	}
 
 	function sceneAnimation2(){
+		TweenMax.fromTo('.img02_0', 1.5, {
+			autoAlpha: 0
+		},{
+			autoAlpha: 1,
+			ease: Back.easeOut
+		});
 
+		TweenMax.fromTo('.img02_01', 1.5, {
+			x: 100,
+			autoAlpha: 0
+		},{
+			autoAlpha:1,
+			x: 0,
+			delay: 0.5
+		});
+		TweenMax.fromTo('.img02_04 ', 1.5, {
+			autoAlpha: 0
+		},{
+			autoAlpha:1,
+			delay: 1.5
+		});
+		TweenMax.fromTo('.img02_02', 1, {
+			autoAlpha: 0
+		},{
+			autoAlpha:1,
+			delay: 2.6
+		});
+		TweenMax.fromTo('.img02_03', 1.8, {
+			scale: 0.1,
+			autoAlpha: 0.2,
+			x:-30,
+			y:50,
+		},{
+			autoAlpha:1,
+			scale: 1,
+			x:0,
+			y:0,
+			delay: 1.5
+		});
 	}
 
 	function sceneAnimation3(){
+		TweenMax.fromTo('.img03_01', 1.5, {
+			autoAlpha: 0
+		},{
+			autoAlpha: 1,
+			ease: Back.easeOut
+		});
+		TweenMax.set('.img03_02,img03_draw', {autoAlpha: 1,delay:0});
 
+		TweenMax.fromTo('.img03_draw', 80, {
+			'background-position':'0 center'
+		},{
+			'background-position':-1000+'px center',
+			repeat:-1
+		});
+		TweenMax.fromTo('.img03_04', 1.8, {
+			autoAlpha: 0,
+			scale:0
+		},{
+			autoAlpha: 1,
+			scale:1,
+			ease: Back.easeOut,
+			delay:0.8
+		});
+		TweenMax.fromTo('.img03_03', 1.5, {
+			autoAlpha: 0,
+			x:50
+		},{
+			x:0,
+			autoAlpha: 1,
+			ease: Back.easeOut,
+			delay:2
+		});
+		TweenMax.fromTo('.img03_05', 2.5, {
+			autoAlpha: 0,
+			y:100
+		},{
+			autoAlpha: 1,
+			y:0,
+			ease: Back.easeOut,
+			delay:2.5
+		});
+		
 	}
 
 	function sceneAnimation4(){
+		TweenMax.fromTo('.img04_01', 1.5, {
+			autoAlpha: 0,
+			x:-100
+		},{
+			x:0,
+			autoAlpha: 1,
+			ease: Back.easeOut,
+			delay:0
+		});
+		TweenMax.fromTo('.img04_05', 2.5, {
+			autoAlpha: 0,
+			y:100
+		},{
+			autoAlpha: 1,
+			y:0,
+			ease: Back.easeOut,
+			delay:2.5
+		});
+		TweenMax.set('.img04_02,img04_light', {autoAlpha: 1,delay:0});
 
+		TweenMax.fromTo('.img04_light', 5, {
+			'background-position':'0 center'
+		},{
+			'background-position':36+'% center'
+		});
+		TweenMax.fromTo('.img04_03', 1.5, {
+			autoAlpha: 0,
+			rotation: '540deg',
+		},{
+			autoAlpha: 1,
+			rotation: '0deg',
+			ease: Back.easeOut,
+			delay:1.5
+		});
+		TweenMax.fromTo('.img04_04', 1, {
+			autoAlpha: 0,
+			rotation: '-10deg',
+			scale: 0,
+		},{
+			autoAlpha: 1,
+			rotation: '0deg',
+			scale:1,
+			ease: Back.easeOut,
+			delay:3
+		});
 	}
 
 	function sceneAnimation5(){
-
+		TweenMax.fromTo('.img05_01', 1.5, {
+			autoAlpha: 0
+		},{
+			autoAlpha: 1,
+			ease: Back.easeOut
+		});
+		TweenMax.fromTo('.img05_02', 1, {
+			autoAlpha: 0,
+			x:200
+		},{
+			x:0,
+			autoAlpha:1,
+			delay: 0.6,
+			ease: Back.easeOut
+		});
+		TweenMax.fromTo('.img05_03', 1.8, {
+			scale: 0.1,
+			autoAlpha: 0.2,
+			x:-30,
+			y:50,
+		},{
+			autoAlpha:1,
+			scale: 1,
+			x:0,
+			y:0,
+			delay: 1.5
+		});
 	}
 
 	function sceneAnimation6(){
-
+		TweenMax.fromTo('.img06_01', 1, {
+			scale: 0,
+			autoAlpha: 0
+		},{
+			autoAlpha:1,
+			scale: 1,
+			ease: Bounce.easeOut,
+			delay: 0
+		});
+		TweenMax.fromTo('.img06_02', 1.5, {
+			autoAlpha: 0,
+			rotation: '540deg',
+			scale:2
+		},{
+			autoAlpha: 1,
+			scale:0.8,
+			rotation: '0deg',
+			ease: Back.easeOut,
+			delay:1,
+			onComplete:function(){
+				TweenMax.fromTo('.img06_02', 0.5, {
+					scale: 0.8
+				},{
+					scale: 1,
+					ease: Bounce.easeOut
+				});
+			}
+		});
+		TweenMax.fromTo('.img06_03', 1, {
+			autoAlpha: 0
+		},{
+			autoAlpha:1,
+			ease: Bounce.easeOut,
+			delay: 2.5
+		});
+		TweenMax.fromTo('.img06_04', 1, {
+			y: 50,
+			autoAlpha: 0
+		},{
+			autoAlpha:1,
+			y: 0,
+			ease: Bounce.easeOut,
+			delay: 3
+		});
 	}
 	function sceneAnimation7(){
-
+		TweenMax.fromTo('.img07_01', 2, {
+			scale: 0,
+			autoAlpha: 0
+		},{
+			autoAlpha:1,
+			scale: 1,
+			ease: Bounce.easeOut,
+			delay: 0
+		});
+		var arryScene = [".img07_02", ".form",  ".img07_03", ".img07_03", ".img07_04",".img07_05"];
+		TweenMax.staggerTo(arryScene, 
+			1,  
+			{
+				autoAlpha: 1,
+				ease: Bounce.easeOut
+			},
+			0.5		
+		);
 	}
 
-
+	function killTweens(pageindex) {
+		TweenMax.killChildTweensOf('#stage');
+		init(pageindex);
+	}
+	function init(pageindex){
+		TweenMax.set('.scene .imgBox',{
+			autoAlpha: 0
+		})
+	}
 
     var $showshu = $('.shuzi');
 	var $mycanvas = $('.showprogress');
