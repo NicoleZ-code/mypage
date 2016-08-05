@@ -380,17 +380,23 @@ require(['jquery',
 	function loadPicture(){
         imgPreloading.preload({
             onLoad: function(loadCount, totalCount, source){
-                var value = parseInt(loadCount / totalCount * 100) + '%'
+                var value = parseInt(loadCount / totalCount * 100) + '%';
+                var flag = true;
                 $showshu.text(value);
                 $pp.width(value);
                 console.log(value, source);
+                if(value>0.5&&flag){
+                	$mycanvas.remove();
+                    startAnimation();
+                    flag = false;
+                }
             },
             onComplete: function(){
                 TweenMax.to($mycanvas, .5, {
                     // autoAlpha: 0,
                     onComplete: function(){
-                        $mycanvas.remove();
-                        startAnimation();
+                        // $mycanvas.remove();
+                        // startAnimation();
                     }
                 });
             },
