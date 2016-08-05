@@ -228,10 +228,10 @@ button {
   background-repeat: no-repeat;
 }
 .scene2 .img02_circlelight {
-  width: 54%;
+  width: 34%;
   position: absolute;
-  bottom: 6%;
-  left: 10%;
+  bottom: 0%;
+  left: 26%;
 }
 .scene3 .img03_01 {
   width: 20.4%;
@@ -241,7 +241,7 @@ button {
 #stage .scene3 .img03_draw {
   width: 75.3%;
   margin: 0 auto;
-  background-size: auto 99.9%;
+  background-size: auto 99%;
   -webkit-animation: bgposition 80s ease infinite;
   -moz-animation: bgposition 80s ease infinite;
   -o-animation: bgposition 80s ease infinite;
@@ -254,6 +254,7 @@ button {
 }
 #stage .scene3 .img03_02 {
   opacity: 1;
+  background-color: transparent;
 }
 .scene3 .img03_03 {
   width: 47.37%;
@@ -271,6 +272,23 @@ button {
   position: relative;
   margin: 5% auto 0% auto;
 }
+#stage .scene3 .img03_star {
+  position: absolute;
+  right: -14%;
+  bottom: 11%;
+  width: 80%;
+  -webkit-animation: ss 1s ease infinite;
+  -moz-animation: ss 1s ease infinite;
+  -o-animation: ss 1s ease infinite;
+  animation: ss 1s ease infinite;
+  opacity: 1;
+}
+#stage .scene3 .img03_deer {
+  position: absolute;
+  left: 21%;
+  bottom: 8%;
+  width: 18%;
+}
 .scene4 .img04_01 {
   width: 23.125%;
   position: absolute;
@@ -282,8 +300,8 @@ button {
   position: absolute;
   right: 13%;
   top: 10%;
-  -webkit-background-size: auto 100%;
-  background-size: auto 100%;
+  -webkit-background-size: auto 99%;
+  background-size: auto 99%;
   background-position: 0% center;
   -webkit-animation: bgposition2 6s 10s ease infinite alternate;
   -moz-animation: bgposition2 6s 10s ease infinite alternate;
@@ -339,12 +357,6 @@ button {
   width: 31.25%;
   top: 36%;
   left: 19%;
-}
-.scene5 .img05_gold {
-  width: 36.1%;
-  position: absolute;
-  left: 20%;
-  bottom: 0%;
 }
 .scene6 .imgBox {
   margin: 0 auto;
@@ -411,7 +423,7 @@ button {
   color: #ae894d;
   font-size: 16px;
   background-color: #fff;
-  margin-bottom: 3%;
+  margin-bottom: 3.5%;
   border: none;
   border-radius: 0;
   -webkit-border-radius: 0;
@@ -537,13 +549,15 @@ button {
     transform: scale(1);
   }
 }
-@-webkit-keyframes opclass {
+@-webkit-keyframes ss {
   0% {
     opacity: 1;
   }
-  70%,
-  100% {
+  50% {
     opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 @-webkit-keyframes upc {

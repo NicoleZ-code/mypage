@@ -202,7 +202,16 @@ require(['jquery',
 			ease: Back.easeOut,
 			delay:2.5
 		});
-		
+
+		TweenMax.fromTo('.img03_deer', 3.5, {
+			autoAlpha: 0,
+			rotation: '-40deg',
+		},{
+			autoAlpha: 1,
+			rotation: '0deg',
+			delay: 1.5,
+			transformOrigin:"50% 100%"
+		});
 	}
 
 	function sceneAnimation4(){
@@ -224,7 +233,7 @@ require(['jquery',
 			ease: Back.easeOut,
 			delay:2.5
 		});
-		TweenMax.set('.img04_02,img04_light', {autoAlpha: 1,delay:0});
+		//TweenMax.set('.img04_02,img04_light', {autoAlpha: 1,delay:0});
 
 		// TweenMax.fromTo('.img04_light', 5, {
 		// 	'background-position':'0% center'
@@ -280,16 +289,6 @@ require(['jquery',
 			x:0,
 			y:0,
 			delay: 1.5
-		});
-		
-		TweenMax.fromTo('.img05_gold', 2, {
-			autoAlpha: 0,
-			scale:0
-		},{
-			autoAlpha: 1,
-			scale:1,
-			delay: 1.5,
-			transformOrigin:"50% 100%"
 		});
 		
 	}
