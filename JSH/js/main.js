@@ -29,6 +29,7 @@ require(['jquery',
     var $body = $('body');
 	var music_btn = $('.sound');
 	var bgsound = $('#sound')[0];
+    var arrow_up = $('.arrow_up');
 
 	$window.on('beforeunload',function(){
         bgsound.paused();
@@ -42,11 +43,13 @@ require(['jquery',
 			music_btn.removeClass('active');
 			bgsound.pause();
 		}
-	}).trigger("click");
+	});//.trigger("click");
 
 	var mySwiper = new Swiper('#stage', {
 		direction: 'horizontal',
 		loop: false,
+		prevButton:'.arrow_left',
+		nextButton:'.arrow_right',
 		onSlideChangeEnd: function(swiper){
 			var pageindex = swiper.activeIndex;
 			var currentslide = $(swiper.slides[pageindex]);
@@ -56,6 +59,11 @@ require(['jquery',
 				currentslide.addClass('loaded');				
 				//killTweens(pageindex);
 				eval(func + '()');
+			}
+			if(swiper.activeIndex == (swiper.slides.length - 1)){
+				arrow_up.addClass('arrhide');
+			}else{
+				arrow_up.removeClass('arrhide');
 			}
 		}
 	});
@@ -137,7 +145,17 @@ require(['jquery',
 			scale: 1,
 			x:0,
 			y:0,
-			delay: 1.5
+			delay: 1.5,
+			onComplete:function(){
+				TweenMax.fromTo('.img02_circlelight', 1.5, {
+					autoAlpha: 0,
+					scale:0
+				},{
+					scale:1,
+					autoAlpha: 1,
+					ease: Back.easeOut
+				});
+			}
 		});
 	}
 
@@ -150,12 +168,13 @@ require(['jquery',
 		});
 		TweenMax.set('.img03_02,img03_draw', {autoAlpha: 1,delay:0});
 
-		TweenMax.fromTo('.img03_draw', 80, {
-			'background-position':'0 center'
-		},{
-			'background-position':-1000+'px center',
-			repeat:-1
-		});
+		// TweenMax.fromTo('.img03_draw', 80, {
+		// 	'background-position':'0 center'
+		// },{
+		// 	'background-position':-1000+'px center',
+		// 	repeat:-1
+		// });
+		$('.img03_draw').animate
 		TweenMax.fromTo('.img03_04', 1.8, {
 			autoAlpha: 0,
 			scale:0
@@ -207,11 +226,11 @@ require(['jquery',
 		});
 		TweenMax.set('.img04_02,img04_light', {autoAlpha: 1,delay:0});
 
-		TweenMax.fromTo('.img04_light', 5, {
-			'background-position':'0 center'
-		},{
-			'background-position':36+'% center'
-		});
+		// TweenMax.fromTo('.img04_light', 5, {
+		// 	'background-position':'0% center'
+		// },{
+		// 	'background-position':36+'% center'
+		// });
 		TweenMax.fromTo('.img04_03', 1.5, {
 			autoAlpha: 0,
 			rotation: '540deg',
@@ -262,6 +281,17 @@ require(['jquery',
 			y:0,
 			delay: 1.5
 		});
+		
+		TweenMax.fromTo('.img05_gold', 2, {
+			autoAlpha: 0,
+			scale:0
+		},{
+			autoAlpha: 1,
+			scale:1,
+			delay: 1.5,
+			transformOrigin:"50% 100%"
+		});
+		
 	}
 
 	function sceneAnimation6(){
