@@ -43,7 +43,7 @@ require(['jquery',
 			music_btn.removeClass('active');
 			bgsound.pause();
 		}
-	}).trigger("click");
+	});//.trigger("click");
 
 	var mySwiper = new Swiper('#stage', {
 		direction: 'horizontal',
