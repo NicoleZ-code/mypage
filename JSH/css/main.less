@@ -272,6 +272,14 @@ button {
   .animation(ss 1s ease infinite);
   opacity: 1;
 }
+#stage .scene3 .img03_star2{
+  position: absolute;
+  right: 14%;
+  bottom: 11%;
+  width:80%;
+  .animation(ss2 1s ease infinite);
+  opacity: 0;
+}
 #stage .scene3 .img03_deer{
   position: absolute;
   left: 21%;
@@ -340,6 +348,22 @@ button {
   width: 31.25%;
   top: 36%;
   left: 19%;
+}
+.scene5 .img05_star{
+  position: absolute;
+  right: -14%;
+  bottom: 11%;
+  width:80%;
+  .animation(ss 1s ease infinite);
+  opacity: 1;  
+}
+.scene5 .img05_star2{
+  position: absolute;
+  left: 4%;
+  bottom: 24%;
+  width: 84%;
+  .animation(ss2 1s ease infinite);
+  opacity: 0;
 }
 .scene6 .imgBox {
   margin: 0 auto;
@@ -489,7 +513,17 @@ button {
     opacity: 1;
   }
 }
-
+@-webkit-keyframes ss2{
+  0%{
+    opacity: 0
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
 @-webkit-keyframes upc{
   0%{
     .translate(0, 0);
