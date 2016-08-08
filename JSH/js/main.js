@@ -1,7 +1,7 @@
 require.config({
 	baseUrl:'./',
 	paths:{
-		'jquery':'vendors/jquery/dist/jquery.min',
+		'jquery':'vendors/jquery/jquery.min',
 		'swiper':'vendors/Swiper-master/dist/js/swiper.min',
 		'sweetalert':'vendors/sweetalert/lib/sweet-alert.min',
 		'validator':'vendors/validator-js/validator.min',
@@ -9,7 +9,7 @@ require.config({
 		'domReady':'vendors/requirejs-domready/domReady'
 	},
 	packages:[
-		{name:'greensock',main:'',location:'vendors/greensock/src/minified'},
+		{name:'greensock',main:'',location:'vendors/greensock/'},
 		{name:'extra',main:'',location:'vendors/extra'}
 	]
 });
