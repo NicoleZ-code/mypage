@@ -25,6 +25,7 @@ require(['jquery',
 		 'domReady!'],
    function($,validator,imgPreloading){
 	
+	var T = TweenMax;
 	var $window = $(window);
     var $body = $('body');
 	var music_btn = $('.sound');
@@ -70,14 +71,14 @@ require(['jquery',
 
 	function startAnimation(){
 		
-		TweenMax.fromTo('.img01_01', 1.5, {
+		T.fromTo('.img01_01', 1.5, {
 			autoAlpha: 0
 		},{
 			autoAlpha: 1,
 			ease: Back.easeOut
 		});
 
-		TweenMax.fromTo('.img01_02', 3, {
+		T.fromTo('.img01_02', 3, {
 			scale: 0,
 			autoAlpha: 0
 		},{
@@ -87,7 +88,7 @@ require(['jquery',
 			delay: 0.5
 		});
 
-		TweenMax.fromTo('.img01_03', 1.5, {
+		T.fromTo('.img01_03', 1.5, {
 			scaleX: 0,
 			autoAlpha: 0
 		},{
@@ -96,7 +97,7 @@ require(['jquery',
 			delay: 1.5
 		});
 
-		TweenMax.fromTo('.img01_04', 1.5, {
+		T.fromTo('.img01_04', 1.5, {
 			autoAlpha: 0,
 			y: 20
 		},{
@@ -108,14 +109,14 @@ require(['jquery',
 	}
 
 	function sceneAnimation2(){
-		TweenMax.fromTo('.img02_0', 1.5, {
+		T.fromTo('.img02_0', 1.5, {
 			autoAlpha: 0
 		},{
 			autoAlpha: 1,
 			ease: Back.easeOut
 		});
 
-		TweenMax.fromTo('.img02_01', 1.5, {
+		T.fromTo('.img02_01', 1.5, {
 			x: 100,
 			autoAlpha: 0
 		},{
@@ -123,19 +124,19 @@ require(['jquery',
 			x: 0,
 			delay: 0.5
 		});
-		TweenMax.fromTo('.img02_04 ', 1.5, {
+		T.fromTo('.img02_04 ', 1.5, {
 			autoAlpha: 0
 		},{
 			autoAlpha:1,
 			delay: 1.5
 		});
-		TweenMax.fromTo('.img02_02', 1, {
+		T.fromTo('.img02_02', 1, {
 			autoAlpha: 0
 		},{
 			autoAlpha:1,
 			delay: 2.6
 		});
-		TweenMax.fromTo('.img02_03', 1.8, {
+		T.fromTo('.img02_03', 1.8, {
 			scale: 0.1,
 			autoAlpha: 0.2,
 			x:-30,
@@ -147,7 +148,7 @@ require(['jquery',
 			y:0,
 			delay: 1.5,
 			onComplete:function(){
-				TweenMax.fromTo('.img02_circlelight', 1.5, {
+				T.fromTo('.img02_circlelight', 1.5, {
 					autoAlpha: 0,
 					scale:0
 				},{
@@ -160,22 +161,22 @@ require(['jquery',
 	}
 
 	function sceneAnimation3(){
-		TweenMax.fromTo('.img03_01', 1.5, {
+		T.fromTo('.img03_01', 1.5, {
 			autoAlpha: 0
 		},{
 			autoAlpha: 1,
 			ease: Back.easeOut
 		});
-		TweenMax.set('.img03_02,img03_draw', {autoAlpha: 1,delay:0});
+		T.set('.img03_02,img03_draw', {autoAlpha: 1,delay:0});
 
-		// TweenMax.fromTo('.img03_draw', 80, {
+		// T.fromTo('.img03_draw', 80, {
 		// 	'background-position':'0 center'
 		// },{
 		// 	'background-position':-1000+'px center',
 		// 	repeat:-1
 		// });
 		$('.img03_draw').animate
-		TweenMax.fromTo('.img03_04', 1.8, {
+		T.fromTo('.img03_04', 1.8, {
 			autoAlpha: 0,
 			scale:0
 		},{
@@ -184,7 +185,7 @@ require(['jquery',
 			ease: Back.easeOut,
 			delay:0.8
 		});
-		TweenMax.fromTo('.img03_03', 1.5, {
+		T.fromTo('.img03_03', 1.5, {
 			autoAlpha: 0,
 			x:50
 		},{
@@ -193,7 +194,7 @@ require(['jquery',
 			ease: Back.easeOut,
 			delay:2
 		});
-		TweenMax.fromTo('.img03_05', 2.5, {
+		T.fromTo('.img03_05', 2.5, {
 			autoAlpha: 0,
 			y:100
 		},{
@@ -203,7 +204,7 @@ require(['jquery',
 			delay:2.5
 		});
 
-		TweenMax.fromTo('.img03_deer', 3.5, {
+		T.fromTo('.img03_deer', 3.5, {
 			autoAlpha: 0,
 			rotation: '-40deg',
 		},{
@@ -215,7 +216,7 @@ require(['jquery',
 	}
 
 	function sceneAnimation4(){
-		TweenMax.fromTo('.img04_01', 1.5, {
+		T.fromTo('.img04_01', 1.5, {
 			autoAlpha: 0,
 			x:-100
 		},{
@@ -224,7 +225,7 @@ require(['jquery',
 			ease: Back.easeOut,
 			delay:0
 		});
-		TweenMax.fromTo('.img04_05', 2.5, {
+		T.fromTo('.img04_05', 2.5, {
 			autoAlpha: 0,
 			y:100
 		},{
@@ -233,14 +234,14 @@ require(['jquery',
 			ease: Back.easeOut,
 			delay:2.5
 		});
-		//TweenMax.set('.img04_02,img04_light', {autoAlpha: 1,delay:0});
+		//T.set('.img04_02,img04_light', {autoAlpha: 1,delay:0});
 
-		// TweenMax.fromTo('.img04_light', 5, {
+		// T.fromTo('.img04_light', 5, {
 		// 	'background-position':'0% center'
 		// },{
 		// 	'background-position':36+'% center'
 		// });
-		TweenMax.fromTo('.img04_03', 1.5, {
+		T.fromTo('.img04_03', 1.5, {
 			autoAlpha: 0,
 			rotation: '540deg',
 		},{
@@ -249,7 +250,7 @@ require(['jquery',
 			ease: Back.easeOut,
 			delay:1.5
 		});
-		TweenMax.fromTo('.img04_04', 1, {
+		T.fromTo('.img04_04', 1, {
 			autoAlpha: 0,
 			rotation: '-10deg',
 			scale: 0,
@@ -263,13 +264,13 @@ require(['jquery',
 	}
 
 	function sceneAnimation5(){
-		TweenMax.fromTo('.img05_01', 1.5, {
+		T.fromTo('.img05_01', 1.5, {
 			autoAlpha: 0
 		},{
 			autoAlpha: 1,
 			ease: Back.easeOut
 		});
-		TweenMax.fromTo('.img05_02', 1, {
+		T.fromTo('.img05_02', 1, {
 			autoAlpha: 0,
 			x:200
 		},{
@@ -278,7 +279,7 @@ require(['jquery',
 			delay: 0.6,
 			ease: Back.easeOut
 		});
-		TweenMax.fromTo('.img05_03', 1.8, {
+		T.fromTo('.img05_03', 1.8, {
 			scale: 0.1,
 			autoAlpha: 0.2,
 			x:-30,
@@ -294,7 +295,7 @@ require(['jquery',
 	}
 
 	function sceneAnimation6(){
-		TweenMax.fromTo('.img06_01', 1, {
+		T.fromTo('.img06_01', 1, {
 			scale: 0,
 			autoAlpha: 0
 		},{
@@ -303,7 +304,7 @@ require(['jquery',
 			ease: Bounce.easeOut,
 			delay: 0
 		});
-		TweenMax.fromTo('.img06_02', 1.5, {
+		T.fromTo('.img06_02', 1.5, {
 			autoAlpha: 0,
 			rotation: '540deg',
 			scale:2
@@ -314,7 +315,7 @@ require(['jquery',
 			ease: Back.easeOut,
 			delay:1,
 			onComplete:function(){
-				TweenMax.fromTo('.img06_02', 0.5, {
+				T.fromTo('.img06_02', 0.5, {
 					scale: 0.8
 				},{
 					scale: 1,
@@ -322,14 +323,14 @@ require(['jquery',
 				});
 			}
 		});
-		TweenMax.fromTo('.img06_03', 1, {
+		T.fromTo('.img06_03', 1, {
 			autoAlpha: 0
 		},{
 			autoAlpha:1,
 			ease: Bounce.easeOut,
 			delay: 2.5
 		});
-		TweenMax.fromTo('.img06_04', 1, {
+		T.fromTo('.img06_04', 1, {
 			y: 50,
 			autoAlpha: 0
 		},{
@@ -340,7 +341,7 @@ require(['jquery',
 		});
 	}
 	function sceneAnimation7(){
-		TweenMax.fromTo('.img07_01', 2, {
+		T.fromTo('.img07_01', 2, {
 			scale: 0,
 			autoAlpha: 0
 		},{
@@ -350,7 +351,7 @@ require(['jquery',
 			delay: 0
 		});
 		var arryScene = [".img07_02", ".form",  ".img07_03", ".img07_03", ".img07_04",".img07_05"];
-		TweenMax.staggerTo(arryScene, 
+		T.staggerTo(arryScene, 
 			1,  
 			{
 				autoAlpha: 1,
@@ -361,11 +362,11 @@ require(['jquery',
 	}
 
 	function killTweens(pageindex) {
-		TweenMax.killChildTweensOf('#stage');
+		T.killChildTweensOf('#stage');
 		init(pageindex);
 	}
 	function init(pageindex){
-		TweenMax.set('.scene .imgBox',{
+		T.set('.scene .imgBox',{
 			autoAlpha: 0
 		})
 	}
@@ -392,7 +393,7 @@ require(['jquery',
                 // }
             },
             onComplete: function(){
-                TweenMax.to($mycanvas, .5, {
+                T.to($mycanvas, .5, {
                     // autoAlpha: 0,
                     onComplete: function(){
                         $mycanvas.remove();
