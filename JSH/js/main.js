@@ -35,7 +35,7 @@ require(['jquery',
 	$window.on('beforeunload',function(){
         bgsound.paused();
     });
-
+    
     music_btn.on('click', function(){
 		if(bgsound.paused){
 			music_btn.addClass('active');
@@ -69,6 +69,8 @@ require(['jquery',
 		}
 	});
 
+
+    //Animation
 	function startAnimation(){
 		
 		T.fromTo('.img01_01', 1.5, {
@@ -404,6 +406,22 @@ require(['jquery',
             onError: function(){}
         });
     }
-
-	
+     //ajax btnSubmit
+ 	function downloadJSAtOnload() {
+		var element = document.createElement("script");
+		element.src = "http://res.wx.qq.com/open/js/jweixin-1.0.0.js";
+		document.body.appendChild(element);
+	}
+	if (window.addEventListener){
+		window.addEventListener("load", downloadJSAtOnload, false);
+	}
+	else if (window.attachEvent){
+		window.attachEvent("onload", downloadJSAtOnload);
+	}
+	else{
+		window.onload = downloadJSAtOnload; 
+	}   
+    $('#btnSubmit').on('click',function(){
+        swal("Here's a message!");
+    });
 });
