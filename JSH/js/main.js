@@ -406,7 +406,40 @@ require(['jquery',
             onError: function(){}
         });
     }
-     //ajax btnSubmit
+
+ 	//ajax btnSubmit
+    $('#btnSubmit').on('click',function(){
+        　
+        var uName = $(".user-name");
+        var uPhone = $(".user-phone");
+        // $.ajax({
+        // 	url：'',
+        // 	dataType:"json",
+        // 	data:'',
+        // 	success:function{
+
+        // 	},
+        // 	error:function(){
+        // 		swal("error!");
+        // 	}
+        // })
+    });
+});
+
+  // wx.config({
+  //   //debug: true,
+  //   appId: '<?php echo $signPackage["appId"];?>',
+  //   timestamp: <?php echo $signPackage["timestamp"];?>,
+  //   nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+  //   signature: '<?php echo $signPackage["signature"];?>',
+  //   jsApiList: [
+  //     // 所有要调用的 API 都要加到这个列表中
+  //   ]
+  // });
+  // wx.ready(function () {
+  //   // 在这里调用 API
+  // });
+     
  	function downloadJSAtOnload() {
 		var element = document.createElement("script");
 		element.src = "http://res.wx.qq.com/open/js/jweixin-1.0.0.js";
@@ -420,8 +453,4 @@ require(['jquery',
 	}
 	else{
 		window.onload = downloadJSAtOnload; 
-	}   
-    $('#btnSubmit').on('click',function(){
-        swal("Here's a message!");
-    });
-});
+	}  
