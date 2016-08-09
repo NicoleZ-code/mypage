@@ -8,6 +8,7 @@ require.config({
 		'modernizr':'vendors/modernizr/modernizr',
 		'domReady':'vendors/requirejs-domready/domReady'
 	},
+	waitSeconds: 50,
 	packages:[
 		{name:'greensock',main:'',location:'vendors/greensock/'},
 		{name:'extra',main:'',location:'vendors/extra'}
