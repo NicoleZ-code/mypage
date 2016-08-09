@@ -48,7 +48,7 @@ require(['jquery',
 
 	var mySwiper = new Swiper('#stage', {
 		direction: 'horizontal',
-		loop: false,
+		loop: true,
 		prevButton:'.arrow_left',
 		nextButton:'.arrow_right',
 		onSlideChangeEnd: function(swiper){
@@ -424,22 +424,74 @@ require(['jquery',
         // 	}
         // })
     });
+
+    //微信 分享
+    //WeiXinShare();
 });
 
-  // wx.config({
-  //   //debug: true,
-  //   appId: '<?php echo $signPackage["appId"];?>',
-  //   timestamp: <?php echo $signPackage["timestamp"];?>,
-  //   nonceStr: '<?php echo $signPackage["nonceStr"];?>',
-  //   signature: '<?php echo $signPackage["signature"];?>',
-  //   jsApiList: [
-  //     // 所有要调用的 API 都要加到这个列表中
-  //   ]
-  // });
-  // wx.ready(function () {
-  //   // 在这里调用 API
-  // });
+ function WeiXinShare(){
+		$.ajax({
+			url:"/Openinf/servlet/CrazyServlet",//从后台读取公众号配置参数result
+			type:"post",
+			data:'',
+			dataType:"json",
+			success:function(result){
+				wx.config({
+					  debug: false,// 调试开启这个
+				      appId:result.appid,
+				      timestamp:result.timestamp,
+				      nonceStr:result.nonceStr,
+				      signature:result.signature,
+				      jsApiList: [
+				        'checkJsApi',
+				        'onMenuShareTimeline',
+				        'onMenuShareAppMessage',
+				      ]
+				  });
+				  wx.ready(function(){
+					  wx.onMenuShareTimeline({
+						    title: '江山薈', // 分享标题
+						    desc: '仰慕不如初见《白鹿原》话剧名票', // 分享描述
+						    link: window.location.href, // 分享链接
+						    imgUrl: '/img/333.jpg', // 分享图标
+						    success: function () { 
+						        // 用户确认分享后执行的回调函数
+						        //alert("xxxxxx");
+						    	
+						    },
+						    cancel: function () { 
+						        // 用户取消分享后执行的回调函数
+						        //alert("-------");
+						    }
+						});
+					  //分享给朋友
+					  wx.onMenuShareAppMessage({
+						    title: '江山薈', // 分享标题
+						    desc: '仰慕不如初见《白鹿原》话剧名票', // 分享描述
+						    link: window.location.href, // 分享链接
+						    imgUrl:'/img/333.jpg', // 分享图标
+						    type: '', // 分享类型,music、video或link，不填默认为link
+						    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+						    success: function () { 
+						        // 用户确认分享后执行的回调函数
+						    	
+						    },
+						    cancel: function () { 
+						        // 用户取消分享后执行的回调函数
+						    }
+						});
+				  });
+			}
+		});
+ }
+
+
+
+
+
+
      
+    //load http://res.wx.qq.com/open/js/jweixin-1.0.0.js
  	function downloadJSAtOnload() {
 		var element = document.createElement("script");
 		element.src = "http://res.wx.qq.com/open/js/jweixin-1.0.0.js";
