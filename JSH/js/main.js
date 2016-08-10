@@ -353,7 +353,7 @@ require(['jquery',
 			ease: Bounce.easeOut,
 			delay: 0
 		});
-		var arryScene = [".img07_02", ".form",  ".img07_03", ".img07_03", ".img07_04",".img07_05"];
+		var arryScene = [".img07_02", ".img07_06", ".img07_04", ".img07_03",".form",".img07_05"];
 		T.staggerTo(arryScene, 
 			1,  
 			{
@@ -427,12 +427,13 @@ require(['jquery',
     });
 
     //微信 分享
+    downloadJSAtOnload()
     //WeiXinShare();
 });
 
  function WeiXinShare(){
 		$.ajax({
-			url:"/Openinf/servlet/CrazyServlet",//从后台读取公众号配置参数result
+			url:"http://www.xiaolukaimen.com/servlet/CrazyServlet",//从后台读取公众号配置参数result
 			type:"post",
 			data:'',
 			dataType:"json",
@@ -451,10 +452,10 @@ require(['jquery',
 				  });
 				  wx.ready(function(){
 					  wx.onMenuShareTimeline({
-						    title: '江山薈', // 分享标题
-						    desc: '仰慕不如初见《白鹿原》话剧名票', // 分享描述
-						    link: window.location.href, // 分享链接
-						    imgUrl: '/img/333.jpg', // 分享图标
+						    title: '江山薈邀您共赏经典话剧《白鹿原》', // 分享标题
+						    desc: '江山薈，与时光永续经典，由此启幕致敬金陵', // 分享描述
+						    link: window.location.href.split('#')[0], // 分享链接
+						    imgUrl: '/favion.png', // 分享图标
 						    success: function () { 
 						        // 用户确认分享后执行的回调函数
 						        //alert("xxxxxx");
@@ -467,10 +468,10 @@ require(['jquery',
 						});
 					  //分享给朋友
 					  wx.onMenuShareAppMessage({
-						    title: '江山薈', // 分享标题
-						    desc: '仰慕不如初见《白鹿原》话剧名票', // 分享描述
-						    link: window.location.href, // 分享链接
-						    imgUrl:'/img/333.jpg', // 分享图标
+						    title: '江山薈邀您共赏经典话剧《白鹿原》', // 分享标题
+						    desc: '江山薈，与时光永续经典，由此启幕致敬金陵', // 分享描述
+						    link: window.location.href.split('#')[0], // 分享链接
+						    imgUrl: '/favion.png', // 分享图标
 						    type: '', // 分享类型,music、video或link，不填默认为link
 						    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
 						    success: function () { 
@@ -494,16 +495,18 @@ require(['jquery',
      
     //load http://res.wx.qq.com/open/js/jweixin-1.0.0.js
  	function downloadJSAtOnload() {
+ 		define = null;
+    	require = null;
 		var element = document.createElement("script");
 		element.src = "http://res.wx.qq.com/open/js/jweixin-1.0.0.js";
 		document.body.appendChild(element);
 	}
-	if (window.addEventListener){
-		window.addEventListener("load", downloadJSAtOnload, false);
-	}
-	else if (window.attachEvent){
-		window.attachEvent("onload", downloadJSAtOnload);
-	}
-	else{
-		window.onload = downloadJSAtOnload; 
-	}  
+	// if (window.addEventListener){
+	// 	window.addEventListener("load", downloadJSAtOnload, false);
+	// }
+	// else if (window.attachEvent){
+	// 	window.attachEvent("onload", downloadJSAtOnload);
+	// }
+	// else{
+	// 	window.onload = downloadJSAtOnload; 
+	// }  

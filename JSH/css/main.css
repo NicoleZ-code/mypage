@@ -425,30 +425,37 @@ button {
 }
 .scene7 .img07_01 {
   width: 72.1875%;
-  margin: 0% auto 0% auto;
+  margin: 8% auto 0% auto;
 }
 .scene7 .img07_02 {
   width: 24.380952%;
-  margin: 0% auto 5% auto;
+  margin: 4% auto 5% auto;
 }
 .scene7 .img07_03 {
   width: 53.4375%;
   margin: 0% auto 2% auto;
 }
 .scene7 .img07_04 {
-  width: 63.4375%;
-  margin: 2% auto 0% auto;
+  width: 65.4375%;
+  margin: 2% auto 4% auto;
+  border-top: 1px solid #ecdaae;
+  padding-top: 2%;
 }
 .scene7 .img07_05 {
   width: 69.53125%;
   margin: 3% auto 0% auto;
-  border-top: 1px solid #ecdaae;
   padding-top: 2%;
+}
+.scene7 .img07_06 {
+  width: 21%;
+  margin: 3% auto 0% auto;
 }
 .scene7 .form {
   width: 65.625%;
-  margin: 8% auto;
+  margin: 3% auto 0 auto;
   opacity: 0;
+  border-top: 1px solid #ecdaae;
+  padding-top: 2%;
 }
 .scene7 .form input {
   width: 100%;
