@@ -16,16 +16,19 @@ require.config({
 });
 
 
-require(['jquery',
+require([
+		'jquery',
+		'http://res.wx.qq.com/open/js/jweixin-1.0.0.js',
 		 'validator',
 		 'extra/imgPreloading',
 		 'modernizr',
 		 'greensock/TweenMax.min',
 		 'swiper',
 		 'sweetalert',
-		 'domReady!'],
-   function($,validator,imgPreloading){
-	
+		 'domReady!',
+		 ],
+   function($,wx,validator,imgPreloading){
+
 	var T = TweenMax;
 	var $window = $(window);
     var $body = $('body');
@@ -427,11 +430,12 @@ require(['jquery',
     });
 
     //微信 分享
-    downloadJSAtOnload()
-    //WeiXinShare();
+    
+    //WeiXinShare(wx);
 });
 
- function WeiXinShare(){
+ function WeiXinShare(wx){
+ 	//console.log(wx)
 		$.ajax({
 			url:"http://www.xiaolukaimen.com/servlet/CrazyServlet",//从后台读取公众号配置参数result
 			type:"post",
@@ -487,26 +491,3 @@ require(['jquery',
 		});
  }
 
-
-
-
-
-
-     
-    //load http://res.wx.qq.com/open/js/jweixin-1.0.0.js
- 	function downloadJSAtOnload() {
- 		define = null;
-    	require = null;
-		var element = document.createElement("script");
-		element.src = "http://res.wx.qq.com/open/js/jweixin-1.0.0.js";
-		document.body.appendChild(element);
-	}
-	// if (window.addEventListener){
-	// 	window.addEventListener("load", downloadJSAtOnload, false);
-	// }
-	// else if (window.attachEvent){
-	// 	window.attachEvent("onload", downloadJSAtOnload);
-	// }
-	// else{
-	// 	window.onload = downloadJSAtOnload; 
-	// }  
