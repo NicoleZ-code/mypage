@@ -5146,7 +5146,10 @@ p {
 .startup h4 {
     margin-bottom: 10px
 }
-
+.cooperate .startup h4 {
+    margin-top: 10px;
+    font-size:18px;
+}
 .partner h3 {
     color: #0088f0;
     clear: both;
