@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=yes;">
+    <title>南京微软云暨移动应用孵化平台-关于我们</title>
+    <link rel="stylesheet" type="text/css" href="../css/cssCommon.css">
+    <link rel="stylesheet" type="text/css" href="../css/cssUi.css">  
+    <link rel="stylesheet" type="text/css" href="../js/lib/jiathis/jiathis_share.css">
+<body>
+<header></header>
+ <section id="main">
+    <div id="container">
+        <div class="container">
+            <div>
+                <img src="../images/top.jpg">
+            </div>
+            <div class="padding">
+                <div class="row-fluid">
+                    <div class="span3 subnav">
+                        <h3>
+                            关于我们
+                        </h3>
+                        <ul id="aboutUs_nav">
+                            <li class="active"><a href="aboutUs.html"><i class="icon"></i>公司简介</a></li>
+                            <li><a href="aboutUs-team.html"><i class="icon"></i>管理团队</a></li>
+                            <li><a href="aboutUs-contactUs.html"><i class="icon"></i>联系我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="span9 contents">
+                        <p>
+                           
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 微软云暨移动应用孵化平台是根据长沙国家高新区与微软（中国）的协议设立，由长沙高新区创业服务中心领导、云游畅享负责实际运营的专业孵化器，将发挥微软品牌、技术、平台的号召力和凝聚力，结合政府的各项扶持和培育政策，通过专业的孵化运营管理，以“互联网+”等基于移动互联网的产业作为核心合作主题，打造一个能够真正吸引创业者的创业孵化基地，为创业者提供创业空间及相应的支持和服务，致力于将高新区乃至湖南省移动互联网及智能制造等产业打造成一流的创新、创业、创投、创客“四创联动”的新型发展生态圈，实现共赢共荣。
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>   
+<footer></footer>
+ 
+    <script type="text/javascript" src="../js/lib/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript">
+       $("header").load("header.html",function(response,status){
+            if (status=="success"){
+                $("#menu-primary > li").eq(5).find("span").addClass("title");
+            }
+        }); 
+        $("footer").load("footer.html"); //可直接换成include jsp
+    </script>
+</body>
+</html>

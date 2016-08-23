@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=yes;">
+    <title>南京微软云暨移动应用孵化平台-关于我们</title>
+    <link rel="stylesheet" type="text/css" href="../css/cssCommon.css">
+    <link rel="stylesheet" type="text/css" href="../css/cssUi.css">  
+    <link rel="stylesheet" type="text/css" href="../js/lib/jiathis/jiathis_share.css">
+<body>
+<header></header>
+ <section id="main">
+    <div id="container">
+        <div class="container">
+            <div>
+                <img src="../images/top.jpg">
+            </div>
+            <div class="padding">
+                <div class="row-fluid">
+                    <div class="span3 subnav">
+                        <h3>
+                            关于我们
+                        </h3>
+                      <ul id="aboutUs_nav">
+                            <li ><a href="aboutUs.html"><i class="icon"></i>公司简介</a></li>
+                            <li><a href="aboutUs-team.html"><i class="icon"></i>管理团队</a></li>
+                            <li class="active"><a href="aboutUs-contactUs.html"><i class="icon"></i>联系我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="span9 contents">
+                        <p>地 址：长沙高新区尖山路39号长沙中电软件园总部大楼3楼</p>
+                        <p>邮 编：410205</p>
+                        <p>电 话：4008-010-202</p>
+                        <p>邮 箱：teams@msstartup.cn</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>   
+<footer></footer>
+ 
+    <script type="text/javascript" src="../js/lib/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript">
+        $("header").load("header.html",function(response,status){
+            if (status=="success"){
+                $("#menu-primary > li").eq(5).find("span").addClass("title");
+            }
+        }); 
+        $("footer").load("footer.html"); //可直接换成include jsp
+    </script>
+</body>
+</html>
