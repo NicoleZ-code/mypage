@@ -5140,7 +5140,9 @@ p {
     margin-top: 10px;
     border-bottom: 1pt solid #e2e2e2;
 }
-
+ .cooperate .startup li img{
+    width: 200px;
+ }
 .startup h4 {
     margin-bottom: 10px
 }
