@@ -9,7 +9,7 @@
  */
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {
     display: block;
-    color:#000;
+     color:#000; 
 }
 
 audio,canvas,video {
@@ -128,7 +128,7 @@ textarea {
 
 body {
     margin: 0;
-    font-family: "微软雅黑";
+    font-family: "å¾®è½¯é›…é»‘";
     font-size: 13px;
     line-height: 18px;
     color: #333;
@@ -335,7 +335,7 @@ a:hover {
 
 .row-fluid .span4 {
     text-align: center;
-    width: 118px;
+    width: 180px;
 }
 
 .row-fluid .span3 {
@@ -383,7 +383,7 @@ a:hover {
 
 p {
     margin: 0 0 9px;
-    font-family: "微软雅黑";
+    font-family: "å¾®è½¯é›…é»‘";
     font-size: 13px;
     line-height: 18px
 }
@@ -613,7 +613,7 @@ cite {
 
 code,pre {
     padding: 0 3px 2px;
-    font-family: "微软雅黑";
+    font-family: "å¾®è½¯é›…é»‘";
     font-size: 12px;
     color: #333;
     -webkit-border-radius: 3px;
@@ -696,7 +696,7 @@ label,input,button,select,textarea {
 }
 
 input,button,select,textarea {
-    font-family: "微软雅黑";
+    font-family: "å¾®è½¯é›…é»‘";
 }
 
 label {
@@ -3297,7 +3297,7 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 
 .navbar-search .search-query {
     padding: 4px 9px;
-    font-family: "微软雅黑";
+    font-family: "å¾®è½¯é›…é»‘";
     font-size: 13px;
     font-weight: normal;
     line-height: 1;
@@ -4583,7 +4583,7 @@ header .logo {
 }
 
 .nav, .news h3, h2, h1 {
-    font-family: "微软雅黑";
+    font-family: "å¾®è½¯é›…é»‘";
     font-size: 17px;
     color: #4f94d5;
 }
@@ -4803,7 +4803,8 @@ p {
 
 .news p {
     line-height: 1.6em;
-    font-size: 14px
+    font-size: 14px;
+    color: #;
 }
 
 .news p.tag {
@@ -4812,7 +4813,8 @@ p {
 
 /*.news .thumb{margin:0 15px 15px 0}*/
 .news .desc {
-    width: 350px
+    width: 350px;
+    color: #;
 }
 
 .news ul, .news li {
@@ -5461,5 +5463,19 @@ p {
     margin-right: 17px;
 }
 
-
+.ckepop{
+    float: right;
+}
+.colorgray{
+    color: #999;
+}
 /*index.html end*/
+.fiexd-tool{
+    position: fixed;
+    bottom: 50px;
+    right: 0px;
+    width: 40px;
+}
+.erwm{
+
+}
