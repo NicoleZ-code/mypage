@@ -5185,19 +5185,19 @@ p {
 }
 
 .mentors {
-    width: 720px;
+    width: 650px;
     clear: both;
     display: inline-block;
-    margin-bottom: 50px
+    margin-bottom: 50px;
 }
 
 .mentors li {
     float: left;
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     z-index: 0;
-    background-color: #eaeaea
+    background-color: #eaeaea;
 }
 
 .mentors li:hover {
@@ -5205,8 +5205,8 @@ p {
 }
 
 .mentors li img {
-    width: 120px;
-    height: 120px
+    width: 130px;
+    height: 130px;
 }
 
 .mentors li a {
