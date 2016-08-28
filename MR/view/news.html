@@ -65,22 +65,19 @@
   $(function(){
   		$.ajax({
 			url:"news.json",
-			type:"get",
+			type:"get", // post  
 			data:'',
 			dataType:"json",
 			success:function(result){
 				initNewsList(result.data);
+                share();
 			},
 			error:function(){
 
 			}
 		});
 
-        $(".newsList").on("click",".ckepop a",function () {
-            var shareTitle = $(this).parent().attr("shareTitle");
-            var redirectUrl = "http://www.jiathis.com/send/?" + $(this).attr("urlParam") + "&title=" + shareTitle;
-            window.open(redirectUrl);
-        });
+        
 
         $(".paginator a").click(function () {
             var that = $(this);
@@ -89,6 +86,14 @@
             }
         });
     });
+
+    function share(){
+        $(".newsList").on("click",".ckepop a",function () {
+            var shareTitle = $(this).parent().attr("shareTitle");
+            var redirectUrl = "http://www.jiathis.com/send/?" + $(this).attr("urlParam") + "&title=" + shareTitle;
+            window.open(redirectUrl);
+        });
+    }
 
   	function initNewsList(data){
   		var str = "";
