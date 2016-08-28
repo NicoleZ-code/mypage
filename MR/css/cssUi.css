@@ -5477,20 +5477,37 @@ p {
 }
 .fiexd-tool .erwm{
     position: absolute;
-    left: -115px;
-    top: -10px;
+    left: -135px;
+    top: -20px;
     width: 100px;
-    height: 100px;
+    /* height: 100px; */
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
     border-radius: 2px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     border: solid 1px #d7dde3;
-    display: none;
+     display: none; 
+    text-align: center;
+    padding: 10px;
+}
+.fiexd-tool .erwm .text{
+    color: #fff;
+    background-color: #57a1da;
+    display: block;
+    line-height: 18px;
+    font-size: 12px;
 }
 .fiexd-tool:hover .erwm{ 
     display: block;
+  -webkit-animation: arrowup 0.8s ease 1;
+  -moz-animation: arrowup 0.8s ease 1;
+  -o-animation: arrowup 0.8s ease 1;
+  animation: arrowup 0.8s ease 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
 }
 .fiexd-tool .erwm_ico{
     width: 40px;
@@ -5503,4 +5520,22 @@ p {
     height: 40px;
     background: url(../images/fix_back.jpg) center no-repeat;
     border-top: 1px solid #d7dde3;
+}
+@-webkit-keyframes arrowup {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0, 30px);
+    -moz-transform: translate(0, 30px);
+    -o-transform: translate(0, 30px);
+    -ms-transform: translate(0, 30px);
+    transform: translate(0, 30px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
 }
