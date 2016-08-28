@@ -382,7 +382,6 @@ a:hover {
 
 p {
     margin: 0 0 9px;
-    font-family: "Microsoft YaHei";
 }
 
 p small {
@@ -610,7 +609,7 @@ cite {
 
 code,pre {
     padding: 0 3px 2px;
-    font-family: "å¾®è½¯é›…é»‘";
+    font-family: "Microsoft YaHei";
     font-size: 12px;
     color: #333;
     -webkit-border-radius: 3px;
@@ -693,7 +692,7 @@ label,input,button,select,textarea {
 }
 
 input,button,select,textarea {
-    font-family: "å¾®è½¯é›…é»‘";
+    font-family: "Microsoft YaHei";
 }
 
 label {
@@ -3294,7 +3293,7 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 
 .navbar-search .search-query {
     padding: 4px 9px;
-    font-family: "å¾®è½¯é›…é»‘";
+    font-family: "Microsoft YaHei";
     font-size: 13px;
     font-weight: normal;
     line-height: 1;
@@ -4915,11 +4914,16 @@ p {
 
 /*.newsList h1{margin-bottom:20px;}*/
 .newsList p {
-    line-height: 1.5em
+    line-height: 1.8em;
+    color: #000;
+}
+.colorblack{
+    color:#000;
 }
 
 .newsList p.tag {
-    font-size: 12px
+    font-size: 12px;
+    color: #999;
 }
 
 .newsList .thumb {
