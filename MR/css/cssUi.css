@@ -5469,10 +5469,38 @@ p {
 /*index.html end*/
 .fiexd-tool{
     position: fixed;
-    bottom: 50px;
+    bottom: 100px;
     right: 0px;
     width: 40px;
+    border: 1px solid #d7dde3;
+    cursor: pointer;
 }
-.erwm{
-
+.fiexd-tool .erwm{
+    position: absolute;
+    left: -115px;
+    top: -10px;
+    width: 100px;
+    height: 100px;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: solid 1px #d7dde3;
+    display: none;
+}
+.fiexd-tool:hover .erwm{ 
+    display: block;
+}
+.fiexd-tool .erwm_ico{
+    width: 40px;
+    height: 40px;
+    background: url(../images/fix_ewm.jpg) center no-repeat;
+}
+.fiexd-tool .backTop{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(../images/fix_back.jpg) center no-repeat;
+    border-top: 1px solid #d7dde3;
 }
