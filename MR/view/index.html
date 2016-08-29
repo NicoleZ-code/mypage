@@ -59,17 +59,10 @@
                         <h2 class="green heading"><a class="green" href="news.html">动  态</a></h2>
                         <div id="homeNewsPanel">
                             <div id="primaryNews">
-                                <h3> <span class="primary-news-title"><a href="news01.html">南京微软云暨移动应用孵化平台首期创业团队招募</a></span> </h3>
-                                <p class="desc pull-right colorgray">
-                                    南京微软云暨移动应用孵化平台依托微软品牌的号召力及技术支撑，享受政府的优惠政策，引入优秀的创投基金，通过专业化运营管理，为入驻企业及创业者提供多方位创业资源支持与服务。
-                                    <br>
-                                    <a class="readMore" href="news01.html">阅读更多</a>
-                                </p>
-                                <div class="thumb"> <a id="primaryNewsImgLink" href="news01.html"> <img alt="南京微软云暨移动应用孵化平台首期创业团队招募" src="../Upload/20160811145048_7196.jpg"> </a> </div>
+                                
                             </div>
                             <ul id="otherNewsList">
-                                <li> <span class="pull-right news-publish-date colorgray"> 2016-06-13 </span> <a href="news02.html"> <span>1</span>“小鹿创萌”华东区精英创梦大赛正式启动</a> </li>
-                                <li> <span class="pull-right news-publish-date colorgray"> 2016-06-13 </span> <a href="news03.html"> <span>2</span>南京经济技术开发区携手微软，共同打造智能制造产业孵化基地</a> </li>
+                                
                                 
                             </ul>
                             <div class="clear"></div>
@@ -112,7 +105,48 @@
             $container.addClass("container_boxShadow");
         }
 
+        $.ajax({
+            url:"news.json",
+            type:"get", // post  
+            data:'',
+            dataType:"json",
+            success:function(result){
+                initNewsList(result.data);
+                
+            },
+            error:function(){
+
+            }
+        });
+
+
     });    
+    function initNewsList(data){
+        var str = "";
+        for (var i = 0; i < data.length; i++) {
+            switch(i){
+                case 0: 
+                   str = "<h3> <span class=\"primary-news-title\"><a href=\""+data[i]["url"]+"\">"+data[i]["title"]+"</a></span> </h3>";
+                    str +="<p class=\"desc pull-right colorgray\">"+data[i]["desc"];
+                    str +="<br>";
+                    str +="<a class=\"readMore\" href=\""+data[i]["url"]+"\">阅读更多</a>";
+                    str +="</p>";
+                    str +="<div class=\"thumb\"> <a href=\""+data[i]["url"]+"\"> <img alt=\""+data[i]["title"]+"\" src=\""+data[i]["imgUrl"]+"\"> </a> </div>";
+                    $("#primaryNews").html(str);
+                break;
+                case 1: 
+                case 2: 
+                str = "<li> <span class=\"pull-right news-publish-date colorgray\"> "+data[i]["date"]+"</span>";
+                str +=" <a href=\" "+data[i]["url"]+" \"> <span> "+i+"</span> "+data[i]["title"]+"</a>"; 
+                str +="</li>";
+                $("#otherNewsList").append(str);               
+                break;
+            }
+        }
+        
+
+    }
+
     $(window).load(function () {
         $('.flexslider').flexslider({
             animation: "slide",
@@ -141,5 +175,6 @@
         });
     });
     </script>    
+
 </body>
 </html>
