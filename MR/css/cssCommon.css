@@ -315,7 +315,8 @@ input[type="text"].title,input[type="text"].memo {
     padding: 5px 5px 5px 0;
     margin: 0;
     text-align: right;
-    font-size: 14px
+    font-size: 14px;
+    overflow: hidden;
 }
 
 .paginator a {
@@ -344,13 +345,13 @@ input[type="text"].title,input[type="text"].memo {
 }
 
 .paginator a.previous {
-    background: url(/images/sprite.png);
+    background: url(../images/sprite.png);
     background-position: -213px -482px;
     border: none
 }
 
 .paginator a.next {
-    background: url(/images/sprite.png);
+    background: url(../images/sprite.png);
     background-position: -180px -483px;
     border: none;
     height: 30px;

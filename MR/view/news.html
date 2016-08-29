@@ -16,35 +16,13 @@
             <div class="container">
                 <div><img src="../images/top.jpg" alt=""></div>
                 <div id="newsList" class="newsList">
-                    <ul>
-                        <li>
-                            <h1><a href="news01.html">南京微软云暨移动应用孵化平台首期创业团队招募</a></h1>
-                            <div class="news_item">
-                                <div class="pull-left thumb"><img alt="" src="../Upload/20160811145048_7196.jpg"></div>
-                                <div class="desc">南京微软云暨移动应用孵化平台依托微软品牌的号召力及技术支撑，享受政府的优惠政策，引入优秀的创投基金，通过专业化运营管理，为入驻企业及创业者提供多方位创业资源支持与服务。</div>
-                                <div class="clear"></div>
-                            </div>
-
-                            <div class="ckepop" sharetitle="南京微软云暨移动应用孵化平台首期创业团队招募">
-                                <a class="jiathis_button_msn" urlparam="webid=msn&amp;url=http://cn.msn.com/" href="http://www.msstartup.cn/Home/NewDetails/04731eb1-ffc3-43fd-9393-e34d5ae1f815" title="分享到MSN"><span class="jiathis_txt jtico jtico_msn"></span></a>
-                                <a class="jiathis_button_douban" urlparam="webid=douban&amp;url=http://www.douban.com" href="http://www.msstartup.cn/Home/NewDetails/04731eb1-ffc3-43fd-9393-e34d5ae1f815" title="分享到豆瓣"><span class="jiathis_txt jtico jtico_douban"></span></a>
-                                <a class="jiathis_button_kaixin001" urlparam="webid=kaixin001&amp;url=http://www.kaixin001.com" href="http://www.msstartup.cn/Home/NewDetails/04731eb1-ffc3-43fd-9393-e34d5ae1f815" title="分享到开心网"><span class="jiathis_txt jtico jtico_kaixin001"></span></a>
-                                <a class="jiathis_button_renren" urlparam="webid=renren&amp;url=http://www.renren.com" href="http://www.msstartup.cn/Home/NewDetails/04731eb1-ffc3-43fd-9393-e34d5ae1f815" title="分享到人人网"><span class="jiathis_txt jtico jtico_renren"></span></a>
-                                <a class="jiathis_button_cyzone" urlparam="webid=cyzone&amp;url=http://u.cyzone.cn" href="http://www.msstartup.cn/Home/NewDetails/04731eb1-ffc3-43fd-9393-e34d5ae1f815" title="分享到创业邦"><span class="jiathis_txt jtico jtico_cyzone"></span></a>
-                                <a class="jiathis_button_tqq" urlparam="webid=tqq&amp;url=http://v.t.qq.com/" href="http://www.msstartup.cn/Home/NewDetails/04731eb1-ffc3-43fd-9393-e34d5ae1f815" title="分享到腾讯微博"><span class="jiathis_txt jtico jtico_tqq"></span></a>
-                                <a class="jiathis_button_tsina" urlparam="webid=tsina&amp;url=http://weibo.com" href="http://www.msstartup.cn/Home/NewDetails/04731eb1-ffc3-43fd-9393-e34d5ae1f815" title="分享到新浪微博"><span class="jiathis_txt jtico jtico_tsina"></span></a>
-
-                            </div>
-                            <div class="clear"></div>
-                        </li>
-
-
-                    </ul>
+                    <ul></ul>
                     <div class="paginator">
                         <a class="previous" href="/Home/News?pageIndex=2" style="display:block;">&nbsp;</a>
                         <a class="next" href="/Home/News?pageIndex=0" style="display:none;">&nbsp;</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -97,7 +75,6 @@
 
   	function initNewsList(data){
   		var str = "";
-  			str += "<ul>";
   			for (var i = 0; i < data.length; i++) {
                 if(data[i]["id"]){
                     str += "<li>";
@@ -122,8 +99,7 @@
                 }
 
   			}
-  			str += "</ul>";
-  		$("#newsList").html(str);
+  		$("#newsList ul").html(str);
   	}
   </script>
 </body>
