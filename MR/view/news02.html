@@ -48,16 +48,36 @@
                  <div onclick="location.href = '../Upload/ApplicationForm-Exam.docx'" style="color: #fff; float: left; background-color: #0088f0; width: 100px; height: 30px; cursor: pointer; text-align: center; font-size: 14px; line-height: 30px; margin-left: 36px; margin-bottom: 9px;">下载申请表
                  </div>
                 </div>
+                <div class="ckepop" sharetitle="“小鹿创萌”华东区精英创梦大赛正式启动">
+                    <a class="jiathis_button_msn" urlparam="webid=msn&amp;url=http://cn.msn.com/" href="#@" title="分享到MSN"><span class="jiathis_txt jtico jtico_msn"></span></a>
+                    <a class="jiathis_button_douban" urlparam="webid=douban&amp;url=http://www.douban.com" href="#@" title="分享到豆瓣"><span class="jiathis_txt jtico jtico_douban"></span></a>    
+                    <a class="jiathis_button_kaixin001" urlparam="webid=kaixin001&amp;url=http://www.kaixin001.com" href="#@" title="分享到开心网"><span class="jiathis_txt jtico jtico_kaixin001"></span></a>
+                    <a class="jiathis_button_renren" urlparam="webid=renren&amp;url=http://www.renren.com" href="#@" title="分享到人人网"><span class="jiathis_txt jtico jtico_renren"></span></a>
+                    <a class="jiathis_button_cyzone" urlparam="webid=cyzone&amp;url=http://u.cyzone.cn" href="#@" title="分享到创业邦"><span class="jiathis_txt jtico jtico_cyzone"></span></a>
+                    <a class="jiathis_button_tqq" urlparam="webid=tqq&amp;url=http://v.t.qq.com/" href="#@" title="分享到腾讯微博"><span class="jiathis_txt jtico jtico_tqq"></span></a>    
+                    <a class="jiathis_button_tsina" urlparam="webid=tsina&amp;url=http://weibo.com" href="#@" title="分享到新浪微博"><span class="jiathis_txt jtico jtico_tsina"></span></a>    
+                </div>  
             </div>
         </div>
     </div>
 </section>   
 <footer></footer>
  
-    <script type="text/javascript" src="../js/lib/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript" src="../js/lib/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+<script type="text/javascript">     
+    $(function(){
         $("header").load("header.html"); //可直接换成include jsp
         $("footer").load("footer.html"); //可直接换成include jsp
-    </script>
+        share();
+    })
+    function share(){
+        $(".newsList").on("click",".ckepop a",function () {
+            var shareTitle = $(this).parent().attr("shareTitle");
+            var redirectUrl = "http://www.jiathis.com/send/?" + $(this).attr("urlParam") + "&title=" + shareTitle;
+            window.open(redirectUrl);
+        });
+    }
+</script>
 </body>
 </html>

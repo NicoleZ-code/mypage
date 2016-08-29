@@ -29,6 +29,7 @@
     <footer></footer>
  
     <script type="text/javascript" src="../js/lib/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
     <script type="text/javascript">
         $("header").load("header.html",function(response,status){
             if (status=="success"){
@@ -37,7 +38,7 @@
         }); 
         $("footer").load("footer.html"); //可直接换成include jsp
     </script>
-<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+
   <script type="text/javascript">
 
   $(function(){
@@ -56,7 +57,7 @@
 		});
 
         
-
+        // 分页
         $(".paginator a").click(function () {
             var that = $(this);
             if (that.attr("display") != "none") {
@@ -65,6 +66,7 @@
         });
     });
 
+    //分享
     function share(){
         $(".newsList").on("click",".ckepop a",function () {
             var shareTitle = $(this).parent().attr("shareTitle");
