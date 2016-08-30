@@ -79,12 +79,15 @@
  
     <script type="text/javascript" src="../js/lib/jquery-2.1.0.min.js"></script>
     <script type="text/javascript">
+    $(function(){
         $("header").load("header.html",function(response,status){
             if (status=="success"){
                 $("#menu-primary > li").eq(0).find("span").addClass("title");
             }
         }); 
         $("footer").load("footer.html"); //可直接换成include jsp
+    });
+
         
     </script>
     

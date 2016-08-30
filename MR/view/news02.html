@@ -67,10 +67,14 @@
 <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
 <script type="text/javascript">     
     $(function(){
-        $("header").load("header.html"); //可直接换成include jsp
+        $("header").load("header.html",function(response,status){
+            if (status=="success"){
+                $("#menu-primary li").eq(1).find("span").addClass("title");
+            }
+        }); 
         $("footer").load("footer.html"); //可直接换成include jsp
         share();
-    })
+    });
     function share(){
         $(".newsList").on("click",".ckepop a",function () {
             var shareTitle = $(this).parent().attr("shareTitle");
