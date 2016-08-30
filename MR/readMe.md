@@ -12,3 +12,12 @@ ajax news.json   get  改post  , json的数据项名称可以做相应修改，�
 	<a class="next" href="/Home/News?pageIndex=0" style="display:none;">&nbsp;</a>
 </div>
 ** a href   需要后台动态实现 **
+
+## (3) 后续：创业团队的列表格式 参考团队伙伴页面的页面 
+
+
+## (4)  文件夹说明 images／ 放一些 固定的图片资源   
+        Upload/news/  动态的图片
+        Upload/enterprise/  创业团队的图片
+
+     （注： Upload U 大写 ）
