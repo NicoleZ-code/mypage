@@ -5201,7 +5201,7 @@ p {
     width: 130px;
     height: 130px;
     z-index: 0;
-    background-color: #eaeaea;
+    background-color: #fff;
 }
 
 .mentors li:hover {
