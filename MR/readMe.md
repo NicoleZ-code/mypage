@@ -21,3 +21,5 @@ ajax news.json   get  改post  , json的数据项名称可以做相应修改，�
         Upload/enterprise/  创业团队的图片
 
      （注： Upload U 大写 ）
+
+## (5) Faq 常见问题解 里边一些a的URL 如果替换需要相应替换
