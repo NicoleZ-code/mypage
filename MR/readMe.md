@@ -1,6 +1,7 @@
 # 一些说明
+
 ##  (1）index.html news.html   
-ajax news.json   get  改post  , json的数据项名称可以做相应修改，但对应的initNewsList函数中的名称也需要对应修改。
+ajax news.json   get  可以改post  , json的数据项名称可以做相应修改，但对应的initNewsList函数中的名称也需要对应修改。
 
 ## (2) news.html 动态列表
   － news00.html 是模板页 内容 放在 <div class="desc"></div>
@@ -22,4 +23,4 @@ ajax news.json   get  改post  , json的数据项名称可以做相应修改，�
 
      （注： Upload U 大写 ）
 
-## (5) Faq 常见问题解 里边一些a的URL 如果替换需要相应替换
+## (5) Faq 常见问题解答 里边一些a的URL 如果替换需要相应替换
