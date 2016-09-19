@@ -64,7 +64,14 @@
 <footer></footer>
  
 <script type="text/javascript" src="../js/lib/jquery-2.1.0.min.js"></script>
-<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+  <script type="text/javascript" >
+var jiathis_config={
+    summary:"",
+    shortUrl:true,
+    hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
 <script type="text/javascript">     
     $(function(){
         $("header").load("header.html",function(response,status){
@@ -73,8 +80,15 @@
             }
         }); 
         $("footer").load("footer.html"); //可直接换成include jsp
+        share();
     });
-
+    function share(){
+        $(".newsList").on("click",".ckepop a",function () {
+            var shareTitle = $(this).parent().attr("shareTitle");
+            var redirectUrl = "http://www.jiathis.com/send/?" + $(this).attr("urlParam") + "&title=" + shareTitle;
+            window.open(redirectUrl);
+        });
+    }
 </script>
 </body>
 </html>

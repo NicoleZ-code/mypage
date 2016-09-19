@@ -30,7 +30,14 @@
     <footer></footer>
  
     <script type="text/javascript" src="../js/lib/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+  <script type="text/javascript" >
+    var jiathis_config={
+        summary:"",
+        shortUrl:true,
+        hideMore:true
+    }
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
 
   <script type="text/javascript">
 
@@ -90,6 +97,15 @@
                             str += "</div>";
                         //share code <!-- JiaThis Button BEGIN -->
 
+                    str += '<div class=\"ckepop jiathis_style\" sharetitle="'+data[i]["title"]+'">'+
+                                '<a class=\"jiathis_button_weixin\"></a>'+
+                                '<a class=\"jiathis_button_cqq\"></a>'+
+                                '<a class=\"jiathis_button_tsina\"></a>'+
+                                '<a class=\"jiathis_button_tqq\"></a>'+
+                                '<a class=\"jiathis_button_cyzone\"></a>'+
+                                '<a class=\"jiathis_button_fb\"></a>'+
+                                '<a class=\"jiathis_button_twitter\"></a>'+
+                            '</div>';
                     str += "</li>";                   
                 }
 
