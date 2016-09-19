@@ -41,15 +41,15 @@
                             </div>
                         </div>
                         <div class="panel pull-right">
-                            <h2 class="blue heading" style="height: 20px; width: 190px;">南京云孵化器剪影</h2>
-                            <div class="flexslider">
+                            <h2 class="blue heading" style="height: 20px; width: 190px;">南京微软云孵化器剪影</h2>
+                            <div class="flexslider" id="micCloude">
                                 <ul class="slides">
-                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-1.jpg"><img src="../images/office/office-pic-1.jpg" alt="南京云孵化器剪影"></a></li>
-                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-2.jpg"><img src="../images/office/office-pic-2.jpg" alt="南京云孵化器剪影"></a></li>
-                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-3.jpg"><img src="../images/office/office-pic-3.jpg" alt="南京云孵化器剪影"></a></li>
-                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-4.jpg"><img src="../images/office/office-pic-4.jpg" alt="南京云孵化器剪影"></a></li>
-                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-5.jpg"><img src="../images/office/office-pic-5.jpg" alt="南京云孵化器剪影"></a></li>
-                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-6.jpg"><img src="../images/office/office-pic-6.jpg" alt="南京云孵化器剪影"></a></li>
+                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-1.jpg"><img src="../images/office/office-pic-1.jpg" alt="南京微软云孵化器剪影"></a></li>
+                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-2.jpg"><img src="../images/office/office-pic-2.jpg" alt="南京微软云孵化器剪影"></a></li>
+                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-3.jpg"><img src="../images/office/office-pic-3.jpg" alt="南京微软云孵化器剪影"></a></li>
+                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-4.jpg"><img src="../images/office/office-pic-4.jpg" alt="南京微软云孵化器剪影"></a></li>
+                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-5.jpg"><img src="../images/office/office-pic-5.jpg" alt="南京微软云孵化器剪影"></a></li>
+                                    <li><a class="fancybox" rel="group" href="../images/office/office-pic-big-6.jpg"><img src="../images/office/office-pic-6.jpg" alt="南京微软云孵化器剪影"></a></li>
                                 </ul>
                             </div>
 
@@ -83,7 +83,7 @@
     $(function(){
         $("header").load("header.html",function(response,status){
             if (status=="success"){
-                $("#menu-primary > li").eq(0).find("span").addClass("title");
+                //$("#menu-primary > li").eq(0).find("span").addClass("title");
             }
         }); 
         $("footer").load("footer.html"); //可直接换成include jsp
@@ -152,14 +152,16 @@
     }
 
     $(window).load(function () {
-        $('.flexslider').flexslider({
+        //云剪影
+        $('#micCloude').flexslider({
             animation: "slide",
             directionNav: true,
-            controlNav: false,
+            controlNav: true,
             itemWidth: 214,
             maxItems: 1,
-            slideshow: false
+            slideshow: true
         });
+        //三个slider
         $('.carousel-wrap').flexslider({
             animation: "slide",
             directionNav: false,

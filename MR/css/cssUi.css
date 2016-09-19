@@ -5460,6 +5460,23 @@ p {
 #carousel .flex-control-nav li{
     margin-right: 5px;
 }
+#micCloude .flex-control-nav{
+    height: 13px;
+    right: 65px;
+    bottom: 3px;
+    width: auto;
+}
+#micCloude .flex-control-nav li{
+    margin-right: 0px;
+}
+#micCloude .flex-control-paging li a{
+    width:8px;
+    height:8px;
+    background: rgb(255,255,255);
+}
+#micCloude .flex-control-paging li a.flex-active{
+     background: #eebe20;
+}
 .fancybox-margin {
     margin-right: 17px;
 }

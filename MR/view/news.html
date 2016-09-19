@@ -36,7 +36,7 @@
   $(function(){
         $("header").load("header.html",function(response,status){
             if (status=="success"){
-                $("#menu-primary li").eq(1).find("span").addClass("title");
+                $("#menu-primary li").eq(0).find("span").addClass("title");
             }
         }); 
         $("footer").load("footer.html"); //可直接换成include jsp
