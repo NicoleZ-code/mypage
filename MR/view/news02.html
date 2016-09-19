@@ -73,15 +73,8 @@
             }
         }); 
         $("footer").load("footer.html"); //可直接换成include jsp
-        //share();
     });
-    function share(){
-        $(".newsList").on("click",".ckepop a",function () {
-            var shareTitle = $(this).parent().attr("shareTitle");
-            var redirectUrl = "http://www.jiathis.com/send/?" + $(this).attr("urlParam") + "&title=" + shareTitle;
-            window.open(redirectUrl);
-        });
-    }
+
 </script>
 </body>
 </html>
