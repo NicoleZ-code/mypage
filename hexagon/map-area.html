@@ -189,7 +189,8 @@ function hasSVG(){
 　　return !!document.createElementNS &&!!document.createElementNS(SVG_NS, 'svg').createSVGRect;
 }
 function clickFn(evt,index,src){
-	gotoMenu(index,src);
+	alert(evt.target.id)
+	//gotoMenu(index,src);
 }
 </script>
 </body>
