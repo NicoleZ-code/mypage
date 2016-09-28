@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>map-area</title>
+	<link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+<div id="svg-content" style="width:760px;height:597px; margin:0 auto;" >
+	<div class="pngie8">
+		<map id="appMap" name="appMap">
+
+		</map>
+		<div class="banksimg">
+			<img src="images/apps.png" alt="apps.png" border="0" usemap="#appMap">
+		</div>	
+	</div>
+
+</div>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#layer .app-item").on("mouseenter",function(){
+			var id = this.id;
+			$(this).attr("opacity",0);
+		}).on("mouseleave",function(){
+			var id = this.id;
+			$(this).attr("opacity",1);
+		});
+
+		//检测是否支持SVG
+		if(hasSVG()){
+			$(".svg").show();
+			$(".pngie8").hide();
+		}else{
+			$(".svg").hide();
+			$(".pngie8").show();
+		}
+
+	});
+
+var polyWidth = 87; //边长
+//设置热区
+//maparea 一个定点数据  
+
+var maparea=[
+	{
+		appName:"税务登记",
+		option:"postion1",
+		oX:"59",
+		oY:"80"
+	},
+	{
+		appName:"纳税申报",
+		option:"postion2",
+		oX:"45",
+		oY:"248"
+	},
+	{
+		appName:"税收优惠",
+		option:"postion3",
+		oX:"211",
+		oY:"3"
+	},
+	{
+		appName:"认定管理",
+		option:"postion4",
+		oX:"199",
+		oY:"174"
+	},
+	{
+		appName:"争议处理",
+		option:"postion5",
+		oX:"349",
+		oY:"107"
+	},
+	{
+		appName:"法制管理",
+		option:"postion6",
+		oX:"338",
+		oY:"275"
+	},
+	{
+		appName:"凭证管理",
+		option:"postion7",
+		oX:"491",
+		oY:"203"
+	},
+	{
+		appName:"公用文书",
+		option:"postion8",
+		oX:"614",
+		oY:"332"
+	}
+];
+
+var appjosn = [{
+		id:"",
+		appName:"税务登记",
+		option:"postion1",
+		src:"dwlist.html"
+	},{
+		id:"",
+		appName:"纳税申报",
+		option:"postion2",
+		src:"dwlist.html"
+	},{
+		id:"",
+		appName:"税收优惠",
+		option:"postion3",
+		src:"dwlist.html"
+	},{
+		id:"",
+		appName:"认定管理",
+		option:"postion4",
+		src:"dwlist.html"
+	},{
+		id:"",
+		appName:"争议处理",
+		option:"postion5",
+		src:"dwlist.html"
+	},{
+		id:"",
+		appName:"法制管理",
+		option:"postion6",
+		src:"dwlist.html"
+	},{
+		id:"",
+		appName:"凭证管理",
+		option:"postion7",
+		src:"dwlist.html"
+	},{
+		id:"",
+		appName:"公用文书",
+		option:"postion8",
+		src:"dwlist.html"
+	}
+]
+setMapArea(maparea,appjosn);
+// 设置地图热区 与数据无关
+function setMapArea(maparea,appjosn){
+	var areas="";
+	$.each(maparea,function(i,value){
+		areas+="<area shape='polygon' coords='"+_polypostion(value["oX"],value["oY"])+"' href='#' alt='"+value["appName"]+"'";
+		areas+="data-option='"+value["option"]+"' data-oX='"+value["oX"] +"' data-oY='"+value["oY"] +"'";
+		areas+="></area>";
+
+	});
+	$("#appMap").html(areas);
+	_polyEvent(appjosn);
+}	
+// IE8 area 点击事件跳转
+function _polyEvent(appjosn){
+	$("#appMap area").on("click",function(){
+		var option = $(this).attr("data-option");
+		var top = $(this).attr("data-oY");
+		var left = $(this).attr("data-oX");
+		$.each(appjosn,function(i,value){
+			if(value["option"] == option ){
+				//alert(value["appName"]);
+				gotoMenu(0,value["src"]);
+			}
+		});
+	});
+}
+// 计算位置，由圆心坐标计算＋ 变长，计算6个定点的坐标
+function _polypostion(oX,oY){
+	var points=""; //顶点数据
+	oX = parseInt(oX)+ 42;
+	oY = parseInt(oY)+ 74;
+	var p_cl_x = oX - polyWidth , p_cl_y =  oY, //center
+	 	p_cr_x = oX + polyWidth , p_cr_y =  oY,
+	 	p_tl_x = oX - polyWidth*0.5 , p_tl_y =  oY + polyWidth*0.5*Math.sqrt(3), //top 
+	 	p_tr_x = oX + polyWidth*0.5 , p_tr_y =  oY + polyWidth*0.5*Math.sqrt(3),
+	 	p_bl_x = oX - polyWidth*0.5 , p_bl_y =  oY - polyWidth*0.5*Math.sqrt(3), //bottom 
+	 	p_br_x = oX + polyWidth*0.5 , p_br_y =  oY - polyWidth*0.5*Math.sqrt(3);
+	points =  p_cl_x + "," + p_cl_y + "," 
+			+ p_tl_x + "," + p_tl_y + "," 
+			+ p_tr_x + "," + p_tr_y + ","
+			+ p_cr_x + "," + p_cr_y + "," 
+			+ p_br_x + "," + p_br_y + ","
+			+ p_bl_x + "," + p_bl_y ;
+			// console.log(points)
+	return points;
+}
+
+function hasSVG(){
+　　var SVG_NS = 'http://www.w3.org/2000/svg';
+　　return !!document.createElementNS &&!!document.createElementNS(SVG_NS, 'svg').createSVGRect;
+}
+function clickFn(evt,index,src){
+	gotoMenu(index,src);
+}
+</script>
+</body>
+</html>
