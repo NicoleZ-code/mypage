@@ -154,9 +154,9 @@
 	width: 100%;
 	background: url(../images/section_01_bg.png) no-repeat;
 	background-size: cover;
-	background-position: center ;
+	background-position: center;
 	color: #fff;
-	text-align: center;
+	text-align: left;
 	position: relative;
 	z-index: 7;
 }
@@ -181,13 +181,14 @@
 	background: #1b4765;
 }
 #container-04 .history{
-	background-color: #F9F7FE;
+	background-color: #f9f8f1;
+	margin-top: -50px;
 }
 	
 #container-04 .history .description{
-	width: 65%;	
+	width: 65%;
 	margin: 0px auto;
-	text-align: center;
+	text-align: left;
 	color: #791B26;
 	padding-bottom: 100px;
 }
@@ -195,9 +196,16 @@
 	font-size: 40px;
 	font-weight: bold;
 	letter-spacing: 1px;
-	padding: 20px 0;
+	text-align: center;
+	margin-bottom:30px;
 }
-
+#container-04 .history .description h2{
+	line-height:40px;
+}
+#container-04 .history .description p{
+	margin-bottom:20px;
+	font-size: 16px;
+}
 @media screen and (max-width: 620px) {
 	#container-01{
 		height: 450px;
