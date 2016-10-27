@@ -208,6 +208,11 @@
 	margin-bottom:5px;
 	list-style-type: circle;
 }
+#container-04 .history .description ul li a{
+	color: #1b4765;
+	display: block;
+	cursor: pointer;
+}
 #container-04 .history .description .title{
 	font-size: 40px;
 	font-weight: bold;
