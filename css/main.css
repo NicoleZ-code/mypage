@@ -1,6 +1,11 @@
+#swiper-container{	
+	position: absolute;
+    width: 100%;
+    height: 100%;
+}
 #container-01 {
 	width: 100%;
-	height: 500px;
+	min-height: 500px;
 	position: relative;
 	overflow: hidden;
 	-webkit-transition: all 1s ease-in-out;
@@ -146,12 +151,14 @@
 }
 .container-02-01{
 	width: 100%;
+	height: 100%;
 	/* background: url(../images/bubble.png) repeat; */
 	background-attachment: fixed;
 	z-index: 5;
 }
 .container-02-02{
 	width: 100%;
+	height: 100%;
 	background: url(../images/section_01_bg.png) no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -159,6 +166,7 @@
 	text-align: left;
 	position: relative;
 	z-index: 7;
+	vertical-align: middle;
 }
 #container-02 ul {
 	width: 80%;
@@ -182,7 +190,7 @@
 }
 #container-04 .history{
 	background-color: #f9f8f1;
-	margin-top: -50px;
+	margin-top: -30%;
 }
 	
 #container-04 .history .description{
